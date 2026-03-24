@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "nasty-nebula",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -8,17 +8,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "npm run build && wrangler dev",
-    "astro": "astro",
-    "generate-types": "wrangler types",
-    "deploy": "npm run build && wrangler deploy"
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.3",
-    "@phcdevworks/spectre-ui-astro": "^2.0.0",
     "astro": "^6.0.8"
-  },
-  "devDependencies": {
-    "wrangler": "^4.76.0"
   }
 }
