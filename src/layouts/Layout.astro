@@ -2,6 +2,8 @@
 import { ClientRouter } from 'astro:transitions'
 import '../styles/global.css'
 import '@phcdevworks/spectre-ui/index.css'
+import Navigation from '../components/Navigation.astro'
+
 interface Props {
   title: string
   description?: string
@@ -28,7 +30,27 @@ const { title, description = 'The official PHCDevworks flagship website.' } =
       rel="stylesheet"
     />
   </head>
-  <body class="sp-theme--dark bg-black text-white antialiased min-h-screen">
-    <slot />
+  <body class="sp-theme--dark bg-black text-white antialiased min-h-screen Selection:bg-indigo-500/30">
+    <Navigation />
+    
+    <div class="relative min-h-[calc(100vh-16rem)] max-w-7xl mx-auto px-6 py-12">
+      <slot />
+    </div>
+
+    <footer class="border-t border-white/5 py-16 bg-slate-950/20">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 opacity-60">
+        <div class="flex items-center gap-3">
+          <div class="h-2 w-2 rounded-full bg-indigo-500 animate-pulse"></div>
+          <span class="text-sm font-medium font-display tracking-widest uppercase">The 8-Layer Arsenal</span>
+        </div>
+        <p class="text-xs font-sans">
+          Managed by PhcDevworks &copy; {new Date().getFullYear()}. Solidify your digital future.
+        </p>
+        <div class="flex gap-6 text-sm">
+          <a href="https://docs.phcdevworks.com" class="hover:text-white transition-colors">Documentation</a>
+          <a href="https://github.com/phcdevworks" class="hover:text-white transition-colors">GitHub</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
