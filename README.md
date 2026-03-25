@@ -1,46 +1,69 @@
-# Astro Starter Kit: Basics
+# www-phcdevworks-com
 
-```sh
-npm create astro@latest -- --template basics
+[![GitHub issues](https://img.shields.io/github/issues/phcdevworks/www-phcdevworks-com)](https://github.com/phcdevworks/www-phcdevworks-com/issues)
+[![GitHub pulls](https://img.shields.io/github/issues-pr/phcdevworks/www-phcdevworks-com)](https://github.com/phcdevworks/www-phcdevworks-com/pulls)
+[![License](https://img.shields.io/github/license/phcdevworks/www-phcdevworks-com)](LICENSE)
+
+The official corporate website for the PHCDevworks ecosystem. It provides
+a modern web presence for the company and showcases our products and services.
+
+🤝 **[Contributing Guide](CONTRIBUTING.md)** | 📝 **[Changelog](CHANGELOG.md)**
+| 🛡️ **[Security Policy](SECURITY.md)**
+
+## Overview
+
+`www-phcdevworks-com` is the main website for PHCDevworks. It is built with Astro and provides a centralized hub
+for learning about the company and its offerings.
+
+## Usage
+
+### 1. Prerequisites
+
+- Node.js (Latest LTS recommended)
+- Git
+
+### 2. Setup
+
+```bash
+git clone https://github.com/phcdevworks/www-phcdevworks-com.git
+cd www-phcdevworks-com
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 3. Execution
 
-## 🚀 Project Structure
+1. Launch the development server:
+   ```bash
+   npm run dev
+   ```
 
-Inside of your Astro project, you'll see the following folders and files:
+## Project Structure
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+| Path              | Responsibility                                  |
+| ----------------- | ----------------------------------------------- |
+| `src/pages/`      | Main application pages and routes               |
+| `src/components/` | Shared UI components for the website            |
+| `public/`         | Static assets and source files                  |
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Part of the PHCDevworks Suite
 
-## 🧞 Commands
+- **[Spectre Tokens](https://github.com/phcdevworks/spectre-tokens)** - Design
+  token foundation
+- **[Spectre UI](https://github.com/phcdevworks/spectre-ui)** - Core styling
+  layer
+- **[Spectre UI Astro](https://github.com/phcdevworks/spectre-ui-astro)** -
+  Astro adapter
+- **[Spectre Docs](https://github.com/phcdevworks/docs-phcdevworks-com)** -
+  Documentation portal
+- **[PHCDevworks Website](https://github.com/phcdevworks/www-phcdevworks-com)** -
+  Corporate website (this project)
 
-All commands are run from the root of the project, from a terminal:
+## Contributing
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+We welcome contributions from the community. Please review our
+**[CONTRIBUTING.md](CONTRIBUTING.md)** for details on our workflow and
+standards.
 
-## 👀 Want to learn more?
+## License
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+MIT © PHCDevworks — See **[LICENSE](LICENSE)** for details.
