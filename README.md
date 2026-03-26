@@ -1,70 +1,76 @@
-# www-phcdevworks-com
+# Spectre Website
 
 [![GitHub issues](https://img.shields.io/github/issues/phcdevworks/www-phcdevworks-com)](https://github.com/phcdevworks/www-phcdevworks-com/issues)
 [![GitHub pulls](https://img.shields.io/github/issues-pr/phcdevworks/www-phcdevworks-com)](https://github.com/phcdevworks/www-phcdevworks-com/pulls)
 [![License](https://img.shields.io/github/license/phcdevworks/www-phcdevworks-com)](LICENSE)
 
-The official corporate website for the PHCDevworks ecosystem. It provides a
-modern web presence for the company and showcases our products and services.
+`www-phcdevworks-com` is the public website for Spectre, run by PHCDevworks. It
+represents the product, brand, and ecosystem at the project level.
 
-🤝 **[Contributing Guide](CONTRIBUTING.md)** | 📝 **[Changelog](CHANGELOG.md)**
-| 🛡️ **[Security Policy](SECURITY.md)**
+**Repository docs:** [CONTRIBUTING.md](CONTRIBUTING.md) |
+[CHANGELOG.md](CHANGELOG.md) | [SECURITY.md](SECURITY.md) |
+[LICENSE](LICENSE)
 
 ## Overview
 
-`www-phcdevworks-com` is the main website for PHCDevworks. It is built with
-Astro and provides a centralized hub for learning about the company and its
-offerings.
+This repository contains the Astro-based flagship web presence for Spectre. It
+should stay aligned with the documentation repository in naming, contributor
+guidance, and project-level settings.
 
-## Usage
+## Stack
 
-### 1. Prerequisites
+- Astro
+- TypeScript
+- Tailwind CSS
+- Cloudflare adapter
+- `@phcdevworks/spectre-ui`
+- `@phcdevworks/spectre-ui-astro`
 
-- Node.js (Latest LTS recommended)
-- Git
+## Getting Started
 
-### 2. Setup
+### Prerequisites
+
+- Node.js 22.12 or newer
+- npm
+
+### Install
 
 ```bash
-git clone https://github.com/phcdevworks/www-phcdevworks-com.git
-cd www-phcdevworks-com
 npm install
 ```
 
-### 3. Execution
+### Run
 
-1. Launch the development server:
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
+
+## Available Scripts
+
+- `npm run dev` starts the local Astro development server.
+- `npm run build` creates the production build.
+- `npm run preview` builds the project and starts the Cloudflare preview.
+- `npm run generate-types` refreshes Wrangler type output.
+- `npm run deploy` builds and deploys the site.
 
 ## Project Structure
 
-| Path              | Responsibility                       |
-| ----------------- | ------------------------------------ |
-| `src/pages/`      | Main application pages and routes    |
-| `src/components/` | Shared UI components for the website |
-| `public/`         | Static assets and source files       |
+| Path | Responsibility |
+| --- | --- |
+| `src/pages/` | Route-level pages for the public website |
+| `src/components/` | Shared presentation components |
+| `public/` | Static assets served as-is |
 
-## Part of the PHCDevworks Suite
+## Spectre Repositories
 
-- **[Spectre Tokens](https://github.com/phcdevworks/spectre-tokens)** - Design
-  token foundation
-- **[Spectre UI](https://github.com/phcdevworks/spectre-ui)** - Core styling
-  layer
-- **[Spectre UI Astro](https://github.com/phcdevworks/spectre-ui-astro)** -
-  Astro adapter
-- **[Spectre Docs](https://github.com/phcdevworks/docs-phcdevworks-com)** -
-  Documentation portal
-- **[PHCDevworks Website](https://github.com/phcdevworks/www-phcdevworks-com)** -
-  Corporate website (this project)
+- [spectre-tokens](https://github.com/phcdevworks/spectre-tokens)
+- [spectre-ui](https://github.com/phcdevworks/spectre-ui)
+- [spectre-ui-astro](https://github.com/phcdevworks/spectre-ui-astro)
+- [docs-phcdevworks-com](https://github.com/phcdevworks/docs-phcdevworks-com)
+- [www-phcdevworks-com](https://github.com/phcdevworks/www-phcdevworks-com)
 
-## Contributing
+## Ownership
 
-We welcome contributions from the community. Please review our
-**[CONTRIBUTING.md](CONTRIBUTING.md)** for details on our workflow and
-standards.
-
-## License
-
-MIT © PHCDevworks — See **[LICENSE](LICENSE)** for details.
+Spectre is run by PHCDevworks. This repository should use Spectre naming and
+PHCDevworks ownership language consistently across docs, settings, and project
+configuration.
