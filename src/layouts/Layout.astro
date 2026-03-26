@@ -2,7 +2,6 @@
 import { ClientRouter } from 'astro:transitions'
 import '../styles/global.css'
 import '@phcdevworks/spectre-ui/index.css'
-import Navigation from '../components/Navigation.astro'
 
 interface Props {
   title: string
@@ -30,26 +29,25 @@ const { title, description = 'The official PHCDevworks flagship website.' } =
       rel="stylesheet"
     />
   </head>
-  <body class="sp-theme--dark bg-black text-white antialiased min-h-screen Selection:bg-indigo-500/30">
-    <Navigation />
-    
-    <div class="relative min-h-[calc(100vh-16rem)] max-w-7xl mx-auto px-6 py-12">
-      <slot />
-    </div>
+  <body class="sp-theme--dark bg-transparent text-current antialiased min-h-screen">
+    <!-- Solid Structural Shell -->
+    <header class="sticky top-0 z-50 w-full border-b border-white/5 bg-[var(--sp-surface-page)]/80 backdrop-blur-xl h-16 flex items-center mb-8">
+      <div class="max-w-[var(--sp-layout-container-max-width)] mx-auto px-6 w-full flex items-center justify-between">
+         <span class="font-display text-xl font-bold tracking-tight">Spectre Arsenal</span>
+         <div class="h-1 w-1 bg-brand-500 rounded-full animate-pulse"></div>
+      </div>
+    </header>
 
-    <footer class="border-t border-white/5 py-16 bg-slate-950/20">
-      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 opacity-60">
-        <div class="flex items-center gap-3">
-          <div class="h-2 w-2 rounded-full bg-indigo-500 animate-pulse"></div>
-          <span class="text-sm font-medium font-display tracking-widest uppercase">The 8-Layer Arsenal</span>
-        </div>
-        <p class="text-xs font-sans">
-          Managed by PhcDevworks &copy; {new Date().getFullYear()}. Solidify your digital future.
+    <main class="relative min-h-[calc(100vh-16rem)] max-w-[var(--sp-layout-container-max-width)] mx-auto px-[var(--sp-layout-container-padding-inline-md)] py-[var(--sp-layout-section-padding-md)]">
+      <slot />
+    </main>
+
+    <footer class="border-t border-white/5 py-12 mt-12">
+      <div class="max-w-[var(--sp-layout-container-max-width)] mx-auto px-6 flex items-center justify-between opacity-50">
+        <p class="text-xs font-sans tracking-wide">
+          Managed by PhcDevworks &copy; {new Date().getFullYear()}
         </p>
-        <div class="flex gap-6 text-sm">
-          <a href="https://docs.phcdevworks.com" class="hover:text-white transition-colors">Documentation</a>
-          <a href="https://github.com/phcdevworks" class="hover:text-white transition-colors">GitHub</a>
-        </div>
+        <span class="text-[0.6rem] uppercase tracking-[0.2em] font-display">The 8-Layer Arsenal</span>
       </div>
     </footer>
   </body>
