@@ -1,21 +1,35 @@
-# Spectre Website
+# PHCDevworks Website
 
 [![GitHub issues](https://img.shields.io/github/issues/phcdevworks/www-phcdevworks-com)](https://github.com/phcdevworks/www-phcdevworks-com/issues)
 [![GitHub pulls](https://img.shields.io/github/issues-pr/phcdevworks/www-phcdevworks-com)](https://github.com/phcdevworks/www-phcdevworks-com/pulls)
 [![License](https://img.shields.io/github/license/phcdevworks/www-phcdevworks-com)](LICENSE)
 
-`www-phcdevworks-com` is the public website for Spectre, run by PHCDevworks. It
-represents the product, brand, and ecosystem at the project level.
+`www-phcdevworks-com` is the public company website for PHCDevworks.
+
+It serves as the web presence for the company, its products, its technical
+ecosystem, and its broader brand. The site may showcase Spectre prominently, but
+it is not limited to Spectre and should not be framed as a single-product
+website.
 
 **Repository docs:** [CONTRIBUTING.md](CONTRIBUTING.md) |
-[CHANGELOG.md](CHANGELOG.md) | [SECURITY.md](SECURITY.md) |
-[LICENSE](LICENSE)
+[CHANGELOG.md](CHANGELOG.md) | [SECURITY.md](SECURITY.md) | [LICENSE](LICENSE)
 
 ## Overview
 
-This repository contains the Astro-based flagship web presence for Spectre. It
-should stay aligned with the documentation repository in naming, contributor
-guidance, and project-level settings.
+This repository contains the Astro-based marketing and company website for
+PHCDevworks.
+
+It is responsible for presenting the company clearly and credibly across areas
+such as:
+
+- company positioning
+- product and ecosystem visibility
+- technical capabilities
+- brand communication
+- public-facing pages, calls to action, and supporting content
+
+Spectre is part of that story, but this repository represents the broader
+PHCDevworks identity and should be maintained with that scope in mind.
 
 ## Stack
 
@@ -38,39 +52,3 @@ guidance, and project-level settings.
 ```bash
 npm install
 ```
-
-### Run
-
-```bash
-npm run dev
-```
-
-## Available Scripts
-
-- `npm run dev` starts the local Astro development server.
-- `npm run build` creates the production build.
-- `npm run preview` builds the project and starts the Cloudflare preview.
-- `npm run generate-types` refreshes Wrangler type output.
-- `npm run deploy` builds and deploys the site.
-
-## Project Structure
-
-| Path | Responsibility |
-| --- | --- |
-| `src/pages/` | Route-level pages for the public website |
-| `src/components/` | Shared presentation components |
-| `public/` | Static assets served as-is |
-
-## Spectre Repositories
-
-- [spectre-tokens](https://github.com/phcdevworks/spectre-tokens)
-- [spectre-ui](https://github.com/phcdevworks/spectre-ui)
-- [spectre-ui-astro](https://github.com/phcdevworks/spectre-ui-astro)
-- [docs-phcdevworks-com](https://github.com/phcdevworks/docs-phcdevworks-com)
-- [www-phcdevworks-com](https://github.com/phcdevworks/www-phcdevworks-com)
-
-## Ownership
-
-Spectre is run by PHCDevworks. This repository should use Spectre naming and
-PHCDevworks ownership language consistently across docs, settings, and project
-configuration.
