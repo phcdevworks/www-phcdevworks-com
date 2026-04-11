@@ -29,6 +29,6 @@
     "@tailwindcss/vite": "^4.2.2",
     "tailwindcss": "^4.2.2",
     "vite": "^7.3.2",
-    "wrangler": "^4.80.0"
+    "wrangler": "^4.81.1"
   }
 }
