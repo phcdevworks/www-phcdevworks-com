@@ -76,17 +76,42 @@ const navItems = [
 
       <footer class="site-footer">
         <div class="site-footer__inner">
-          <div>
-            <p class="site-footer__label">Spectre ecosystem</p>
+          <div class="site-footer__intro">
+            <p class="site-footer__label">PHCDevworks</p>
+            <p class="site-footer__title">Systems, products, and platform work.</p>
             <p class="site-footer__copy">
-              Design tokens, UI foundations, app shell tooling, and WordPress
-              integrations for product teams that want a sharper system.
+              The PHCDevworks flagship site. Built to present the company, the
+              Spectre ecosystem, and the technical work behind it with
+              structure instead of filler.
             </p>
           </div>
 
-          <p class="site-footer__meta">
-            PHCDevworks &copy; {new Date().getFullYear()}
-          </p>
+          <div class="site-footer__aside">
+            <nav class="site-footer__nav" aria-label="Footer">
+              <a href="/" class="site-footer__link">Home</a>
+              <a href="/spectre-design" class="site-footer__link">
+                Spectre Design
+              </a>
+              <a href="/spectre-shell" class="site-footer__link">
+                Spectre Shell
+              </a>
+              <a href="/spectre-wordpress" class="site-footer__link">
+                Spectre WordPress
+              </a>
+              <a
+                href="https://github.com/phcdevworks"
+                class="site-footer__link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+            </nav>
+
+            <p class="site-footer__meta">
+              PHCDevworks &copy; {new Date().getFullYear()}
+            </p>
+          </div>
         </div>
       </footer>
     </div>
