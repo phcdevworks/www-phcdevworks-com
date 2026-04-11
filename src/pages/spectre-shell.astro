@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const modules = [
+  {
+    name: 'Spectre Shell',
+    detail:
+      'Application shell structure for products that need a stable, system-level frame.',
+  },
+  {
+    name: 'Spectre Shell Router',
+    detail:
+      'Routing utilities for organizing navigation flow and application movement with less friction.',
+  },
+  {
+    name: 'Spectre Shell Signals',
+    detail:
+      'Reactive state patterns for signal-driven UI behavior inside the broader shell architecture.',
+  },
+]
+---
+
+<Layout
+  title="Spectre Shell"
+  description="Spectre Shell covers Spectre Shell, Spectre Shell Router, and Spectre Shell Signals."
+>
+  <section class="page-intro">
+    <p class="eyebrow">Spectre Shell</p>
+    <h1 class="display-headline">Application structure without framework noise.</h1>
+    <p class="lead page-lead">
+      Spectre Shell gives product teams a cleaner way to organize navigation,
+      state, and structural UI concerns as one coherent layer.
+    </p>
+  </section>
+
+  <section class="section-block">
+    <div class="section-heading">
+      <p class="eyebrow">Modules</p>
+      <h2 class="section-title">Shell, routing, and signals designed to work together.</h2>
+    </div>
+
+    <div class="stack-list">
+      {
+        modules.map((item) => (
+          <article class="stack-item">
+            <p class="stack-item__kicker">Module</p>
+            <h3 class="stack-item__title">{item.name}</h3>
+            <p class="stack-item__copy">{item.detail}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section-block section-band">
+    <div class="section-heading">
+      <p class="eyebrow">Operating model</p>
+      <h2 class="section-title">Move faster with stronger structure at the edges.</h2>
+    </div>
+
+    <div class="two-column-copy">
+      <p>
+        Spectre Shell is positioned for teams that want cleaner application
+        architecture without inflating the surface with decorative abstractions.
+      </p>
+      <p>
+        It emphasizes frame, navigation, and reactive flow so product teams can
+        spend more time on behavior and less on rebuilding plumbing.
+      </p>
+    </div>
+  </section>
+</Layout>

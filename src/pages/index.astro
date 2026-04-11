@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { SpCard } from '@phcdevworks/spectre-ui-astro'
+
+const products = [
+  {
+    title: 'Spectre Design',
+    href: '/spectre-design',
+    eyebrow: 'TOKENS / UI / ASTRO',
+    copy:
+      'Hard contracts. Sharp primitives. No drift. No decorative nonsense.',
+  },
+  {
+    title: 'Spectre Shell',
+    href: '/spectre-shell',
+    eyebrow: 'SHELL / ROUTER / SIGNALS',
+    copy:
+      'App structure for teams who want control, speed, and fewer excuses.',
+  },
+  {
+    title: 'Spectre WordPress',
+    href: '/spectre-wordpress',
+    eyebrow: 'WORDPRESS / ICONS',
+    copy:
+      'CMS delivery that still hits like product engineering instead of compromise.',
+  },
+]
+---
+
+<Layout
+  title="Spectre"
+  description="Spectre is the PHCDevworks product system for design, shell architecture, and WordPress delivery."
+>
+  <section class="riot-hero">
+    <div class="riot-hero__topline">
+      <span class="riot-hero__tag">PHCDEVWORKS PRODUCT SYSTEM</span>
+      <span class="riot-hero__signal">LOUD SOFTWARE FOR SERIOUS BUILDERS</span>
+    </div>
+
+    <div class="riot-hero__grid">
+      <div class="riot-hero__headline-wrap">
+        <p class="riot-hero__kicker">SYSTEM FIRST</p>
+        <h1 class="riot-hero__headline">
+          <span>SPECTRE</span>
+          <span>DESIGN</span>
+          <span>SYSTEM</span>
+          <span>BITES</span>
+          <span>BACK.</span>
+        </h1>
+        <p class="riot-hero__subline">
+          NO STOCK PHOTOS. NO CORP VOICE. NO TEMPLATE THEATER.
+        </p>
+      </div>
+
+      <div class="riot-hero__stack">
+        <SpCard
+          variant="elevated"
+          padded
+          class="riot-panel riot-panel--tilt-left riot-panel--hot"
+        >
+          <div class="riot-panel__stack">
+            <p class="riot-panel__tag">OPEN SOURCE / NO MASTER / NO RENT</p>
+            <p class="riot-panel__lead">
+              BUILD THE STACK. BURN THE TEMPLATE.
+            </p>
+            <p class="riot-panel__copy">
+              Spectre is for teams who are done with pastel dashboards,
+              committee copy, and fake-premium SaaS skin. Tokens, UI, shell,
+              and WordPress delivery under one hostile little flag.
+            </p>
+          </div>
+        </SpCard>
+
+        <SpCard
+          variant="outline"
+          padded
+          class="riot-panel riot-panel--tilt-right"
+        >
+          <div class="riot-panel__stack">
+            <p class="riot-panel__index">01 / NO VENDOR LOCK</p>
+            <p class="riot-panel__index">02 / TOKENS RUN THE JOB</p>
+            <p class="riot-panel__index">03 / THE ACCENT STAYS RED</p>
+          </div>
+        </SpCard>
+      </div>
+    </div>
+
+    <div class="riot-route-strip">
+      <a href="/spectre-design" class="riot-route-strip__item">
+        <span class="riot-route-strip__index">01</span>
+        <span class="riot-route-strip__label">SPECTRE DESIGN / TOKENS / UI / ASTRO</span>
+      </a>
+      <a href="/spectre-shell" class="riot-route-strip__item">
+        <span class="riot-route-strip__index">02</span>
+        <span class="riot-route-strip__label">SPECTRE SHELL / ROUTER / SIGNALS</span>
+      </a>
+      <a href="/spectre-wordpress" class="riot-route-strip__item">
+        <span class="riot-route-strip__index">03</span>
+        <span class="riot-route-strip__label">SPECTRE WORDPRESS / ICONS</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="riot-products">
+    <div class="riot-section-head">
+      <p class="riot-section-head__eyebrow">PRODUCTS</p>
+      <h2 class="riot-section-head__title">
+        PICK YOUR WEAPON.
+      </h2>
+      <p class="riot-section-head__copy">
+        THREE SURFACES. SAME ATTITUDE. SAME SYSTEM. DIFFERENT DAMAGE.
+      </p>
+    </div>
+
+    <div class="riot-products__grid">
+      {
+        products.map((product, index) => (
+          <SpCard
+            as="a"
+            href={product.href}
+            variant={index === 1 ? 'elevated' : 'outline'}
+            interactive
+            padded
+            fullHeight
+            class:list={[
+              'riot-product-card',
+              index === 0 && 'riot-product-card--up',
+              index === 1 && 'riot-product-card--down',
+              index === 2 && 'riot-product-card--up',
+            ]}
+          >
+            <div class="riot-product-card__stack">
+              <p class="riot-product-card__eyebrow">{product.eyebrow}</p>
+              <h3 class="riot-product-card__title">{product.title}</h3>
+              <p class="riot-product-card__copy">{product.copy}</p>
+              <span class="riot-product-card__go">OPEN</span>
+            </div>
+          </SpCard>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="riot-manifesto">
+    <SpCard variant="elevated" padded class="riot-manifesto__card">
+      <div class="riot-manifesto__grid">
+        <p>BUILD WHAT YOU NEED.</p>
+        <p>BREAK WHAT DESERVES IT.</p>
+        <p>USE THE SYSTEM.</p>
+        <p>DON'T ASK PERMISSION.</p>
+      </div>
+    </SpCard>
+  </section>
+</Layout>
