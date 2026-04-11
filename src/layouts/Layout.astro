@@ -1,7 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions'
 import '../styles/global.css'
-import '@phcdevworks/spectre-ui/index.css'
 
 interface Props {
   title: string
@@ -10,6 +9,14 @@ interface Props {
 
 const { title, description = 'The official PHCDevworks flagship website.' } =
   Astro.props
+const pathname = Astro.url.pathname
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/spectre-design', label: 'Spectre Design' },
+  { href: '/spectre-shell', label: 'Spectre Shell' },
+  { href: '/spectre-wordpress', label: 'Spectre WordPress' },
+]
 ---
 
 <!DOCTYPE html>
@@ -25,30 +32,63 @@ const { title, description = 'The official PHCDevworks flagship website.' } =
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Inter:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="sp-theme--dark bg-transparent text-current antialiased min-h-screen">
-    <!-- Solid Structural Shell -->
-    <header class="sticky top-0 z-50 w-full border-b border-white/5 bg-[var(--sp-surface-page)]/80 backdrop-blur-xl h-16 flex items-center mb-8">
-      <div class="max-w-[var(--sp-layout-container-max-width)] mx-auto px-6 w-full flex items-center justify-between">
-         <span class="font-display text-xl font-bold tracking-tight">Spectre Arsenal</span>
-         <div class="h-1 w-1 bg-brand-500 rounded-full animate-pulse"></div>
-      </div>
-    </header>
+  <body class="sp-theme--dark antialiased min-h-screen">
+    <div class="site-frame">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <a href="/" class="site-mark" aria-label="Spectre home">
+            <span class="site-mark__eyebrow">PHCDevworks Product System</span>
+            <span class="site-mark__title">Spectre</span>
+          </a>
 
-    <main class="relative min-h-[calc(100vh-16rem)] max-w-[var(--sp-layout-container-max-width)] mx-auto px-[var(--sp-layout-container-padding-inline-md)] py-[var(--sp-layout-section-padding-md)]">
-      <slot />
-    </main>
+          <nav class="site-nav" aria-label="Primary">
+            {
+              navItems.map((item) => {
+                const isActive =
+                  item.href === '/'
+                    ? pathname === '/'
+                    : pathname.startsWith(item.href)
 
-    <footer class="border-t border-white/5 py-12 mt-12">
-      <div class="max-w-[var(--sp-layout-container-max-width)] mx-auto px-6 flex items-center justify-between opacity-50">
-        <p class="text-xs font-sans tracking-wide">
-          Managed by PhcDevworks &copy; {new Date().getFullYear()}
-        </p>
-        <span class="text-[0.6rem] uppercase tracking-[0.2em] font-display">The 8-Layer Arsenal</span>
-      </div>
-    </footer>
+                return (
+                  <a
+                    href={item.href}
+                    class:list={[
+                      'site-nav__link',
+                      isActive && 'site-nav__link--active',
+                    ]}
+                  >
+                    {item.label}
+                  </a>
+                )
+              })
+            }
+          </nav>
+        </div>
+      </header>
+
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <div>
+            <p class="site-footer__label">Spectre ecosystem</p>
+            <p class="site-footer__copy">
+              Design tokens, UI foundations, app shell tooling, and WordPress
+              integrations for product teams that want a sharper system.
+            </p>
+          </div>
+
+          <p class="site-footer__meta">
+            PHCDevworks &copy; {new Date().getFullYear()}
+          </p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const packages = [
+  {
+    name: 'Spectre Tokens',
+    detail:
+      'Foundation-level values for color, spacing, type, surfaces, and motion decisions.',
+  },
+  {
+    name: 'Spectre UI',
+    detail:
+      'Shared UI primitives and styling contracts that keep implementation aligned across products.',
+  },
+  {
+    name: 'Spectre UI Astro',
+    detail:
+      'Astro-friendly bindings for teams shipping fast sites and application surfaces with the same system core.',
+  },
+]
+---
+
+<Layout
+  title="Spectre Design"
+  description="Spectre Design covers Spectre Tokens, Spectre UI, and Spectre UI Astro."
+>
+  <section class="page-intro">
+    <p class="eyebrow">Spectre Design</p>
+    <h1 class="display-headline">Design foundations built for real product delivery.</h1>
+    <p class="lead page-lead">
+      Spectre Design defines the visual language once, then makes it usable from
+      tokens to UI code to Astro implementation.
+    </p>
+  </section>
+
+  <section class="section-block">
+    <div class="section-heading">
+      <p class="eyebrow">Packages</p>
+      <h2 class="section-title">One design system, three implementation layers.</h2>
+    </div>
+
+    <div class="stack-list">
+      {
+        packages.map((item) => (
+          <article class="stack-item">
+            <p class="stack-item__kicker">Package</p>
+            <h3 class="stack-item__title">{item.name}</h3>
+            <p class="stack-item__copy">{item.detail}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section-block section-band">
+    <div class="section-heading">
+      <p class="eyebrow">Why it matters</p>
+      <h2 class="section-title">Reduce drift between design decisions and shipped code.</h2>
+    </div>
+
+    <div class="two-column-copy">
+      <p>
+        Spectre Design is for teams that want stronger alignment between system
+        governance and daily implementation. Tokens define the contract. UI
+        primitives enforce consistency. Astro support keeps content surfaces on
+        the same language.
+      </p>
+      <p>
+        The result is a system that scales without becoming vague, ornamental,
+        or disconnected from production work.
+      </p>
+    </div>
+  </section>
+</Layout>

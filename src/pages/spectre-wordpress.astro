@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const assets = [
+  {
+    name: 'Spectre WordPress',
+    detail:
+      'WordPress-aligned integration work that extends the Spectre system into CMS-driven delivery.',
+  },
+  {
+    name: 'Spectre Icons',
+    detail:
+      'A shared icon layer for consistent interface language across WordPress and the broader Spectre ecosystem.',
+  },
+]
+---
+
+<Layout
+  title="Spectre WordPress"
+  description="Spectre WordPress covers Spectre WordPress and Spectre Icons."
+>
+  <section class="page-intro">
+    <p class="eyebrow">Spectre WordPress</p>
+    <h1 class="display-headline">WordPress tooling that still speaks the same system language.</h1>
+    <p class="lead page-lead">
+      Spectre WordPress carries the broader Spectre discipline into CMS-driven
+      implementation, including iconography and supporting interface assets.
+    </p>
+  </section>
+
+  <section class="section-block">
+    <div class="section-heading">
+      <p class="eyebrow">Assets</p>
+      <h2 class="section-title">CMS support without breaking the product system.</h2>
+    </div>
+
+    <div class="stack-list">
+      {
+        assets.map((item) => (
+          <article class="stack-item">
+            <p class="stack-item__kicker">Asset</p>
+            <h3 class="stack-item__title">{item.name}</h3>
+            <p class="stack-item__copy">{item.detail}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section-block section-band">
+    <div class="section-heading">
+      <p class="eyebrow">Use case</p>
+      <h2 class="section-title">Keep content platforms aligned with the same visual and technical standards.</h2>
+    </div>
+
+    <div class="two-column-copy">
+      <p>
+        This part of the ecosystem is for teams shipping on WordPress without
+        accepting visual drift, icon inconsistency, or disconnected interface
+        decisions.
+      </p>
+      <p>
+        It keeps the system recognizable across content-heavy environments while
+        staying grounded in the same PHCDevworks product logic.
+      </p>
+    </div>
+  </section>
+</Layout>
