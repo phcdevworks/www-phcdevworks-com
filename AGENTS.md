@@ -31,6 +31,8 @@ This repository represents:
 - Treat this site as a downstream Spectre application where appropriate.
 - Reuse Spectre packages and patterns where appropriate instead of inventing a
   parallel design system.
+- Prefer building with Spectre Tokens, Spectre UI, and Spectre UI Astro first,
+  then layer custom site styling after the system structure is in place.
 - Keep Astro-first, SSR-friendly, and maintainable.
 - Prefer clarity, maintainability, and strong structure over novelty.
 - Favor small, reviewable changes over broad rewrites.
@@ -55,6 +57,9 @@ This repository represents:
 - Do not default to button-led CTA patterns on impact sections or the homepage.
   Prefer route strips, editorial links, or other non-corporate navigation
   treatments when that direction is active.
+- Do not use weak anti-corporate slogans as filler taglines. If the copy is
+  blunt, it still needs to be legible, specific, and supported by clean page
+  structure.
 
 ## Configuration Rules
 
