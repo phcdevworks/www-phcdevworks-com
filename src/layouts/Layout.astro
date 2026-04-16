@@ -39,18 +39,6 @@ const navItems = [
     />
   </head>
   <body class="site-body antialiased min-h-screen">
-    <script is:inline>
-      const storedTheme = localStorage.getItem('phc-theme')
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      const theme = storedTheme ?? (prefersDark ? 'dark' : 'light')
-      if (theme === 'dark') {
-        document.documentElement.dataset.spectreTheme = 'dark'
-      } else {
-        delete document.documentElement.dataset.spectreTheme
-      }
-      document.body.dataset.theme = theme
-    </script>
-
     <div class="site-frame">
       <header class="site-header">
         <div class="site-header__inner">
@@ -81,16 +69,6 @@ const navItems = [
               })
             }
           </nav>
-
-          <div class="theme-switch" aria-label="Theme">
-            <button class="theme-switch__link" type="button" data-theme-choice="light">
-              Light
-            </button>
-            <span class="theme-switch__divider">/</span>
-            <button class="theme-switch__link" type="button" data-theme-choice="dark">
-              Dark
-            </button>
-          </div>
         </div>
       </header>
 
@@ -114,23 +92,5 @@ const navItems = [
         </div>
       </footer>
     </div>
-
-    <script is:inline>
-      const applyTheme = (theme) => {
-        if (theme === 'dark') {
-          document.documentElement.dataset.spectreTheme = 'dark'
-        } else {
-          delete document.documentElement.dataset.spectreTheme
-        }
-        document.body.dataset.theme = theme
-        localStorage.setItem('phc-theme', theme)
-      }
-
-      document.querySelectorAll('[data-theme-choice]').forEach((node) => {
-        node.addEventListener('click', () => {
-          applyTheme(node.getAttribute('data-theme-choice'))
-        })
-      })
-    </script>
   </body>
 </html>

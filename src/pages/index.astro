@@ -31,55 +31,36 @@ const products = [
   title="Spectre"
   description="Spectre is the PHCDevworks product system built on Spectre Tokens, Spectre UI, and Spectre UI Astro."
 >
-  <section class="home-hero">
-    <div class="home-hero__copy">
-      <p class="eyebrow">System first</p>
-      <h1 class="home-headline">Spectre gives products one language.</h1>
-      <p class="home-lead">
-        Use the system. Customize after. Build on the parts PHCDevworks already
-        ships instead of rebuilding the foundation every time.
+  <section class="hero-atmosphere">
+    <div class="hero-atmosphere__glow hero-atmosphere__glow--left"></div>
+    <div class="hero-atmosphere__glow hero-atmosphere__glow--right"></div>
+
+    <div class="home-hero home-hero--centered">
+      <p class="eyebrow eyebrow--centered">The product system for PHCDevworks</p>
+      <h1 class="home-headline home-headline--centered">
+        Your <span>Spectre</span>
+        products need
+        one language.
+      </h1>
+      <p class="home-lead home-lead--centered">
+        Spectre brings tokens, UI, Astro delivery, shell architecture, and
+        WordPress support into one consistent product surface.
       </p>
-      <div class="home-route-list" aria-label="Primary routes">
-        <a href="/spectre-design" class="home-route-list__item">
-          <span>01</span>
-          <span>Spectre Design</span>
-        </a>
-        <a href="/spectre-shell" class="home-route-list__item">
-          <span>02</span>
-          <span>Spectre Shell</span>
-        </a>
-        <a href="/spectre-wordpress" class="home-route-list__item">
-          <span>03</span>
-          <span>Spectre WordPress</span>
-        </a>
+      <div class="hero-links" aria-label="Primary routes">
+        <a href="/spectre-design" class="hero-links__item">Spectre Design</a>
+        <a href="/spectre-shell" class="hero-links__item">Spectre Shell</a>
+        <a href="/spectre-wordpress" class="hero-links__item">Spectre WordPress</a>
       </div>
     </div>
-
-    <SpCard variant="elevated" padded class="home-principles-card">
-      <div class="home-principles-card__stack">
-        <p class="eyebrow">Standards</p>
-        <h2 class="home-panel-title">Built to use the real system.</h2>
-        <p class="home-panel-copy">
-          Spectre Tokens, Spectre UI, and Spectre UI Astro are the starting
-          point here. The structure comes first. Then we make it ours.
-        </p>
-        <div class="home-principles-list" aria-label="Principles">
-          <span>SSR-friendly</span>
-          <span>Astro-first</span>
-          <span>Token-driven</span>
-          <span>Theme-aware</span>
-        </div>
-      </div>
-    </SpCard>
   </section>
 
   <section class="home-section">
     <div class="section-heading">
       <p class="eyebrow">Products</p>
-      <h2 class="section-title">Use the products people already expect to see.</h2>
+      <h2 class="section-title">Use the products people already expect you to ship.</h2>
       <p class="section-copy">
-        Clean structure first. Spectre-native components first. Then the custom
-        edge work comes later when the base is solid.
+        Start with the real Spectre products first. Keep the structure clean.
+        Customize after the system is doing its job.
       </p>
     </div>
 
@@ -107,16 +88,21 @@ const products = [
   </section>
 
   <section class="home-section">
-    <div class="section-heading">
-      <p class="eyebrow">Approach</p>
-      <h2 class="section-title">Standards first. Character second. Drift never.</h2>
-    </div>
-
-    <div class="home-manifesto">
-      <p>Use Spectre products directly.</p>
-      <p>Support light and dark cleanly.</p>
-      <p>Keep the structure legible.</p>
-      <p>Customize with intent after the base is right.</p>
-    </div>
+    <SpCard variant="elevated" padded class="home-principles-card home-principles-card--wide">
+      <div class="home-principles-card__stack">
+        <p class="eyebrow">Standards</p>
+        <h2 class="home-panel-title">Built to use the real system.</h2>
+        <p class="home-panel-copy">
+          Spectre Tokens, Spectre UI, and Spectre UI Astro are the starting
+          point here. The structure comes first. Then we make it ours.
+        </p>
+        <div class="home-principles-list" aria-label="Principles">
+          <span>SSR-friendly</span>
+          <span>Astro-first</span>
+          <span>Token-driven</span>
+          <span>Clean structure</span>
+        </div>
+      </div>
+    </SpCard>
   </section>
 </Layout>
