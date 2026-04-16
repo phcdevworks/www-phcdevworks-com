@@ -2,49 +2,49 @@
 import Layout from '../layouts/Layout.astro'
 import { SpCard } from '@phcdevworks/spectre-ui-astro'
 
-const products = [
+const systemAreas = [
   {
     title: 'Spectre Design',
     href: '/spectre-design',
     label: 'Tokens / UI / Astro',
     copy:
-      'Use the design system directly. Tokens define the contract. UI carries it. Astro ships it.',
+      'The core system stack for tokens, implementation, and Astro delivery.',
   },
   {
     title: 'Spectre Shell',
     href: '/spectre-shell',
     label: 'Shell / Router / Signals',
     copy:
-      'Build application structure on the same language instead of fragmenting layout, routing, and state.',
+      'The thin application shell, router, and reactive primitives for Spectre-based apps.',
   },
   {
     title: 'Spectre WordPress',
     href: '/spectre-wordpress',
     label: 'WordPress / Icons',
     copy:
-      'Keep CMS delivery aligned with the same product standards instead of treating it like a separate world.',
+      'The WordPress integration layer, including icon support and builder-aware delivery.',
   },
 ]
 ---
 
 <Layout
   title="Spectre"
-  description="Spectre is the PHCDevworks product system built on Spectre Tokens, Spectre UI, and Spectre UI Astro."
+  description="Spectre is the PHCDevworks design system built on Spectre Tokens, Spectre UI, and Spectre UI Astro."
 >
   <section class="hero-atmosphere">
     <div class="hero-atmosphere__glow hero-atmosphere__glow--left"></div>
     <div class="hero-atmosphere__glow hero-atmosphere__glow--right"></div>
 
     <div class="home-hero home-hero--centered">
-      <p class="eyebrow eyebrow--centered">The product system for PHCDevworks</p>
+      <p class="eyebrow eyebrow--centered">The PHCDevworks design system</p>
       <h1 class="home-headline home-headline--centered">
-        Your <span>Spectre</span>
-        products need
-        one language.
+        Your design
+        needs one
+        <span>system.</span>
       </h1>
       <p class="home-lead home-lead--centered">
-        Spectre brings tokens, UI, Astro delivery, shell architecture, and
-        WordPress support into one consistent product surface.
+        Spectre brings tokens, implementation, Astro delivery, shell
+        architecture, and WordPress support into one system language.
       </p>
       <div class="hero-links" aria-label="Primary routes">
         <a href="/spectre-design" class="hero-links__item">Spectre Design</a>
@@ -56,20 +56,20 @@ const products = [
 
   <section class="home-section">
     <div class="section-heading">
-      <p class="eyebrow">Products</p>
-      <h2 class="section-title">Use the products people already expect you to ship.</h2>
+      <p class="eyebrow">System areas</p>
+      <h2 class="section-title">One design system. Clear implementation layers.</h2>
       <p class="section-copy">
-        Start with the real Spectre products first. Keep the structure clean.
-        Customize after the system is doing its job.
+        Start with the real Spectre system first. Keep the structure clean. Add
+        site-specific expression after the system is doing its job.
       </p>
     </div>
 
     <div class="home-product-grid">
       {
-        products.map((product) => (
+        systemAreas.map((area) => (
           <SpCard
             as="a"
-            href={product.href}
+            href={area.href}
             variant="outline"
             interactive
             padded
@@ -77,9 +77,9 @@ const products = [
             class="home-product-card"
           >
             <div class="home-product-card__stack">
-              <p class="home-product-card__label">{product.label}</p>
-              <h3 class="home-product-card__title">{product.title}</h3>
-              <p class="home-product-card__copy">{product.copy}</p>
+              <p class="home-product-card__label">{area.label}</p>
+              <h3 class="home-product-card__title">{area.title}</h3>
+              <p class="home-product-card__copy">{area.copy}</p>
             </div>
           </SpCard>
         ))
@@ -94,7 +94,8 @@ const products = [
         <h2 class="home-panel-title">Built to use the real system.</h2>
         <p class="home-panel-copy">
           Spectre Tokens, Spectre UI, and Spectre UI Astro are the starting
-          point here. The structure comes first. Then we make it ours.
+          point. The system language comes first. Customization comes after the
+          foundation is in place.
         </p>
         <div class="home-principles-list" aria-label="Principles">
           <span>SSR-friendly</span>

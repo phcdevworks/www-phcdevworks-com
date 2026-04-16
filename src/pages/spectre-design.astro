@@ -5,38 +5,38 @@ const packages = [
   {
     name: 'Spectre Tokens',
     detail:
-      'Foundation-level values for color, spacing, type, surfaces, and motion decisions.',
+      'The design-token package of the Spectre system for downstream packages and compatible applications.',
   },
   {
     name: 'Spectre UI',
     detail:
-      'Shared UI primitives and styling contracts that keep implementation aligned across products.',
+      'The implementation layer between Spectre Tokens and downstream adapters or applications.',
   },
   {
     name: 'Spectre UI Astro',
     detail:
-      'Astro-friendly bindings for teams shipping fast sites and application surfaces with the same system core.',
+      'The Astro adapter package for Astro applications that consume the core Spectre UI contract.',
   },
 ]
 ---
 
 <Layout
   title="Spectre Design"
-  description="Spectre Design covers Spectre Tokens, Spectre UI, and Spectre UI Astro."
+  description="Spectre Design covers Spectre Tokens, Spectre UI, and Spectre UI Astro as the core layers of the Spectre design system."
 >
   <section class="page-intro">
     <p class="eyebrow">Spectre Design</p>
-    <h1 class="display-headline">Design foundations built for real product delivery.</h1>
+    <h1 class="display-headline">The core layers of the Spectre design system.</h1>
     <p class="lead page-lead">
-      Spectre Design defines the visual language once, then makes it usable from
-      tokens to UI code to Astro implementation.
+      Spectre Design defines the system language once, then carries it from
+      tokens to implementation to Astro delivery.
     </p>
   </section>
 
   <section class="section-block">
     <div class="section-heading">
       <p class="eyebrow">Packages</p>
-      <h2 class="section-title">One design system, three implementation layers.</h2>
+      <h2 class="section-title">Three layers working from one shared contract.</h2>
     </div>
 
     <div class="stack-list">
@@ -60,14 +60,13 @@ const packages = [
 
     <div class="two-column-copy">
       <p>
-        Spectre Design is for teams that want stronger alignment between system
-        governance and daily implementation. Tokens define the contract. UI
-        primitives enforce consistency. Astro support keeps content surfaces on
-        the same language.
+        Spectre Design keeps token decisions, implementation rules, and Astro
+        delivery on the same contract. Tokens define the source. UI carries the
+        implementation layer. Astro keeps downstream delivery aligned.
       </p>
       <p>
-        The result is a system that scales without becoming vague, ornamental,
-        or disconnected from production work.
+        The result is a design system that stays legible in code instead of
+        collapsing into hand-wavy brand language.
       </p>
     </div>
   </section>
