@@ -5,38 +5,38 @@ const modules = [
   {
     name: 'Spectre Shell',
     detail:
-      'Application shell structure for products that need a stable, system-level frame.',
+      'The thin application shell for Spectre apps.',
   },
   {
     name: 'Spectre Shell Router',
     detail:
-      'Routing utilities for organizing navigation flow and application movement with less friction.',
+      'The routing layer that registers application routes and handles shell movement.',
   },
   {
     name: 'Spectre Shell Signals',
     detail:
-      'Reactive state patterns for signal-driven UI behavior inside the broader shell architecture.',
+      'The reactive primitives layer for local UI state inside Spectre shells.',
   },
 ]
 ---
 
 <Layout
   title="Spectre Shell"
-  description="Spectre Shell covers Spectre Shell, Spectre Shell Router, and Spectre Shell Signals."
+  description="Spectre Shell covers Spectre Shell, Spectre Shell Router, and Spectre Shell Signals as the application-shell side of the Spectre system."
 >
   <section class="page-intro">
     <p class="eyebrow">Spectre Shell</p>
     <h1 class="display-headline">Application structure without framework noise.</h1>
     <p class="lead page-lead">
-      Spectre Shell gives product teams a cleaner way to organize navigation,
-      state, and structural UI concerns as one coherent layer.
+      Spectre Shell defines the application frame for Spectre-based apps,
+      including routing and local reactive state.
     </p>
   </section>
 
   <section class="section-block">
     <div class="section-heading">
       <p class="eyebrow">Modules</p>
-      <h2 class="section-title">Shell, routing, and signals designed to work together.</h2>
+      <h2 class="section-title">Shell, routing, and state built as one application layer.</h2>
     </div>
 
     <div class="stack-list">
@@ -60,12 +60,13 @@ const modules = [
 
     <div class="two-column-copy">
       <p>
-        Spectre Shell is positioned for teams that want cleaner application
-        architecture without inflating the surface with decorative abstractions.
+        Spectre Shell keeps the frame small and explicit. It handles startup,
+        route structure, and local state without pretending the shell needs to
+        become the whole app.
       </p>
       <p>
-        It emphasizes frame, navigation, and reactive flow so product teams can
-        spend more time on behavior and less on rebuilding plumbing.
+        That gives teams a stable system layer around the application so they
+        can focus on behavior instead of rebuilding the same plumbing.
       </p>
     </div>
   </section>
