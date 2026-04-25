@@ -12,7 +12,8 @@
     --site-max-width: min(1200px, calc(100vw - 2rem));
     --site-border: color-mix(in srgb, var(--sp-text-on-page-default) 14%, transparent);
     --site-border-strong: color-mix(in srgb, var(--sp-text-on-page-default) 24%, transparent);
-    --site-brand: #e6004f;
+    --site-brand: #EE005A;
+    --site-navy: #012641;
   }
 
   * {
@@ -28,8 +29,8 @@
     color: var(--sp-text-on-page-default);
     background-color: var(--sp-surface-page);
     background-image:
-      radial-gradient(circle at 50% 22%, rgb(230 0 79 / 0.1), transparent 22%),
-      radial-gradient(circle at 20% 76%, rgb(230 0 79 / 0.06), transparent 18%),
+      radial-gradient(circle at 50% 22%, rgb(238 0 90 / 0.1), transparent 22%),
+      radial-gradient(circle at 20% 76%, rgb(238 0 90 / 0.06), transparent 18%),
       linear-gradient(to right, color-mix(in srgb, var(--sp-text-on-page-default) 4%, transparent) 1px, transparent 1px),
       linear-gradient(to bottom, color-mix(in srgb, var(--sp-text-on-page-default) 4%, transparent) 1px, transparent 1px);
     background-size: 100% 100%, 100% 100%, 28px 28px, 28px 28px;
@@ -146,7 +147,7 @@
 
   .hero-atmosphere__glow {
     @apply absolute rounded-full blur-3xl;
-    background: radial-gradient(circle, rgb(230 0 79 / 0.16), transparent 68%);
+    background: radial-gradient(circle, rgb(238 0 90 / 0.16), transparent 68%);
     width: 28rem;
     height: 28rem;
   }
@@ -208,9 +209,8 @@
   }
 
   .home-principles-card,
-  .home-product-card,
-  .stack-item {
-    background: color-mix(in srgb, var(--sp-surface-page) 86%, var(--sp-surface-card-default));
+  .home-product-card {
+    background: color-mix(in srgb, var(--sp-surface-page) 86%, var(--sp-surface-card));
   }
 
   .home-principles-card__stack,
@@ -272,13 +272,46 @@
     border-color: var(--site-border);
   }
 
+  .display-headline {
+    @apply font-display text-4xl font-black leading-[0.94] tracking-[-0.06em] md:text-5xl;
+    text-wrap: balance;
+  }
+
+  .lead {
+    @apply text-base leading-7 md:text-lg;
+    color: var(--sp-text-on-page-subtle);
+  }
+
+  .section-block {
+    @apply py-12 md:py-16;
+  }
+
+  .section-band {
+    @apply border-t;
+    border-color: var(--site-border);
+  }
+
+  .two-column-copy {
+    @apply grid gap-6 text-sm leading-7 md:grid-cols-2 md:text-base;
+    color: var(--sp-text-on-page-subtle);
+  }
+
   .stack-list {
     @apply grid gap-4;
   }
 
-  .stack-item {
-    @apply border p-6 md:p-8;
-    border-color: var(--site-border);
+  .stack-item__kicker {
+    @apply text-[0.72rem] font-semibold uppercase tracking-[0.24em];
+    color: var(--sp-text-on-page-subtle);
+  }
+
+  .stack-item__title {
+    @apply font-display text-2xl font-black tracking-[-0.04em] md:text-3xl;
+  }
+
+  .stack-item__copy {
+    @apply text-sm leading-7 md:text-base;
+    color: var(--sp-text-on-page-subtle);
   }
 }
 
