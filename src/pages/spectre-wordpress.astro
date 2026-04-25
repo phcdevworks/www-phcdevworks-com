@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { SpCard } from '@phcdevworks/spectre-ui-astro'
+import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'
 
 const assets = [
   {
     name: 'Spectre WordPress',
     detail:
-      'The WordPress side of Spectre for CMS-driven delivery that stays aligned with the system.',
+      'The WordPress side of Spectre for CMS-driven delivery that stays aligned with the system tokens and visual language.',
   },
   {
     name: 'Spectre Icons',
@@ -22,7 +22,7 @@ const assets = [
 >
   <section class="page-intro">
     <p class="eyebrow">Spectre WordPress</p>
-    <h1 class="display-headline">WordPress delivery that still speaks the same system language.</h1>
+    <h1 class="display-headline">WordPress delivery that still speaks the <span>same system language.</span></h1>
     <p class="lead page-lead">
       Spectre WordPress covers CMS-driven delivery and icon support without
       drifting away from the core system.
@@ -33,15 +33,21 @@ const assets = [
     <div class="section-heading">
       <p class="eyebrow">Assets</p>
       <h2 class="section-title">CMS support without breaking the system language.</h2>
+      <p class="section-copy">
+        Two assets that keep WordPress-based projects in the same visual contract
+        as the rest of the Spectre system.
+      </p>
     </div>
 
-    <div class="stack-list">
+    <div class="stack-list stack-list--cols-2">
       {
         assets.map((item) => (
-          <SpCard as="article" variant="outline" padded>
-            <p class="stack-item__kicker">Asset</p>
-            <h3 class="stack-item__title">{item.name}</h3>
-            <p class="stack-item__copy">{item.detail}</p>
+          <SpCard as="article" variant="outline" padded fullHeight class="stack-card">
+            <div class="home-product-card__stack">
+              <p class="stack-item__kicker">Asset</p>
+              <h3 class="stack-item__title">{item.name}</h3>
+              <p class="stack-item__copy">{item.detail}</p>
+            </div>
           </SpCard>
         ))
       }
@@ -64,5 +70,21 @@ const assets = [
         delivery work that still honors the shared contract.
       </p>
     </div>
+  </section>
+
+  <section class="home-section">
+    <SpCard variant="elevated" padded class="home-principles-card home-principles-card--wide">
+      <div class="home-principles-card__stack">
+        <p class="eyebrow">PHCDevworks</p>
+        <h2 class="home-panel-title">The same contract, delivered in WordPress.</h2>
+        <p class="home-panel-copy">
+          Spectre WordPress keeps CMS delivery aligned with the same system
+          language used everywhere else in Spectre. No drift, no exceptions.
+        </p>
+        <div class="page-cta-links">
+          <SpButton as="a" href="/" variant="ghost">View the full system</SpButton>
+        </div>
+      </div>
+    </SpCard>
   </section>
 </Layout>

@@ -1,17 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { SpCard } from '@phcdevworks/spectre-ui-astro'
+import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'
 
 const modules = [
   {
     name: 'Spectre Shell',
     detail:
-      'The thin application shell for Spectre apps.',
+      'The thin application shell for Spectre apps. Handles startup, frame structure, and the top-level application boundary.',
   },
   {
     name: 'Spectre Shell Router',
     detail:
-      'The routing layer that registers application routes and handles shell movement.',
+      'The routing layer that registers application routes and handles shell movement between views.',
   },
   {
     name: 'Spectre Shell Signals',
@@ -27,7 +27,7 @@ const modules = [
 >
   <section class="page-intro">
     <p class="eyebrow">Spectre Shell</p>
-    <h1 class="display-headline">Application structure without framework noise.</h1>
+    <h1 class="display-headline">Application structure without <span>framework noise.</span></h1>
     <p class="lead page-lead">
       Spectre Shell covers the application frame, routing, and reactive
       primitives for Spectre-based apps.
@@ -38,15 +38,20 @@ const modules = [
     <div class="section-heading">
       <p class="eyebrow">Modules</p>
       <h2 class="section-title">Shell, routing, and state built as one application layer.</h2>
+      <p class="section-copy">
+        Three focused modules that solve the application edges without growing into a framework.
+      </p>
     </div>
 
-    <div class="stack-list">
+    <div class="stack-list stack-list--cols-3">
       {
         modules.map((item) => (
-          <SpCard as="article" variant="outline" padded>
-            <p class="stack-item__kicker">Module</p>
-            <h3 class="stack-item__title">{item.name}</h3>
-            <p class="stack-item__copy">{item.detail}</p>
+          <SpCard as="article" variant="outline" padded fullHeight class="stack-card">
+            <div class="home-product-card__stack">
+              <p class="stack-item__kicker">Module</p>
+              <h3 class="stack-item__title">{item.name}</h3>
+              <p class="stack-item__copy">{item.detail}</p>
+            </div>
           </SpCard>
         ))
       }
@@ -69,5 +74,21 @@ const modules = [
         of the way.
       </p>
     </div>
+  </section>
+
+  <section class="home-section">
+    <SpCard variant="elevated" padded class="home-principles-card home-principles-card--wide">
+      <div class="home-principles-card__stack">
+        <p class="eyebrow">PHCDevworks</p>
+        <h2 class="home-panel-title">The shell stays thin by design.</h2>
+        <p class="home-panel-copy">
+          Spectre Shell handles the edges so your application logic doesn't have to.
+          Route management, frame structure, and reactive state — tight and predictable.
+        </p>
+        <div class="page-cta-links">
+          <SpButton as="a" href="/" variant="ghost">View the full system</SpButton>
+        </div>
+      </div>
+    </SpCard>
   </section>
 </Layout>

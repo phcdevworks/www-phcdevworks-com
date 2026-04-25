@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { SpCard } from '@phcdevworks/spectre-ui-astro'
+import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'
 
 const packages = [
   {
@@ -27,7 +27,7 @@ const packages = [
 >
   <section class="page-intro">
     <p class="eyebrow">Spectre Design</p>
-    <h1 class="display-headline">The core layers of the Spectre design system.</h1>
+    <h1 class="display-headline">The core layers of the <span>Spectre design system.</span></h1>
     <p class="lead page-lead">
       Spectre Design covers the token package, the UI implementation layer, and
       the Astro adapter.
@@ -38,15 +38,21 @@ const packages = [
     <div class="section-heading">
       <p class="eyebrow">Packages</p>
       <h2 class="section-title">Three layers working from one shared contract.</h2>
+      <p class="section-copy">
+        Each layer has a clear role. Tokens define the contract. UI implements it.
+        Astro delivers it.
+      </p>
     </div>
 
-    <div class="stack-list">
+    <div class="stack-list stack-list--cols-3">
       {
         packages.map((item) => (
-          <SpCard as="article" variant="outline" padded>
-            <p class="stack-item__kicker">Package</p>
-            <h3 class="stack-item__title">{item.name}</h3>
-            <p class="stack-item__copy">{item.detail}</p>
+          <SpCard as="article" variant="outline" padded fullHeight class="stack-card">
+            <div class="home-product-card__stack">
+              <p class="stack-item__kicker">Package</p>
+              <h3 class="stack-item__title">{item.name}</h3>
+              <p class="stack-item__copy">{item.detail}</p>
+            </div>
           </SpCard>
         ))
       }
@@ -70,5 +76,21 @@ const packages = [
         it trapped in documentation.
       </p>
     </div>
+  </section>
+
+  <section class="home-section">
+    <SpCard variant="elevated" padded class="home-principles-card home-principles-card--wide">
+      <div class="home-principles-card__stack">
+        <p class="eyebrow">PHCDevworks</p>
+        <h2 class="home-panel-title">One contract. Three layers. Everything stays aligned.</h2>
+        <p class="home-panel-copy">
+          Tokens, UI, and Astro work as one system. Build downstream apps without
+          inventing your own rules — the contract is already defined.
+        </p>
+        <div class="page-cta-links">
+          <SpButton as="a" href="/" variant="ghost">View the full system</SpButton>
+        </div>
+      </div>
+    </SpCard>
   </section>
 </Layout>

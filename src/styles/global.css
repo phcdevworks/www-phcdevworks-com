@@ -268,13 +268,40 @@
   }
 
   .page-intro {
-    @apply grid gap-5 border-b pb-12 md:pb-16;
+    @apply relative flex flex-col gap-6 overflow-hidden border-b py-14 md:py-20;
     border-color: var(--site-border);
+  }
+
+  .page-intro::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at -8% 130%, rgb(238 0 90 / 0.1), transparent 55%),
+      radial-gradient(ellipse at 108% -20%, rgb(1 38 65 / 0.12), transparent 50%);
+  }
+
+  .page-intro .eyebrow {
+    @apply flex items-center gap-3;
+    color: var(--site-brand);
+  }
+
+  .page-intro .eyebrow::before {
+    content: '';
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2px;
+    background: var(--site-brand);
   }
 
   .display-headline {
     @apply font-display text-4xl font-black leading-[0.94] tracking-[-0.06em] md:text-5xl;
     text-wrap: balance;
+  }
+
+  .display-headline span {
+    color: var(--site-brand);
   }
 
   .lead {
@@ -286,18 +313,48 @@
     @apply py-12 md:py-16;
   }
 
+  .section-heading .eyebrow {
+    @apply flex items-center gap-3;
+  }
+
+  .section-heading .eyebrow::before {
+    content: '';
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 2px;
+    background: var(--site-brand);
+  }
+
   .section-band {
     @apply border-t;
     border-color: var(--site-border);
+    background: color-mix(in srgb, var(--site-navy) 4%, transparent);
   }
 
   .two-column-copy {
-    @apply grid gap-6 text-sm leading-7 md:grid-cols-2 md:text-base;
+    @apply grid gap-8 text-sm leading-7 md:grid-cols-2 md:text-base;
     color: var(--sp-text-on-page-subtle);
+  }
+
+  .two-column-copy p {
+    @apply border-l-2 pl-5;
+    border-color: color-mix(in srgb, var(--site-brand) 30%, transparent);
   }
 
   .stack-list {
     @apply grid gap-4;
+  }
+
+  .stack-list--cols-2 {
+    @apply md:grid-cols-2;
+  }
+
+  .stack-list--cols-3 {
+    @apply md:grid-cols-3;
+  }
+
+  .stack-card.sp-card--outline {
+    border-top: 2px solid var(--site-brand);
   }
 
   .stack-item__kicker {
@@ -312,6 +369,10 @@
   .stack-item__copy {
     @apply text-sm leading-7 md:text-base;
     color: var(--sp-text-on-page-subtle);
+  }
+
+  .page-cta-links {
+    @apply mt-auto pt-4 flex flex-wrap gap-4;
   }
 }
 
