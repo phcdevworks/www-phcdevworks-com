@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { SpCard } from '@phcdevworks/spectre-ui-astro'
 
 const modules = [
   {
@@ -42,11 +43,11 @@ const modules = [
     <div class="stack-list">
       {
         modules.map((item) => (
-          <article class="stack-item">
+          <SpCard as="article" variant="outline" padded>
             <p class="stack-item__kicker">Module</p>
             <h3 class="stack-item__title">{item.name}</h3>
             <p class="stack-item__copy">{item.detail}</p>
-          </article>
+          </SpCard>
         ))
       }
     </div>

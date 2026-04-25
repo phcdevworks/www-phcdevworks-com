@@ -44,7 +44,8 @@ The identity is built on:
 
 - black or near-black backgrounds
 - white or off-white typography
-- a single accent color: `#E6004F`
+- a primary accent color: `#EE005A` (Raspberry Red)
+- a secondary deep color: `#012641` (Deep Space Blue)
 - strong type hierarchy
 - restrained surface layering
 - subtle technical grid treatments
@@ -57,26 +58,41 @@ The identity is built on:
 
 Primary brand accent:
 
-- `#E6004F`
+- `#EE005A` — Raspberry Red
 
 This accent is locked unless explicitly changed by direct instruction.
+
+### Secondary Color
+
+Secondary brand color:
+
+- `#012641` — Deep Space Blue
+
+Use Deep Space Blue for:
+
+- dark section backgrounds
+- deep surface layering
+- structural backdrop contrast
+- supporting the primary accent without competing with it
 
 ### Base Palette Direction
 
 Use a dark-first palette built around:
 
 - black / near-black backgrounds
+- `#012641` (Deep Space Blue) for deep structural surfaces
 - white / off-white primary text
 - neutral grays for borders, dividers, muted text, and subtle surface separation
-- `#E6004F` for emphasis and interactive priority
+- `#EE005A` for emphasis and interactive priority
 
 ### Color Rules
 
-- never introduce blue as a dominant brand color
-- never switch the site into a blue-first palette
+- never introduce blue as a casual or trend-driven choice — Deep Space Blue is approved only as a structural dark surface color
+- never switch the site into a blue-dominant or blue-led palette
 - do not rotate accent colors by page or section
 - do not use multicolor gradients as branding
-- use `#E6004F` selectively so it retains strength and perceived value
+- use `#EE005A` selectively so it retains strength and perceived value
+- use `#012641` as a dark structural surface — not as a bright or accent color
 
 ### Accent Usage
 
@@ -313,14 +329,16 @@ It should not feel:
 
 ## Brand Non-Negotiables
 
-1. never change the primary accent from `#E6004F` without explicit instruction
-2. never introduce blue as a dominant brand color
-3. never casually change the primary font
-4. never use stock photos, generic illustrations, or decorative hero images
-5. never replace the dark technical visual language with generic SaaS styling
-6. never let glassmorphism overpower clarity or hierarchy
-7. never solve weak layout with decorative filler
-8. never let the site become visually noisy
+1. never change the primary accent from `#EE005A` without explicit instruction
+2. never change the secondary color from `#012641` without explicit instruction
+3. never use `#012641` as an accent or interactive color — it is a structural dark surface only
+4. never introduce any other blue outside the approved `#012641`
+5. never casually change the primary font
+6. never use stock photos, generic illustrations, or decorative hero images
+7. never replace the dark technical visual language with generic SaaS styling
+8. never let glassmorphism overpower clarity or hierarchy
+9. never solve weak layout with decorative filler
+10. never let the site become visually noisy
 
 ## Definition of On-Brand
 
@@ -329,7 +347,7 @@ A design is on-brand when it:
 - feels like a modern technical flagship
 - uses dark surfaces with disciplined contrast
 - relies on bold typography and strong layout
-- uses `#E6004F` sparingly and intentionally
+- uses `#EE005A` sparingly and intentionally
 - keeps visuals restrained and premium
 - avoids generic SaaS styling
 - avoids imagery-led marketing patterns
