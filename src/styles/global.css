@@ -10,10 +10,34 @@
 @layer base {
   :root {
     --site-max-width: min(1200px, calc(100vw - 2rem));
-    --site-border: color-mix(in srgb, var(--sp-text-on-page-default) 14%, transparent);
-    --site-border-strong: color-mix(in srgb, var(--sp-text-on-page-default) 24%, transparent);
     --site-brand: #EE005A;
     --site-navy: #012641;
+
+    /* Override Spectre UI tokens for dark-first brand */
+    --sp-surface-page: #050f1c;
+    --sp-surface-card: #0a1b2e;
+    --sp-surface-input: #0a1b2e;
+    --sp-surface-overlay: rgba(0, 0, 0, 0.75);
+
+    --sp-text-on-page-default: #d4e4f5;
+    --sp-text-on-page-muted: #7896b4;
+    --sp-text-on-page-subtle: #4d6e8a;
+    --sp-text-on-page-meta: #4d6e8a;
+    --sp-text-on-surface-default: #d4e4f5;
+    --sp-text-on-surface-muted: #7896b4;
+    --sp-text-on-surface-subtle: #4d6e8a;
+
+    --sp-component-card-text: #d4e4f5;
+    --sp-component-card-text-muted: #7896b4;
+    --sp-component-card-border: rgba(255, 255, 255, 0.09);
+
+    --sp-button-text-default: #d4e4f5;
+    --sp-button-ghost-text: #d4e4f5;
+
+    --sp-color-neutral-200: rgba(255, 255, 255, 0.09);
+
+    --site-border: rgba(255, 255, 255, 0.09);
+    --site-border-strong: rgba(255, 255, 255, 0.16);
   }
 
   * {
@@ -29,10 +53,10 @@
     color: var(--sp-text-on-page-default);
     background-color: var(--sp-surface-page);
     background-image:
-      radial-gradient(circle at 50% 22%, rgb(238 0 90 / 0.1), transparent 22%),
-      radial-gradient(circle at 20% 76%, rgb(238 0 90 / 0.06), transparent 18%),
-      linear-gradient(to right, color-mix(in srgb, var(--sp-text-on-page-default) 4%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in srgb, var(--sp-text-on-page-default) 4%, transparent) 1px, transparent 1px);
+      radial-gradient(circle at 50% 22%, rgb(238 0 90 / 0.14), transparent 24%),
+      radial-gradient(circle at 18% 78%, rgb(1 38 65 / 0.4), transparent 22%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
     background-size: 100% 100%, 100% 100%, 28px 28px, 28px 28px;
   }
 
@@ -219,7 +243,7 @@
   }
 
   .home-principles-card {
-    box-shadow: 0 24px 60px rgb(20 27 36 / 0.08);
+    box-shadow: 0 0 80px rgb(238 0 90 / 0.07), 0 24px 60px rgb(0 0 0 / 0.5);
   }
 
   .home-principles-card--wide {
@@ -325,12 +349,6 @@
     background: var(--site-brand);
   }
 
-  .section-band {
-    @apply border-t;
-    border-color: var(--site-border);
-    background: color-mix(in srgb, var(--site-navy) 4%, transparent);
-  }
-
   .two-column-copy {
     @apply grid gap-8 text-sm leading-7 md:grid-cols-2 md:text-base;
     color: var(--sp-text-on-page-subtle);
@@ -373,6 +391,65 @@
 
   .page-cta-links {
     @apply mt-auto pt-4 flex flex-wrap gap-4;
+  }
+
+  /* Numbered spec-list — replaces stacked cards for content sections */
+  .spec-list {
+    border-top: 1px solid var(--site-border);
+  }
+
+  .spec-list__item {
+    @apply grid gap-x-8 gap-y-3 border-b py-8 md:grid-cols-[3rem_1fr_2fr] md:items-start;
+    border-color: var(--site-border);
+  }
+
+  .spec-list__num {
+    @apply font-display text-4xl font-black leading-none tracking-[-0.06em] md:pt-1;
+    color: color-mix(in srgb, var(--site-brand) 45%, transparent);
+  }
+
+  .spec-list__meta {
+    @apply text-[0.68rem] font-semibold uppercase tracking-[0.22em];
+    color: var(--site-brand);
+  }
+
+  .spec-list__name {
+    @apply font-display text-xl font-black tracking-[-0.04em] md:col-start-2;
+  }
+
+  .spec-list__detail {
+    @apply text-sm leading-7 md:col-start-3 md:row-start-1 md:row-span-3;
+    color: var(--sp-text-on-page-subtle);
+  }
+
+  /* Asset split — landscape 2-col layout for WordPress page */
+  .asset-list {
+    @apply flex flex-col gap-5;
+  }
+
+  .asset-card__inner {
+    @apply grid gap-8 md:grid-cols-[1fr_2fr] md:items-start;
+  }
+
+  .asset-card__left {
+    @apply flex flex-col gap-3 md:border-r md:pr-8;
+    border-color: var(--site-border);
+  }
+
+  .asset-card__name {
+    @apply font-display text-2xl font-black tracking-[-0.05em];
+  }
+
+  .asset-card__detail {
+    @apply text-sm leading-7;
+    color: var(--sp-text-on-page-subtle);
+  }
+
+  /* Section band — navy-tinted alternating section */
+  .section-band {
+    @apply border-t;
+    border-color: var(--site-border);
+    background: color-mix(in srgb, var(--site-navy) 35%, var(--sp-surface-page));
   }
 }
 
