@@ -4,19 +4,22 @@ import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'
 
 const packages = [
   {
+    num: '01',
     name: 'Spectre Tokens',
     detail:
-      'The design-token package of the Spectre system for downstream packages and compatible applications.',
+      'The design-token package. Defines every --sp-* CSS variable and the Tailwind preset that downstream packages and apps consume as the source of truth.',
   },
   {
+    num: '02',
     name: 'Spectre UI',
     detail:
-      'The implementation layer between Spectre Tokens and downstream adapters or applications.',
+      'The implementation layer. Transforms tokens into CSS bundles, component class recipes, and Tailwind configuration consumed by framework adapters.',
   },
   {
+    num: '03',
     name: 'Spectre UI Astro',
     detail:
-      'The Astro adapter package for Astro applications that consume the core Spectre UI contract.',
+      'The Astro adapter. Exposes the Spectre UI contract as typed Astro components — SpCard, SpButton, SpBadge, and more — ready to use in Astro applications.',
   },
 ]
 ---
@@ -29,42 +32,38 @@ const packages = [
     <p class="eyebrow">Spectre Design</p>
     <h1 class="display-headline">The core layers of the <span>Spectre design system.</span></h1>
     <p class="lead page-lead">
-      Spectre Design covers the token package, the UI implementation layer, and
-      the Astro adapter.
+      Tokens define it. UI implements it. Astro delivers it. Three layers
+      that stay aligned through one shared contract.
     </p>
   </section>
 
   <section class="section-block">
     <div class="section-heading">
       <p class="eyebrow">Packages</p>
-      <h2 class="section-title">Three layers working from one shared contract.</h2>
-      <p class="section-copy">
-        Each layer has a clear role. Tokens define the contract. UI implements it.
-        Astro delivers it.
-      </p>
+      <h2 class="section-title">Three layers. One shared contract.</h2>
     </div>
 
-    <div class="stack-list stack-list--cols-3">
+    <ol class="spec-list">
       {
-        packages.map((item) => (
-          <SpCard as="article" variant="outline" padded fullHeight class="stack-card">
-            <div class="home-product-card__stack">
-              <p class="stack-item__kicker">Package</p>
-              <h3 class="stack-item__title">{item.name}</h3>
-              <p class="stack-item__copy">{item.detail}</p>
+        packages.map((pkg) => (
+          <li class="spec-list__item">
+            <span class="spec-list__num">{pkg.num}</span>
+            <div>
+              <p class="spec-list__meta">Package</p>
+              <h3 class="spec-list__name">{pkg.name}</h3>
             </div>
-          </SpCard>
+            <p class="spec-list__detail">{pkg.detail}</p>
+          </li>
         ))
       }
-    </div>
+    </ol>
   </section>
 
   <section class="section-block section-band">
     <div class="section-heading">
       <p class="eyebrow">Why it matters</p>
-      <h2 class="section-title">Keep the system legible from design decisions to shipped code.</h2>
+      <h2 class="section-title">Keep the system legible from design decision to shipped code.</h2>
     </div>
-
     <div class="two-column-copy">
       <p>
         Spectre Tokens define the source contract. Spectre UI carries that
@@ -79,13 +78,13 @@ const packages = [
   </section>
 
   <section class="home-section">
-    <SpCard variant="elevated" padded class="home-principles-card home-principles-card--wide">
+    <SpCard variant="outline" padded class="home-principles-card home-principles-card--wide">
       <div class="home-principles-card__stack">
         <p class="eyebrow">PHCDevworks</p>
         <h2 class="home-panel-title">One contract. Three layers. Everything stays aligned.</h2>
         <p class="home-panel-copy">
-          Tokens, UI, and Astro work as one system. Build downstream apps without
-          inventing your own rules — the contract is already defined.
+          Build downstream apps without inventing your own rules.
+          The contract is already defined at the token layer.
         </p>
         <div class="page-cta-links">
           <SpButton as="a" href="/" variant="ghost">View the full system</SpButton>
