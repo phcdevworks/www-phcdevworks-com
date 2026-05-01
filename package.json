@@ -22,7 +22,7 @@
     "@phcdevworks/spectre-tokens": "^2.4.0",
     "@phcdevworks/spectre-ui": "^1.4.0",
     "@phcdevworks/spectre-ui-astro": "^2.1.0",
-    "astro": "^6.1.10"
+    "astro": "^6.2.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",
