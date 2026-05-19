@@ -30,13 +30,15 @@ Use this checklist before a release, production deploy, or final handoff.
 ## Build And Runtime
 
 - [ ] `npm install` is not required unless dependencies changed
-- [ ] `npm run build` passes when practical
-- [ ] `npm run typecheck` passes when Astro, TypeScript, dependency, or config
-      behavior changed
+- [ ] `npm run check` passes when practical
+- [ ] `npm run build` and `npm run typecheck` were run individually when
+      diagnosing validation failures
 - [ ] `npm run preview` or local runtime check completed when page behavior
       changed
 - [ ] new routes are reachable from intentional navigation surfaces
 - [ ] metadata remains accurate for changed pages
+- [ ] `package.json` metadata and scripts remain accurate
+- [ ] generated output is current where expected
 
 ## Accessibility And UX
 
@@ -51,5 +53,6 @@ Use this checklist before a release, production deploy, or final handoff.
 - [ ] changed files listed
 - [ ] validation commands listed
 - [ ] changelog/release-note impact described when relevant
+- [ ] package metadata, public routes, and docs impact noted when relevant
 - [ ] assumptions noted
 - [ ] next follow-up recommended only when useful

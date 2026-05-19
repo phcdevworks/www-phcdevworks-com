@@ -7,6 +7,9 @@ practical.
 
 ## Unreleased
 
+- Added `npm run check` as the repository validation gate.
+- Expanded Codex operating guidance for release checks, documentation standards,
+  config cleanup, metadata review, and handoff reporting.
 - Standardized AI-agent coordination rules and Codex release-agent procedures.
 - Documented `npm run typecheck` across contributor and agent validation
   guidance.

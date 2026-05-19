@@ -59,9 +59,11 @@ platform-agnostic or Web API patterns in server-side code.
 Run before handoff:
 
 ```bash
-npm run build
-npm run typecheck
+npm run check
 ```
+
+`npm run check` is the full validation gate and currently runs `npm run build`
+then `npm run typecheck`.
 
 `npm run build` — catches Astro compilation errors, import resolution failures,
 and type errors surfaced during the build.\
