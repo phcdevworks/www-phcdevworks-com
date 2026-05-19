@@ -36,6 +36,19 @@ release ownership, or broad refactors.
 
 Human final review and commit authority stays with PHCDevworks maintainers.
 
+## AI Coordination Rules
+
+- Use `AGENTS.md` as the central coordination document for all agents.
+- Use the agent-specific files for role details: `CLAUDE.md`, `CODEX.md`,
+  `COPILOT.md`, and `JULES.md`.
+- Resolve role conflicts by preserving the operating model above: Claude Code
+  leads implementation, Codex owns release/documentation/stabilization support,
+  Copilot assists, and Jules handles bounded automated maintenance.
+- Keep shared project rules in `AGENTS.md`; keep agent-specific workflow details
+  in the matching agent file.
+- Update related agent docs together when scripts, validation gates, or
+  ownership boundaries change.
+
 ## Positioning
 
 This repository represents:

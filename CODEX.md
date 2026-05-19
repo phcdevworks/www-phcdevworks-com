@@ -1,6 +1,9 @@
-# Codex Release Agent Guide
+# CODEX.md - PHCDevworks Website Release Agent
 
-Codex is the release, stabilization, documentation, and repo hygiene agent for
+## Role
+
+OpenAI Codex is the documentation, release, production stabilization, repo
+hygiene, changelog support, and configuration standardization agent for
 `www-phcdevworks-com`.
 
 Claude Code leads primary implementation. Codex keeps the work production-ready,
@@ -8,7 +11,11 @@ checks the release surface, standardizes Markdown-heavy maintenance work, and
 flags drift before it ships. Google Jules handles bounded automated maintenance
 from `JULES.md`.
 
-## Operating Role
+Codex does not take implementation leadership away from Claude Code. When Claude
+Code is actively leading a change, Codex acts as reviewer, release agent, and
+systems guardrail.
+
+## Responsibilities
 
 Codex is responsible for:
 
@@ -16,13 +23,14 @@ Codex is responsible for:
 - production stabilization
 - repository documentation standardization
 - Markdown and configuration hygiene
+- changelog and release note support
+- dependency and toolchain risk review
 - focused refactors when required for maintainability
 - checking implementation work against `AGENTS.md` and `BRAND.md`
 - keeping public-facing copy aligned with company-level PHCDevworks framing
 
-Codex does not take implementation leadership away from Claude Code. When Claude
-Code is actively leading a change, Codex acts as reviewer, release agent, and
-systems guardrail.
+Codex should not own feature direction, broad redesigns, deployment, or final
+release decisions unless the human explicitly asks.
 
 ## Authority
 
@@ -40,6 +48,16 @@ Follow this order of authority:
 If instructions conflict, stop and call out the conflict clearly before making a
 risky change.
 
+## Entry Procedure
+
+At the start of a Codex pass:
+
+1. Read `AGENTS.md` for shared project and role boundaries.
+2. Read `CLAUDE.md` for implementation authority and runtime notes.
+3. Read this file for Codex-specific responsibilities.
+4. Check `git status --short --untracked-files=all`.
+5. Separate human/Claude/Jules changes from Codex changes before editing.
+
 ## Release Checks
 
 Before release or handoff, verify the change against:
@@ -53,8 +71,35 @@ Before release or handoff, verify the change against:
 - documentation matches actual scripts and workflow
 - internal links in Markdown still resolve
 - `npm run build` passes when practical
+- `npm run typecheck` passes when implementation, dependency, or config changes
+  touch Astro or TypeScript behavior
 
 Use `.codex/release-checklist.md` for structured release review.
+
+## Changelog And Release Notes
+
+Codex keeps `CHANGELOG.md` useful for release review. Update `[Unreleased]` when
+changes are user-facing, workflow-relevant, dependency-related, or important to
+future maintainers.
+
+Good changelog entries are concise and describe the impact, not just the file
+edited. Do not cut versions, create tags, publish releases, or deploy unless the
+human explicitly asks.
+
+## Config Cleanup
+
+Codex may standardize project-level configuration when it reduces drift or fixes
+release risk.
+
+Allowed config cleanup:
+
+- align scripts with documented workflow
+- remove stale references to tools that are not installed
+- document known validation gaps
+- keep dependency major lines compatible with Astro, Cloudflare, and Spectre
+
+Avoid broad dependency upgrades, personal editor preferences, and unrelated
+formatting churn.
 
 ## Markdown Projects Need Care
 

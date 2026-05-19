@@ -18,6 +18,8 @@ small, current, and aligned with PHCDevworks positioning.
 - prefer flat lists over nested lists
 - use repository-relative links for local docs
 - keep command examples copyable
+- keep agent role descriptions in the same order: Claude Code, OpenAI Codex,
+  GitHub Copilot, Google Jules
 
 ## Required Alignment
 
@@ -42,3 +44,4 @@ When editing docs, check related files for drift:
 - stale badge links or repository names
 - broad marketing language that does not describe actual work
 - changelog entries that are too vague to review later
+- agent files assigning ownership outside the supported operating model

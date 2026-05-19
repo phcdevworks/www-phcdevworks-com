@@ -41,7 +41,8 @@ Copilot does not own:
 - Reuse Spectre packages and patterns before introducing custom alternatives.
 - Keep changes Astro-first, SSR-friendly, and maintainable.
 - Avoid unnecessary dependencies and unrelated formatting churn.
-- Keep guidance aligned with `AGENTS.md`, `BRAND.md`, and `CODEX.md`.
+- Keep guidance aligned with `AGENTS.md`, `CLAUDE.md`, `CODEX.md`, `JULES.md`,
+  and `BRAND.md`.
 
 ## Code Conventions
 
@@ -55,6 +56,7 @@ Copilot does not own:
 
 - Run `npm run build` after docs, config, or implementation changes when
   practical.
+- Recommend `npm run typecheck` when Astro or TypeScript behavior changes.
 - Use `npm run preview` when runtime behavior needs Cloudflare validation.
 - Keep docs and scripts synchronized when workflows change.
 

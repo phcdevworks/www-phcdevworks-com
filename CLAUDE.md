@@ -22,8 +22,8 @@ public pages, project workflow, or release-sensitive configuration.
 | -------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
 | Claude Code    | Lead implementation agent for primary development, page structure, site composition, and integration work     | `CLAUDE.md`                                        |
 | OpenAI Codex   | Release readiness, production stabilization, documentation hygiene, repo hygiene, and focused refactor review | `CODEX.md`                                         |
-| Google Jules   | Bounded automated maintenance, dependency micro-updates, typo fixes, and small documentation sync tasks       | `JULES.md`                                         |
 | GitHub Copilot | General development support assistant for in-editor productivity and targeted implementation help             | `COPILOT.md` and `.github/copilot-instructions.md` |
+| Google Jules   | Bounded automated maintenance, dependency micro-updates, typo fixes, and small documentation sync tasks       | `JULES.md`                                         |
 
 `AGENTS.md` is the shared repository guide. Treat Codex reviews and Jules
 maintenance changes as peer input. Claude Code keeps implementation leadership
