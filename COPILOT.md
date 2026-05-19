@@ -25,6 +25,8 @@ Copilot does not own:
 - repo-wide AI governance
 - automated maintenance workflows
 
+Copilot supports Claude Code and Codex. Copilot does not replace them.
+
 ## Authority Boundaries
 
 - Claude Code is lead developer and primary implementation owner.
@@ -44,6 +46,36 @@ Copilot does not own:
 - Keep guidance aligned with `AGENTS.md`, `CLAUDE.md`, `CODEX.md`, `JULES.md`,
   and `BRAND.md`.
 
+## Package Boundaries
+
+- Preserve this repository's role as the PHCDevworks company website.
+- Keep implementation in the correct package boundary for the Spectre ecosystem.
+- Do not patch upstream design-system gaps locally when Spectre packages should
+  own the fix.
+- Do not hardcode visual primitives where Spectre tokens or Spectre UI recipes
+  should be used.
+- Do not add framework-specific behavior to framework-agnostic packages.
+- Do not add app-specific logic to reusable libraries.
+
+## Allowed Work
+
+- support scoped implementation tasks assigned by Bradley Potts or Claude Code
+- support localized refactors that improve clarity, correctness, or
+  maintainability
+- update docs when behavior, setup, scripts, or validation guidance changes
+- help maintain GitHub templates and workflow docs
+- identify stale docs, missing tests, or metadata drift
+- help draft PR summaries and review comments
+
+## Restricted Work
+
+- do not own architecture direction
+- do not own release decisions
+- do not merge PRs, publish packages, or cut releases
+- do not perform broad refactors without Claude Code or human direction
+- do not expand Jules beyond bounded automated maintenance
+- do not override Codex release-readiness findings
+
 ## Code Conventions
 
 - Prefer strict, explicit TypeScript types and avoid `any`.
@@ -60,6 +92,13 @@ Copilot does not own:
 - Recommend `npm run typecheck` when Astro or TypeScript behavior changes.
 - Use `npm run preview` when runtime behavior needs Cloudflare validation.
 - Keep docs and scripts synchronized when workflows change.
+
+## Documentation And GitHub Support Expectations
+
+- keep README and contributor docs consistent with actual scripts and behavior
+- keep PR and issue templates concise, reviewable, and tied to repo boundaries
+- ensure release-impact and validation sections stay present in templates
+- keep suggestions practical for GitHub-native review and maintenance workflows
 
 Primary operational prompts for Copilot live in
 `.github/copilot-instructions.md`.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Agent boundaries and governance
+    url: https://github.com/phcdevworks/www-phcdevworks-com/blob/main/AGENTS.md
+    about: Review shared AI-agent boundaries before opening governance issues.
+  - name: Contributor workflow guidance
+    url: https://github.com/phcdevworks/www-phcdevworks-com/blob/main/CONTRIBUTING.md
+    about: Check workflow, validation, and contribution expectations.
