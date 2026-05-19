@@ -28,7 +28,10 @@ When editing docs, check related files for drift:
 - `CHANGELOG.md`
 - `SECURITY.md`
 - `AGENTS.md`
+- `CLAUDE.md`
 - `CODEX.md`
+- `JULES.md`
+- `COPILOT.md`
 - `BRAND.md`
 
 ## Common Drift To Fix

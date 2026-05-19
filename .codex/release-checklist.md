@@ -23,13 +23,16 @@ Use this checklist before a release, production deploy, or final handoff.
 - [ ] `CONTRIBUTING.md` matches current workflow
 - [ ] `CHANGELOG.md` is updated for release-relevant changes
 - [ ] Markdown internal links resolve
-- [ ] agent guidance remains consistent across `AGENTS.md` and `CODEX.md`
+- [ ] agent guidance remains consistent across `AGENTS.md`, `CLAUDE.md`,
+      `CODEX.md`, `JULES.md`, `COPILOT.md`, and
+      `.github/copilot-instructions.md`
 
 ## Build And Runtime
 
 - [ ] `npm install` is not required unless dependencies changed
 - [ ] `npm run build` passes when practical
-- [ ] `npm run preview` or local runtime check completed when page behavior changed
+- [ ] `npm run preview` or local runtime check completed when page behavior
+      changed
 - [ ] new routes are reachable from intentional navigation surfaces
 - [ ] metadata remains accurate for changed pages
 
