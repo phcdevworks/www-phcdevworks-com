@@ -4,8 +4,9 @@
 
 **Repository:** `www-phcdevworks-com`  
 **Brand:** PHCDevworks  
+**Human owner:** Bradley Potts — final authority for commits, merges, tags, and releases  
 **Primary AI developer:** Claude Code  
-**Release support:** OpenAI Codex  
+**Release and production safety:** OpenAI Codex  
 **Automated maintenance:** Google Jules
 
 `www-phcdevworks-com` is the public company website for PHCDevworks. It may
@@ -21,7 +22,8 @@ public pages, project workflow, or release-sensitive configuration.
 | Agent          | Role                                                                                                          | Guide                                              |
 | -------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
 | Claude Code    | Lead implementation agent for primary development, page structure, site composition, and integration work     | `CLAUDE.md`                                        |
-| OpenAI Codex   | Release readiness, production stabilization, documentation hygiene, repo hygiene, and focused refactor review | `CODEX.md`                                         |
+| OpenAI Codex   | Backup/release-readiness agent — production safety, validation, documentation, changelog, and repo hygiene    | `CODEX.md`                                         |
+| ChatGPT        | Strategy, coordination, prompt design, and external review — support layer only, no implementation ownership  | —                                                  |
 | GitHub Copilot | General development support assistant for in-editor productivity and targeted implementation help             | `COPILOT.md` and `.github/copilot-instructions.md` |
 | Google Jules   | Bounded automated maintenance, dependency micro-updates, typo fixes, and small documentation sync tasks       | `JULES.md`                                         |
 

@@ -20,21 +20,24 @@ single-product website.
 
 This repository follows a lead-and-check model for AI-assisted work:
 
-| Agent          | Role                                                                                                        | Authority                                          |
-| -------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| Claude Code    | Lead implementation agent for primary development work                                                      | `CLAUDE.md` when present, then `AGENTS.md`         |
-| OpenAI Codex   | Release agent for production readiness, documentation, repo hygiene, focused refactors, and standardization | `CODEX.md`, then `AGENTS.md`                       |
-| GitHub Copilot | General development support assistant                                                                       | `COPILOT.md` and `.github/copilot-instructions.md` |
-| Google Jules   | Automated maintenance for small fixes, dependency micro-updates, and bounded documentation sync             | `JULES.md`, then `AGENTS.md`                       |
+| Agent          | Role                                                                                                                | Authority                                          |
+| -------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| Claude Code    | Lead implementation agent for primary development work                                                              | `CLAUDE.md` when present, then `AGENTS.md`         |
+| OpenAI Codex   | Backup/release-readiness agent — production safety, validation, documentation, changelog, and config standardization | `CODEX.md`, then `AGENTS.md`                       |
+| ChatGPT        | Strategy, coordination, prompt design, and external review — support layer only, no implementation ownership        | —                                                  |
+| GitHub Copilot | General development support assistant                                                                               | `COPILOT.md` and `.github/copilot-instructions.md` |
+| Google Jules   | Automated maintenance for small fixes, dependency micro-updates, and bounded documentation sync                     | `JULES.md`, then `AGENTS.md`                       |
 
-Claude Code leads implementation. Codex keeps work aligned, checks production
-readiness, updates documentation when workflows drift, and refactors only when
-required for maintainability or release safety. Copilot supports in-editor
-development tasks without ownership authority. Jules handles bounded automated
-maintenance only and must not take over primary development, brand direction,
-release ownership, or broad refactors.
+Claude Code leads implementation. Codex backs Claude Code up by keeping
+production readiness, release safety, validation, documentation, changelog
+hygiene, and config standardization locked down. ChatGPT provides strategy and
+coordination support only. Copilot supports in-editor development tasks without
+ownership authority. Jules handles bounded automated maintenance only and must
+not take over primary development, brand direction, release ownership, or broad
+refactors.
 
-Human final review and commit authority stays with PHCDevworks maintainers.
+**Bradley Potts** holds final authority for all commits, merges, tags,
+publishing, and releases. No AI agent holds commit authority in this repository.
 
 ## AI Coordination Rules
 
