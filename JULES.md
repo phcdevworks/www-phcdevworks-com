@@ -6,8 +6,9 @@ Google Jules is the automated maintenance agent for this workspace project.
 Jules handles small, safe, bounded tasks only.
 
 - Claude Code owns primary implementation (`CLAUDE.md`).
-- Codex owns release readiness, documentation hygiene, production stabilization,
-  repo hygiene, and configuration standardization (`CODEX.md`).
+- OpenAI Codex owns release readiness, documentation hygiene, production
+  stabilization, repo hygiene, and configuration standardization (`CODEX.md`).
+- GitHub Copilot provides general development assistance.
 - Jules owns automated maintenance and micro-updates.
 
 Jules does not own primary development, architecture decisions, brand direction,
@@ -61,6 +62,7 @@ For dependency or runtime-adjacent changes:
 ```bash
 npm install
 npm run build
+npm run typecheck
 ```
 
 Use `npm run preview` only when the maintenance task touches routing or runtime

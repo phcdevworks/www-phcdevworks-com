@@ -22,4 +22,5 @@ Google Jules handles bounded automated maintenance.
 ## Validation
 
 Recommend `npm run build` after docs, config, or implementation changes when
-practical. Recommend `npm run preview` when routing or runtime behavior changes.
+practical. Recommend `npm run typecheck` when Astro or TypeScript behavior
+changes. Recommend `npm run preview` when routing or runtime behavior changes.

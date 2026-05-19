@@ -31,6 +31,8 @@ Use this checklist before a release, production deploy, or final handoff.
 
 - [ ] `npm install` is not required unless dependencies changed
 - [ ] `npm run build` passes when practical
+- [ ] `npm run typecheck` passes when Astro, TypeScript, dependency, or config
+      behavior changed
 - [ ] `npm run preview` or local runtime check completed when page behavior
       changed
 - [ ] new routes are reachable from intentional navigation surfaces
@@ -48,5 +50,6 @@ Use this checklist before a release, production deploy, or final handoff.
 
 - [ ] changed files listed
 - [ ] validation commands listed
+- [ ] changelog/release-note impact described when relevant
 - [ ] assumptions noted
 - [ ] next follow-up recommended only when useful

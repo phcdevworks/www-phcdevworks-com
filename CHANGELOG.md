@@ -7,6 +7,9 @@ practical.
 
 ## Unreleased
 
+- Standardized AI-agent coordination rules and Codex release-agent procedures.
+- Documented `npm run typecheck` across contributor and agent validation
+  guidance.
 - Added Claude Code and Google Jules agent configuration for the workspace.
 - Updated Codex guidance to coordinate with Claude Code and Jules.
 - Added Codex release-agent guidance and release checklists for production
