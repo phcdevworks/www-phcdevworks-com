@@ -12,9 +12,9 @@ it is not limited to Spectre and should not be framed as a single-product
 website.
 
 **Repository docs:** [CONTRIBUTING.md](CONTRIBUTING.md) |
-[CHANGELOG.md](CHANGELOG.md) | [SECURITY.md](SECURITY.md) |
-[BRAND.md](BRAND.md) | [AGENTS.md](AGENTS.md) | [CODEX.md](CODEX.md) |
-[LICENSE](LICENSE)
+[CHANGELOG.md](CHANGELOG.md) | [SECURITY.md](SECURITY.md) | [BRAND.md](BRAND.md)
+| [AGENTS.md](AGENTS.md) | [CLAUDE.md](CLAUDE.md) | [CODEX.md](CODEX.md) |
+[JULES.md](JULES.md) | [COPILOT.md](COPILOT.md) | [LICENSE](LICENSE)
 
 ## Overview
 
@@ -78,5 +78,7 @@ npm run preview
 - Claude Code leads primary implementation work.
 - Codex supports release readiness, production checks, documentation hygiene,
   and focused refactors.
-- Follow `AGENTS.md`, `CODEX.md`, and `BRAND.md` before changing public site
-  structure, copy, or visual direction.
+- GitHub Copilot provides general development support in the IDE.
+- Google Jules handles bounded automated maintenance and micro-updates.
+- Follow `AGENTS.md`, `CLAUDE.md`, `CODEX.md`, `JULES.md`, and `BRAND.md` before
+  changing public site structure, copy, or visual direction.

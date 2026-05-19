@@ -5,7 +5,8 @@ Codex is the release, stabilization, documentation, and repo hygiene agent for
 
 Claude Code leads primary implementation. Codex keeps the work production-ready,
 checks the release surface, standardizes Markdown-heavy maintenance work, and
-flags drift before it ships.
+flags drift before it ships. Google Jules handles bounded automated maintenance
+from `JULES.md`.
 
 ## Operating Role
 
@@ -30,8 +31,11 @@ Follow this order of authority:
 1. direct human instruction
 2. `AGENTS.md`
 3. `BRAND.md`
-4. `CODEX.md`
-5. existing repository patterns
+4. `CLAUDE.md` for implementation authority
+5. `CODEX.md` for release-agent responsibilities
+6. `JULES.md` for automated maintenance scope
+7. `COPILOT.md` and `.github/copilot-instructions.md` for Copilot support scope
+8. existing repository patterns
 
 If instructions conflict, stop and call out the conflict clearly before making a
 risky change.

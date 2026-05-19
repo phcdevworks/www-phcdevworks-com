@@ -20,15 +20,19 @@ single-product website.
 
 This repository follows a lead-and-check model for AI-assisted work:
 
-| Agent | Role | Authority |
-| ----- | ---- | --------- |
-| Claude Code | Lead implementation agent for primary development work | `CLAUDE.md` when present, then `AGENTS.md` |
-| OpenAI Codex | Release agent for production readiness, documentation, repo hygiene, focused refactors, and standardization | `CODEX.md`, then `AGENTS.md` |
-| GitHub Copilot | General editor assistance if configured | `.github/copilot-instructions.md` when present |
+| Agent          | Role                                                                                                        | Authority                                          |
+| -------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| Claude Code    | Lead implementation agent for primary development work                                                      | `CLAUDE.md` when present, then `AGENTS.md`         |
+| OpenAI Codex   | Release agent for production readiness, documentation, repo hygiene, focused refactors, and standardization | `CODEX.md`, then `AGENTS.md`                       |
+| GitHub Copilot | General development support assistant                                                                       | `COPILOT.md` and `.github/copilot-instructions.md` |
+| Google Jules   | Automated maintenance for small fixes, dependency micro-updates, and bounded documentation sync             | `JULES.md`, then `AGENTS.md`                       |
 
 Claude Code leads implementation. Codex keeps work aligned, checks production
 readiness, updates documentation when workflows drift, and refactors only when
-required for maintainability or release safety.
+required for maintainability or release safety. Copilot supports in-editor
+development tasks without ownership authority. Jules handles bounded automated
+maintenance only and must not take over primary development, brand direction,
+release ownership, or broad refactors.
 
 Human final review and commit authority stays with PHCDevworks maintainers.
 
@@ -57,7 +61,9 @@ This repository represents:
 - Do not carry forward retired branding, old organization names, or narrow
   single-product framing.
 - Follow `BRAND.md` for visual identity decisions.
+- Follow `CLAUDE.md` for Claude Code implementation leadership.
 - Follow `CODEX.md` for Codex release-agent responsibilities.
+- Follow `JULES.md` for bounded automated maintenance tasks.
 
 ## Content Rules
 
@@ -69,8 +75,8 @@ This repository represents:
   the site.
 - Avoid vague marketing filler, bloated copy, startup clichés, and
   over-claiming.
-- When the page voice goes raw, rebellious, or anti-corporate, keep it sharp
-  and intentional instead of sliding back into polite SaaS copy.
+- When the page voice goes raw, rebellious, or anti-corporate, keep it sharp and
+  intentional instead of sliding back into polite SaaS copy.
 - Do not default to button-led CTA patterns on impact sections or the homepage.
   Prefer route strips, editorial links, or other non-corporate navigation
   treatments when that direction is active.
@@ -93,6 +99,19 @@ should:
 
 Codex should not replace Claude Code as implementation lead unless the human
 explicitly asks Codex to take over a task.
+
+## Google Jules Maintenance Agent
+
+Jules is the automated maintenance agent for this repository. Jules should:
+
+- fix small documentation drift, typos, and broken internal links
+- perform dependency micro-updates only within compatible major lines
+- keep maintenance tasks atomic and easy to review
+- run `npm run build` when practical before reporting completion
+- stop and report blockers when validation fails outside Jules scope
+
+Jules must not own broad redesigns, architecture decisions, release cuts,
+deployment, or changes that alter PHCDevworks brand direction.
 
 ## Configuration Rules
 
