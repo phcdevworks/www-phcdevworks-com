@@ -12,7 +12,9 @@ it is not limited to Spectre and should not be framed as a single-product
 website.
 
 **Repository docs:** [CONTRIBUTING.md](CONTRIBUTING.md) |
-[CHANGELOG.md](CHANGELOG.md) | [SECURITY.md](SECURITY.md) | [LICENSE](LICENSE)
+[CHANGELOG.md](CHANGELOG.md) | [SECURITY.md](SECURITY.md) |
+[BRAND.md](BRAND.md) | [AGENTS.md](AGENTS.md) | [CODEX.md](CODEX.md) |
+[LICENSE](LICENSE)
 
 ## Overview
 
@@ -52,3 +54,29 @@ PHCDevworks identity and should be maintained with that scope in mind.
 ```bash
 npm install
 ```
+
+### Develop
+
+```bash
+npm run dev
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Preview
+
+```bash
+npm run preview
+```
+
+## Agent And Release Workflow
+
+- Claude Code leads primary implementation work.
+- Codex supports release readiness, production checks, documentation hygiene,
+  and focused refactors.
+- Follow `AGENTS.md`, `CODEX.md`, and `BRAND.md` before changing public site
+  structure, copy, or visual direction.

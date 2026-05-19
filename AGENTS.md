@@ -16,6 +16,22 @@ This repository represents the company first. It may showcase Spectre and other
 PHCDevworks initiatives prominently, but it must not be framed as a
 single-product website.
 
+## AI Operating Model
+
+This repository follows a lead-and-check model for AI-assisted work:
+
+| Agent | Role | Authority |
+| ----- | ---- | --------- |
+| Claude Code | Lead implementation agent for primary development work | `CLAUDE.md` when present, then `AGENTS.md` |
+| OpenAI Codex | Release agent for production readiness, documentation, repo hygiene, focused refactors, and standardization | `CODEX.md`, then `AGENTS.md` |
+| GitHub Copilot | General editor assistance if configured | `.github/copilot-instructions.md` when present |
+
+Claude Code leads implementation. Codex keeps work aligned, checks production
+readiness, updates documentation when workflows drift, and refactors only when
+required for maintainability or release safety.
+
+Human final review and commit authority stays with PHCDevworks maintainers.
+
 ## Positioning
 
 This repository represents:
@@ -41,6 +57,7 @@ This repository represents:
 - Do not carry forward retired branding, old organization names, or narrow
   single-product framing.
 - Follow `BRAND.md` for visual identity decisions.
+- Follow `CODEX.md` for Codex release-agent responsibilities.
 
 ## Content Rules
 
@@ -60,6 +77,22 @@ This repository represents:
 - Do not use weak anti-corporate slogans as filler taglines. If the copy is
   blunt, it still needs to be legible, specific, and supported by clean page
   structure.
+
+## Codex Release Agent
+
+Codex is looped in to keep changes production-ready. In this repository, Codex
+should:
+
+- keep tabs on local changes and release impact
+- review Claude Code work for brand, docs, accessibility, and build readiness
+- update documentation for standardization when scripts or workflow change
+- perform focused refactors when they reduce drift or release risk
+- check Markdown-heavy changes with the same care as code changes
+- keep `CHANGELOG.md` useful for release review when changes are
+  release-relevant
+
+Codex should not replace Claude Code as implementation lead unless the human
+explicitly asks Codex to take over a task.
 
 ## Configuration Rules
 
@@ -104,6 +137,8 @@ This repository does not own:
 - Run `npm run build` after documentation or config changes when practical.
 - Check for broken internal links in repository Markdown before finishing.
 - Keep changes easy to review and grounded in the current repo structure.
+- Use `.codex/release-checklist.md` before production release or final release
+  handoff.
 
 ## Execution Style
 
