@@ -45,7 +45,35 @@ npm run build
 ```
 
 Use `npm run preview` when a page or routing change needs a Cloudflare runtime
-check. Use `npm run deploy` only when the human explicitly requests deployment.
+check — this builds first and serves via `wrangler dev`, reflecting the actual
+Cloudflare Workers SSR runtime. Use `npm run deploy` only when the human
+explicitly requests deployment.
+
+**Runtime context:** This site runs as an SSR application on Cloudflare Workers
+via `@astrojs/cloudflare`. Node.js APIs are not available at runtime unless
+explicitly enabled via Cloudflare Workers compatibility flags. Prefer
+platform-agnostic or Web API patterns in server-side code.
+
+## Validation
+
+Run before handoff:
+
+```bash
+npm run build
+npm run typecheck
+```
+
+`npm run build` — catches Astro compilation errors, import resolution failures,
+and type errors surfaced during the build.\
+`npm run typecheck` (`astro check`) — runs the Astro TypeScript checker
+independently of the build; catches component prop mismatches, type errors, and
+TS configuration issues without producing a build artifact.
+
+`eslint.config.ts` is present with TypeScript ESLint rules and `typescript-eslint`
+is installed. Linting `.astro` files requires `eslint-plugin-astro` and
+`astro-eslint-parser` — these are not yet installed. There is no `npm run lint`
+script. Do not run ESLint on `.astro` files until those plugins are added. Flag
+this in the handoff if linting is needed for a task.
 
 ## Implementation Priorities
 
@@ -55,6 +83,19 @@ check. Use `npm run deploy` only when the human explicitly requests deployment.
 4. Favor focused changes over broad redesigns.
 5. Keep public copy concise, technical, and specific.
 6. Keep documentation synchronized with actual scripts and workflow.
+
+## Source Layout
+
+```
+src/
+  pages/          — routes (index, spectre-design, spectre-shell, spectre-wordpress)
+  layouts/        — shared Astro layout (Layout.astro)
+  styles/         — global CSS layered on top of Spectre
+  assets/         — site-owned static assets bundled by Astro
+public/           — static assets served as-is (no processing)
+```
+
+Add `src/components/` when reusable components are introduced.
 
 ## Edit Boundaries
 
