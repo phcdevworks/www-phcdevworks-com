@@ -7,6 +7,8 @@ practical.
 
 ## Unreleased
 
+- Added GitHub support templates for pull requests and issue intake (bug
+  reports, docs updates, release-readiness checks, and configuration/CI drift).
 - Added `npm run check` as the repository validation gate.
 - Expanded Codex operating guidance for release checks, documentation standards,
   config cleanup, metadata review, and handoff reporting.
