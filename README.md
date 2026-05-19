@@ -67,6 +67,12 @@ npm run dev
 npm run build
 ```
 
+### Check
+
+```bash
+npm run check
+```
+
 ### Typecheck
 
 ```bash

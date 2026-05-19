@@ -54,6 +54,7 @@ Copilot does not own:
 
 ## Validation Expectations
 
+- Recommend `npm run check` as the full validation command when practical.
 - Run `npm run build` after docs, config, or implementation changes when
   practical.
 - Recommend `npm run typecheck` when Astro or TypeScript behavior changes.

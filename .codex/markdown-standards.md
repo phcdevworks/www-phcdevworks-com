@@ -39,6 +39,8 @@ When editing docs, check related files for drift:
 ## Common Drift To Fix
 
 - describing the site as only a Spectre website
+- referring to Spectre as an "8-layer" system
+- using weapons language in public or contributor-facing docs
 - listing scripts that no longer exist
 - omitting scripts that contributors need
 - stale badge links or repository names

@@ -24,8 +24,6 @@ Use this checklist for bounded automated maintenance tasks.
 
 ## Validation
 
-- [ ] `npm run build` passes when practical
-- [ ] `npm run typecheck` passes when runtime, dependency, or TypeScript behavior
-      changed
+- [ ] `npm run check` passes when practical
 - [ ] Skipped validation is explained
 - [ ] Handoff lists files changed

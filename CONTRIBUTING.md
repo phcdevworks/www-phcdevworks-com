@@ -16,9 +16,8 @@ Thanks for contributing to `www-phcdevworks-com`.
 
 1. Install dependencies with `npm install`.
 2. Start the local server with `npm run dev`.
-3. Build before handing off with `npm run build`.
-4. Run `npm run typecheck` when Astro or TypeScript behavior changes.
-5. Use `npm run preview` when page behavior or deployment behavior needs a
+3. Run `npm run check` before handing off when practical.
+4. Use `npm run preview` when page behavior or deployment behavior needs a
    Cloudflare runtime check.
 
 ## Pull Request Expectations

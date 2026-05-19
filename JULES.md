@@ -54,15 +54,14 @@ Jules must not perform:
 For documentation-only changes:
 
 ```bash
-npm run build
+npm run check
 ```
 
 For dependency or runtime-adjacent changes:
 
 ```bash
 npm install
-npm run build
-npm run typecheck
+npm run check
 ```
 
 Use `npm run preview` only when the maintenance task touches routing or runtime

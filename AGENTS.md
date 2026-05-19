@@ -96,6 +96,8 @@ This repository represents:
 - Do not use weak anti-corporate slogans as filler taglines. If the copy is
   blunt, it still needs to be legible, specific, and supported by clean page
   structure.
+- Do not use weapons language.
+- Do not refer to Spectre as an "8-layer" system.
 
 ## Codex Release Agent
 
@@ -166,7 +168,10 @@ This repository does not own:
 
 ## Verification
 
+- Use `npm run check` as the full validation gate when practical.
 - Run `npm run build` after documentation or config changes when practical.
+- Run `npm run typecheck` when Astro, TypeScript, dependency, or config behavior
+  changes.
 - Check for broken internal links in repository Markdown before finishing.
 - Keep changes easy to review and grounded in the current repo structure.
 - Use `.codex/release-checklist.md` before production release or final release

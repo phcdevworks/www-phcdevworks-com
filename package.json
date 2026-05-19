@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "check": "npm run build && npm run typecheck",
     "preview": "npm run build && wrangler dev",
     "astro": "astro",
     "typecheck": "astro check",
