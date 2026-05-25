@@ -418,7 +418,7 @@
   }
 
   .spec-list__detail {
-    @apply text-sm leading-7 md:col-start-3 md:row-start-1 md:row-span-3;
+    @apply text-sm leading-7;
     color: var(--sp-text-on-page-subtle);
   }
 
@@ -450,6 +450,64 @@
     @apply border-t;
     border-color: var(--site-border);
     background: color-mix(in srgb, var(--site-navy) 35%, var(--sp-surface-page));
+  }
+
+  /* Engineering / code display */
+  .code-pill {
+    @apply inline font-mono rounded;
+    font-size: 0.75rem;
+    color: var(--site-brand);
+    background: rgb(238 0 90 / 0.07);
+    border: 1px solid rgb(238 0 90 / 0.18);
+    padding: 0.15em 0.55em;
+  }
+
+  .install-block {
+    @apply font-mono text-sm overflow-x-auto rounded;
+    background: #010d1a;
+    border: 1px solid var(--site-border);
+    border-left: 2px solid var(--site-brand);
+    padding: 0.875rem 1.125rem;
+    color: var(--sp-text-on-page-default);
+  }
+
+  .install-block code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  .code-block {
+    @apply font-mono text-xs overflow-x-auto rounded;
+    background: #010d1a;
+    border: 1px solid var(--site-border);
+    padding: 1rem 1.125rem;
+    color: var(--sp-text-on-page-muted);
+    line-height: 1.75;
+  }
+
+  .code-block code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  .hero-install {
+    @apply w-full max-w-xl mx-auto mt-2;
+  }
+
+  .spec-list__pkg {
+    @apply mt-2 block;
+  }
+
+  .spec-list__detail-col {
+    @apply flex flex-col gap-4 md:col-start-3 md:row-start-1 md:row-span-3;
+  }
+
+  .home-product-card__pkg {
+    @apply block mt-1;
   }
 }
 
