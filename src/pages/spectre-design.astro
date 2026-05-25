@@ -6,22 +6,33 @@ const packages = [
   {
     num: '01',
     name: 'Spectre Tokens',
-    detail:
-      'The design-token package. Defines every --sp-* CSS variable and the Tailwind preset that downstream packages and apps consume as the source of truth.',
+    pkg: '@phcdevworks/spectre-tokens',
+    detail: '--sp-* CSS variables and the Tailwind v4 preset. The source of truth for every visual decision downstream.',
+    snippet: 'npm install @phcdevworks/spectre-tokens',
   },
   {
     num: '02',
     name: 'Spectre UI',
-    detail:
-      'The implementation layer. Transforms tokens into CSS bundles, component class recipes, and Tailwind configuration consumed by framework adapters.',
+    pkg: '@phcdevworks/spectre-ui',
+    detail: 'Transforms tokens into CSS bundles and component class recipes consumed by framework adapters.',
+    snippet: '@import "@phcdevworks/spectre-ui/index.css";',
   },
   {
     num: '03',
     name: 'Spectre UI Astro',
-    detail:
-      'The Astro adapter. Exposes the Spectre UI contract as typed Astro components — SpCard, SpButton, SpBadge, and more — ready to use in Astro applications.',
+    pkg: '@phcdevworks/spectre-ui-astro',
+    detail: 'Typed Astro components — SpCard, SpButton, SpBadge, and more.',
+    snippet: "import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'",
   },
 ]
+
+const usageChain = `npm install @phcdevworks/spectre-tokens @phcdevworks/spectre-ui @phcdevworks/spectre-ui-astro
+
+// global.css
+@import "@phcdevworks/spectre-ui/index.css";
+
+// Component.astro
+import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'`
 ---
 
 <Layout
@@ -30,17 +41,16 @@ const packages = [
 >
   <section class="page-intro">
     <p class="eyebrow">Spectre Design</p>
-    <h1 class="display-headline">The core layers of the <span>Spectre design system.</span></h1>
-    <p class="lead page-lead">
-      Tokens define it. UI implements it. Astro delivers it. Three layers
-      that stay aligned through one shared contract.
-    </p>
+    <h1 class="display-headline">Tokens define it. UI builds it. <span>Astro ships it.</span></h1>
+    <div class="hero-install">
+      <pre class="install-block"><code>npm install @phcdevworks/spectre-ui-astro</code></pre>
+    </div>
   </section>
 
   <section class="section-block">
     <div class="section-heading">
       <p class="eyebrow">Packages</p>
-      <h2 class="section-title">Three layers. One shared contract.</h2>
+      <h2 class="section-title">Three packages. Each with one job.</h2>
     </div>
 
     <ol class="spec-list">
@@ -51,8 +61,12 @@ const packages = [
             <div>
               <p class="spec-list__meta">Package</p>
               <h3 class="spec-list__name">{pkg.name}</h3>
+              <code class="code-pill spec-list__pkg">{pkg.pkg}</code>
             </div>
-            <p class="spec-list__detail">{pkg.detail}</p>
+            <div class="spec-list__detail-col">
+              <p class="spec-list__detail">{pkg.detail}</p>
+              <pre class="install-block"><code>{pkg.snippet}</code></pre>
+            </div>
           </li>
         ))
       }
@@ -61,30 +75,19 @@ const packages = [
 
   <section class="section-block section-band">
     <div class="section-heading">
-      <p class="eyebrow">Why it matters</p>
-      <h2 class="section-title">Keep the system legible from design decision to shipped code.</h2>
+      <p class="eyebrow">Usage</p>
+      <h2 class="section-title">Three packages. One import chain.</h2>
     </div>
-    <div class="two-column-copy">
-      <p>
-        Spectre Tokens define the source contract. Spectre UI carries that
-        contract into implementation. Spectre UI Astro exposes it cleanly to
-        Astro applications.
-      </p>
-      <p>
-        Together they make the system usable in production instead of leaving
-        it trapped in documentation.
-      </p>
-    </div>
+    <pre class="code-block"><code>{usageChain}</code></pre>
   </section>
 
   <section class="home-section">
     <SpCard variant="outline" padded class="home-principles-card home-principles-card--wide">
       <div class="home-principles-card__stack">
         <p class="eyebrow">PHCDevworks</p>
-        <h2 class="home-panel-title">One contract. Three layers. Everything stays aligned.</h2>
+        <h2 class="home-panel-title">The contract is already defined at the token layer.</h2>
         <p class="home-panel-copy">
-          Build downstream apps without inventing your own rules.
-          The contract is already defined at the token layer.
+          Install once. Import anywhere. No custom token system to maintain.
         </p>
         <div class="page-cta-links">
           <SpButton as="a" href="/" variant="ghost">View the full system</SpButton>

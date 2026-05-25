@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "coastai-skills": {
+      "command": "npx",
+      "args": ["-y", "@coastdigitalgroup/coastai-skills"]
+    }
+  }
+}

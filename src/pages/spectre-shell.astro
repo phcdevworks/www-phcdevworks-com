@@ -6,22 +6,27 @@ const modules = [
   {
     num: '01',
     name: 'Spectre Shell',
-    detail:
-      'The thin application frame. Handles startup sequencing, the top-level application boundary, and the structural context downstream modules run inside.',
+    pkg: '@phcdevworks/spectre-shell',
+    detail: 'The thin application frame. Startup sequencing and top-level application boundary.',
+    snippet: 'npm install @phcdevworks/spectre-shell',
   },
   {
     num: '02',
     name: 'Spectre Shell Router',
-    detail:
-      'The routing layer. Registers application routes and handles shell movement between views without coupling route logic to component trees.',
+    pkg: '@phcdevworks/spectre-shell-router',
+    detail: 'Route registration without coupling route logic to component trees.',
+    snippet: 'npm install @phcdevworks/spectre-shell-router',
   },
   {
     num: '03',
     name: 'Spectre Shell Signals',
-    detail:
-      'The reactive primitives layer. Provides local UI state for Spectre shells without reaching for a full state management solution.',
+    pkg: '@phcdevworks/spectre-shell-signals',
+    detail: 'Reactive primitives for local UI state. No full state management needed.',
+    snippet: 'npm install @phcdevworks/spectre-shell-signals',
   },
 ]
+
+const installAll = `npm install @phcdevworks/spectre-shell @phcdevworks/spectre-shell-router @phcdevworks/spectre-shell-signals`
 ---
 
 <Layout
@@ -30,17 +35,16 @@ const modules = [
 >
   <section class="page-intro">
     <p class="eyebrow">Spectre Shell</p>
-    <h1 class="display-headline">Application structure without <span>framework noise.</span></h1>
-    <p class="lead page-lead">
-      Three focused modules that solve the application edges — startup,
-      routing, and local state — without growing into a framework.
-    </p>
+    <h1 class="display-headline">Shell. Router. <span>Signals.</span></h1>
+    <div class="hero-install">
+      <pre class="install-block"><code>npm install @phcdevworks/spectre-shell</code></pre>
+    </div>
   </section>
 
   <section class="section-block">
     <div class="section-heading">
       <p class="eyebrow">Modules</p>
-      <h2 class="section-title">Shell, routing, and state. Each with one clear job.</h2>
+      <h2 class="section-title">Three modules. Shell, routing, and state.</h2>
     </div>
 
     <ol class="spec-list">
@@ -51,8 +55,12 @@ const modules = [
             <div>
               <p class="spec-list__meta">Module</p>
               <h3 class="spec-list__name">{mod.name}</h3>
+              <code class="code-pill spec-list__pkg">{mod.pkg}</code>
             </div>
-            <p class="spec-list__detail">{mod.detail}</p>
+            <div class="spec-list__detail-col">
+              <p class="spec-list__detail">{mod.detail}</p>
+              <pre class="install-block"><code>{mod.snippet}</code></pre>
+            </div>
           </li>
         ))
       }
@@ -61,19 +69,10 @@ const modules = [
 
   <section class="section-block section-band">
     <div class="section-heading">
-      <p class="eyebrow">Operating model</p>
-      <h2 class="section-title">Keep the frame thin and the structure explicit.</h2>
+      <p class="eyebrow">Install</p>
+      <h2 class="section-title">Three focused modules. Install what you need.</h2>
     </div>
-    <div class="two-column-copy">
-      <p>
-        Spectre Shell exists to solve the application edges: startup, route
-        structure, and local state around the interface.
-      </p>
-      <p>
-        That keeps the shell useful, predictable, and small enough to stay
-        out of the way.
-      </p>
-    </div>
+    <pre class="code-block"><code>{installAll}</code></pre>
   </section>
 
   <section class="home-section">
@@ -82,9 +81,7 @@ const modules = [
         <p class="eyebrow">PHCDevworks</p>
         <h2 class="home-panel-title">The shell stays thin by design.</h2>
         <p class="home-panel-copy">
-          Route management, frame structure, and reactive state —
-          tight and predictable. Spectre Shell handles the edges so
-          your application logic doesn't have to.
+          Startup, routing, and reactive state — each its own package. Take only what you need.
         </p>
         <div class="page-cta-links">
           <SpButton as="a" href="/" variant="ghost">View the full system</SpButton>

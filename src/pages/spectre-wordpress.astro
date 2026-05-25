@@ -6,16 +6,20 @@ const assets = [
   {
     name: 'Spectre WordPress',
     meta: 'Integration',
-    detail:
-      'The WordPress side of Spectre. CMS-driven delivery that stays aligned with the system tokens and visual language without drifting into its own rules.',
+    pkg: '@phcdevworks/spectre-wordpress',
+    detail: 'CMS delivery aligned with Spectre tokens. Same visual contract, WordPress context.',
+    snippet: 'npm install @phcdevworks/spectre-wordpress',
   },
   {
     name: 'Spectre Icons',
     meta: 'Plugin',
-    detail:
-      'The PHCDevworks WordPress plugin for expanding native icon library support in page builders through manifest-driven registration and inline SVG rendering.',
+    pkg: '@phcdevworks/spectre-icons',
+    detail: 'Manifest-driven icon registration and inline SVG rendering for page builders.',
+    snippet: 'npm install @phcdevworks/spectre-icons',
   },
 ]
+
+const installAll = `npm install @phcdevworks/spectre-wordpress @phcdevworks/spectre-icons`
 ---
 
 <Layout
@@ -24,17 +28,16 @@ const assets = [
 >
   <section class="page-intro">
     <p class="eyebrow">Spectre WordPress</p>
-    <h1 class="display-headline">WordPress delivery that still speaks the <span>same system language.</span></h1>
-    <p class="lead page-lead">
-      Two assets that keep WordPress-based projects in the same visual
-      contract as the rest of the Spectre system.
-    </p>
+    <h1 class="display-headline">WordPress. <span>Still on-token.</span></h1>
+    <div class="hero-install">
+      <pre class="install-block"><code>npm install @phcdevworks/spectre-wordpress</code></pre>
+    </div>
   </section>
 
   <section class="section-block">
     <div class="section-heading">
       <p class="eyebrow">Assets</p>
-      <h2 class="section-title">CMS support without breaking the system language.</h2>
+      <h2 class="section-title">Two packages. CMS and icons.</h2>
     </div>
 
     <div class="asset-list">
@@ -45,8 +48,12 @@ const assets = [
               <div class="asset-card__left">
                 <p class="spec-list__meta">{asset.meta}</p>
                 <h3 class="asset-card__name">{asset.name}</h3>
+                <code class="code-pill">{asset.pkg}</code>
               </div>
-              <p class="asset-card__detail">{asset.detail}</p>
+              <div class="flex flex-col gap-4">
+                <p class="asset-card__detail">{asset.detail}</p>
+                <pre class="install-block"><code>{asset.snippet}</code></pre>
+              </div>
             </div>
           </SpCard>
         ))
@@ -56,19 +63,10 @@ const assets = [
 
   <section class="section-block section-band">
     <div class="section-heading">
-      <p class="eyebrow">Use case</p>
-      <h2 class="section-title">Keep content platforms aligned with the same visual and technical standards.</h2>
+      <p class="eyebrow">Install</p>
+      <h2 class="section-title">Both packages in one install.</h2>
     </div>
-    <div class="two-column-copy">
-      <p>
-        Spectre WordPress keeps content-heavy environments aligned with the
-        same system language used elsewhere in Spectre.
-      </p>
-      <p>
-        That includes icons, builder integration, and WordPress-specific
-        delivery work that still honors the shared contract.
-      </p>
-    </div>
+    <pre class="code-block"><code>{installAll}</code></pre>
   </section>
 
   <section class="home-section">
@@ -77,9 +75,7 @@ const assets = [
         <p class="eyebrow">PHCDevworks</p>
         <h2 class="home-panel-title">The same contract, delivered in WordPress.</h2>
         <p class="home-panel-copy">
-          Spectre WordPress keeps CMS delivery aligned with the same
-          system language used everywhere else in Spectre. No drift.
-          No exceptions.
+          No drift. No exceptions. Spectre tokens in every environment.
         </p>
         <div class="page-cta-links">
           <SpButton as="a" href="/" variant="ghost">View the full system</SpButton>
