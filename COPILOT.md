@@ -29,12 +29,7 @@ Copilot supports Claude Code and Codex. Copilot does not replace them.
 
 ## Authority Boundaries
 
-- Claude Code is lead developer and primary implementation owner.
-- OpenAI Codex owns documentation, releases, production stabilization, repo
-  hygiene, and config standardization.
-- Google Jules owns automated maintenance for small fixes, dependency updates,
-  and micro-updates.
-- Copilot provides support and does not override ownership decisions.
+Shared agent roster, authority hierarchy, and coordination rules live in `AGENTS.md`.
 
 ## Repository Guardrails
 

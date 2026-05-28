@@ -19,17 +19,7 @@ public pages, project workflow, or release-sensitive configuration.
 
 ## Multi-Agent Team
 
-| Agent          | Role                                                                                                          | Guide                                              |
-| -------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| Claude Code    | Lead implementation agent for primary development, page structure, site composition, and integration work     | `CLAUDE.md`                                        |
-| OpenAI Codex   | Backup/release-readiness agent — production safety, validation, documentation, changelog, and repo hygiene    | `CODEX.md`                                         |
-| ChatGPT        | Strategy, coordination, prompt design, and external review — support layer only, no implementation ownership  | —                                                  |
-| GitHub Copilot | General development support assistant for in-editor productivity and targeted implementation help             | `COPILOT.md` and `.github/copilot-instructions.md` |
-| Google Jules   | Bounded automated maintenance, dependency micro-updates, typo fixes, and small documentation sync tasks       | `JULES.md`                                         |
-
-`AGENTS.md` is the shared repository guide. Treat Codex reviews and Jules
-maintenance changes as peer input. Claude Code keeps implementation leadership
-unless the human explicitly assigns a task to another agent.
+`AGENTS.md` is the shared guide for agent roles, edit boundaries, and coordination rules. Claude Code leads implementation; resolve role conflicts by referencing `AGENTS.md`.
 
 ## Core Rule
 
@@ -90,7 +80,7 @@ this in the handoff if linting is needed for a task.
 
 ## Source Layout
 
-```
+```text
 src/
   pages/          — routes (index, spectre-design, spectre-shell, spectre-wordpress)
   layouts/        — shared Astro layout (Layout.astro)
@@ -126,30 +116,6 @@ clear in the handoff.
   over-claiming.
 - Do not use button-led CTA patterns as the default for impact sections when an
   editorial route strip or text-led navigation is stronger.
-
-## Working With Codex
-
-Codex acts as release agent and backup reviewer. Before handoff, invite Codex to
-check:
-
-- build readiness
-- documentation drift
-- brand and company-first framing
-- accessibility risks
-- dependency or configuration churn
-- release notes and changelog accuracy
-
-If Codex flags a production issue, resolve it or document why it is
-intentionally deferred.
-
-## Working With Jules
-
-Jules may handle small maintenance tasks when the scope is bounded and
-validation is clean. Jules must not own broad redesigns, architecture decisions,
-release decisions, or major dependency migrations.
-
-Claude Code should review Jules changes for scope, brand alignment, and build
-readiness before they are treated as production-ready.
 
 ## Handoff Expectations
 
