@@ -22,7 +22,7 @@
     "typescript": "^5.9 || ^6.0"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.5.5",
+    "@astrojs/cloudflare": "^13.6.0",
     "@phcdevworks/spectre-tokens": "^2.6.0",
     "@phcdevworks/spectre-ui": "^1.6.0",
     "@phcdevworks/spectre-ui-astro": "^2.4.0",
