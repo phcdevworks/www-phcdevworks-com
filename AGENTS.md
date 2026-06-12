@@ -1,5 +1,14 @@
 # www-phcdevworks-com Agent Guide
 
+## Repository Snapshot
+
+| Field | Value |
+| --- | --- |
+| Project team | `project-web` |
+| Repository role | PHCDevworks public company website |
+| Package/artifact | `www-phcdevworks-com` |
+| Validation gate | `npm run check` |
+
 ## Project Identity
 
 - Repository: `www-phcdevworks-com`
@@ -20,13 +29,13 @@ single-product website.
 
 This repository follows a lead-and-check model for AI-assisted work:
 
-| Agent          | Role                                                                                                                | Authority                                          |
-| -------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| Claude Code    | Lead implementation agent for primary development work                                                              | `CLAUDE.md` when present, then `AGENTS.md`         |
-| OpenAI Codex   | Backup/release-readiness agent — production safety, validation, documentation, changelog, and config standardization | `CODEX.md`, then `AGENTS.md`                       |
-| ChatGPT        | Strategy, coordination, prompt design, and external review — support layer only, no implementation ownership        | —                                                  |
-| GitHub Copilot | General development support assistant                                                                               | `COPILOT.md` and `.github/copilot-instructions.md` |
-| Google Jules   | Automated maintenance for small fixes, dependency micro-updates, and bounded documentation sync                     | `JULES.md`, then `AGENTS.md`                       |
+| Role | Agent | Authority | Guide |
+| --- | --- | --- | --- |
+| Lead developer | Claude Code | Lead implementation agent for primary development work | `CLAUDE.md` when present, then `AGENTS.md` |
+| Release safety | OpenAI Codex | Backup/release-readiness agent — production safety, validation, documentation, changelog, and config standardization | `CODEX.md`, then `AGENTS.md` |
+| Strategy | ChatGPT | Strategy, coordination, prompt design, and external review — support layer only, no implementation ownership | — |
+| Dev support | GitHub Copilot | General development support assistant | `COPILOT.md` and `.github/copilot-instructions.md` |
+| Maintenance | Google Jules | Automated maintenance for small fixes, dependency micro-updates, and bounded documentation sync | `JULES.md`, then `AGENTS.md` |
 
 Claude Code leads implementation. Codex backs Claude Code up by keeping
 production readiness, release safety, validation, documentation, changelog
@@ -38,6 +47,26 @@ refactors.
 
 **Bradley Potts** holds final authority for all commits, merges, tags,
 publishing, and releases. No AI agent holds commit authority in this repository.
+
+## Agent Boundaries
+
+- **Bradley Potts** holds final authority for all commits, merges, tags, and
+  production deployments. No AI agent may commit, push, or release.
+- **Claude Code** owns lead implementation and project direction.
+- **OpenAI Codex** owns release readiness, production stabilization,
+  documentation standardization, repo hygiene, and config standardization. Codex
+  does not override Claude Code's implementation decisions.
+- **ChatGPT** provides strategy guidance and external review. ChatGPT does not
+  own implementation, releases, governance, or autonomous execution.
+- **GitHub Copilot** is a development support assistant and does not own
+  implementation direction, architecture, releases, production stabilization,
+  repository governance, or automated maintenance.
+- **Google Jules** owns automated micro-maintenance only. Jules does not own
+  architecture decisions, brand direction, release ownership, or broad
+  refactors.
+
+When instructions appear to conflict, agent-specific guides take precedence over
+this file for their own scope. Use this file for shared coordination policy.
 
 ## AI Coordination Rules
 
@@ -203,7 +232,12 @@ Examples of bad pull requests:
 - add imagery that breaks the typography-first direction
 - replace the dark technical visual language with generic SaaS styling
 
-## Pull Request Expectations
+## Standard Handoff
+
+Every AI-prepared change should report files changed, validation performed,
+public behavior or contract impact, and unresolved risks. Do not edit generated
+outputs directly. Do not update [CHANGELOG.md](CHANGELOG.md) unless the change
+is release-relevant.
 
 Each pull request should:
 
@@ -213,6 +247,26 @@ Each pull request should:
 - list files changed
 - note assumptions if any
 - recommend the next logical follow-up
+
+## Pull Request Creation
+
+Every agent that opens a PR must populate every section of the repo's PR
+template (`.github/pull_request_template.md`):
+
+- **Summary** — describe the change and why it matters.
+- **Type Of Change** — check every box that applies.
+- **Package Boundary Check** — confirm the change stays within this
+  repository's website scope.
+- **Public API Impact** — confirm whether public behavior changed.
+- **Validation** — record the command run and its result.
+- **Documentation Updated** — confirm which docs were updated or note why none
+  were needed.
+- **Release Impact** — flag any release-relevant changes.
+- **Codex Review Needed** — indicate whether Codex review is required.
+- **Claude Code Implementation Notes** — add notes when relevant.
+
+Never submit a PR with an empty body or only the template headings left
+unfilled.
 
 ## Definition of Done
 
@@ -233,3 +287,16 @@ When in doubt:
 - choose restraint over noise
 - choose maintainability over novelty
 - choose company-level framing over single-product framing
+
+## For Full Operating Context
+
+See the agent-specific guide for each role:
+
+- [CLAUDE.md](CLAUDE.md) — implementation authority, project structure, content
+  standards, and workflow
+- [CODEX.md](CODEX.md) — release readiness checklist and documentation
+  standardization
+- [COPILOT.md](COPILOT.md) — Copilot support boundaries and practical guardrails
+- [JULES.md](JULES.md) — maintenance task scope and commit authority
+- [.github/copilot-instructions.md](.github/copilot-instructions.md) — Copilot
+  IDE-facing scope and repository conventions

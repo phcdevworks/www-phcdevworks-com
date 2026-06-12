@@ -20,6 +20,15 @@ Thanks for contributing to `www-phcdevworks-com`.
 4. Use `npm run preview` when page behavior or deployment behavior needs a
    Cloudflare runtime check.
 
+## Troubleshooting
+
+- **Build errors after pulling** — run `npm install` to sync dependencies before
+  building; `node_modules/` and `dist/` are not committed.
+- **`preview` or `deploy` fails** — requires Wrangler authentication; run
+  `wrangler login` and confirm Cloudflare project access.
+- **TypeScript errors in `.astro` files** — confirm your editor uses the Astro
+  VS Code extension. TypeScript is checked during `astro build`.
+
 ## Pull Request Expectations
 
 - Explain the intent of the change clearly.
@@ -36,3 +45,14 @@ Thanks for contributing to `www-phcdevworks-com`.
 - Do not introduce retired branding or outdated ownership language.
 - Keep project settings cohesive with the Spectre documentation repository when
   the workflow is shared.
+
+## AI Guidance Files
+
+- `AGENTS.md` defines shared multi-agent boundaries for this repository.
+- `CLAUDE.md` is the lead implementation guide.
+- `CODEX.md` covers release readiness, production stabilization, and repo
+  hygiene review.
+- `COPILOT.md` defines repository-level Copilot support boundaries.
+- `.github/copilot-instructions.md` keeps GitHub Copilot focused on support work
+  inside the IDE.
+- `JULES.md` defines automated micro-maintenance boundaries.

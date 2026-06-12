@@ -95,5 +95,7 @@ Shared agent roster, authority hierarchy, and coordination rules live in `AGENTS
 - ensure release-impact and validation sections stay present in templates
 - keep suggestions practical for GitHub-native review and maintenance workflows
 
+## Source Of Detailed Guidance
+
 Primary operational prompts for Copilot live in
-`.github/copilot-instructions.md`.
+`.github/copilot-instructions.md`. Shared repo boundaries live in `AGENTS.md`.

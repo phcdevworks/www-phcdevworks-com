@@ -1,5 +1,16 @@
 # CODEX.md - PHCDevworks Website Release Agent
 
+## Project Identity
+
+**Repository:** `www-phcdevworks-com`
+**Brand:** PHCDevworks
+**Maintainer:** PHCDevworks
+**Codex role:** documentation, releases, production stabilization, repo
+hygiene, and config standardization
+
+`www-phcdevworks-com` is the public company website for PHCDevworks. It should
+stay accurate, concise, production-ready, and company-first.
+
 ## Role
 
 OpenAI Codex is the documentation, release, production stabilization, repo
@@ -226,5 +237,28 @@ A Codex handoff should summarize:
 - release impact
 - docs updated
 - known risks or deferred follow-up
+
+## Documentation Audit Procedure
+
+Run this when documentation may have drifted:
+
+1. Compare `package.json` scripts against `README.md`, `CONTRIBUTING.md`,
+   `CLAUDE.md`, `CODEX.md`, and `.codex/release-checklist.md`.
+2. Check changed Markdown for local links and stale file paths.
+3. Confirm all agent files preserve the required role model: Claude Code leads,
+   Codex stabilizes and prepares releases, Copilot assists, and Jules handles
+   small automated maintenance.
+4. Confirm `CHANGELOG.md [Unreleased]` includes release-relevant documentation
+   or configuration changes.
+5. Confirm package metadata still matches repository identity and company-first
+   positioning.
+
+## Agent Boundaries
+
+Agent roster, authority map, and conflict-resolution policy live in `AGENTS.md`.
+Resolve conflicts by referencing `AGENTS.md` for shared coordination and
+`CLAUDE.md` for implementation authority. Codex never overrides Claude Code's
+implementation decisions. Codex never expands Jules beyond bounded maintenance
+scope. Codex never assigns release ownership to Copilot.
 
 Keep the handoff brief, specific, and release-oriented.

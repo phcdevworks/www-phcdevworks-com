@@ -76,6 +76,16 @@ behavior and the environment supports it.
 - Do not run broad force-fix commands such as `npm audit fix --force`.
 - Explain any lockfile changes in the handoff.
 
+## Commit Authority
+
+Jules must not:
+
+- force-push or rewrite history
+- commit, push, tag, publish, or release
+- commit unrelated working-tree changes
+- commit a state with failing validation
+- make release, deploy, or architecture decisions without human approval
+
 ## Commit Message Format
 
 Use these formats only when Jules has explicit commit authority:
