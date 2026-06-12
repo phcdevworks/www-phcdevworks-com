@@ -9,6 +9,26 @@
 | Package/artifact | `www-phcdevworks-com` |
 | Validation gate | `npm run check` |
 
+## Standard Authority Model
+
+| Agent | Role | Authority |
+|-------|------|-----------|
+| Claude Code | Lead implementation and validation | [CLAUDE.md](CLAUDE.md) |
+| OpenAI Codex | Documentation, release readiness, stabilization, and repo hygiene | [CODEX.md](CODEX.md) |
+| ChatGPT | Strategy, coordination, prompt design, and external review | Support only |
+| GitHub Copilot | Development assistance | [COPILOT.md](COPILOT.md) |
+| Google Jules | Bounded automated maintenance | [JULES.md](JULES.md) |
+
+Bradley Potts holds final authority for commits, merges, tags, publishing, and
+releases.
+
+## Standard Handoff
+
+Every AI-prepared change should report files changed, validation performed,
+public behavior or contract impact, and unresolved risks. Do not edit generated
+outputs directly. Do not update [CHANGELOG.md](CHANGELOG.md) unless the change
+is release-relevant.
+
 ## Project Identity
 
 - Repository: `www-phcdevworks-com`
@@ -24,29 +44,6 @@ Build and maintain the flagship public website for PHCDevworks.
 This repository represents the company first. It may showcase Spectre and other
 PHCDevworks initiatives prominently, but it must not be framed as a
 single-product website.
-
-## AI Operating Model
-
-This repository follows a lead-and-check model for AI-assisted work:
-
-| Role | Agent | Authority | Guide |
-| --- | --- | --- | --- |
-| Lead developer | Claude Code | Lead implementation agent for primary development work | `CLAUDE.md` when present, then `AGENTS.md` |
-| Release safety | OpenAI Codex | Backup/release-readiness agent — production safety, validation, documentation, changelog, and config standardization | `CODEX.md`, then `AGENTS.md` |
-| Strategy | ChatGPT | Strategy, coordination, prompt design, and external review — support layer only, no implementation ownership | — |
-| Dev support | GitHub Copilot | General development support assistant | `COPILOT.md` and `.github/copilot-instructions.md` |
-| Maintenance | Google Jules | Automated maintenance for small fixes, dependency micro-updates, and bounded documentation sync | `JULES.md`, then `AGENTS.md` |
-
-Claude Code leads implementation. Codex backs Claude Code up by keeping
-production readiness, release safety, validation, documentation, changelog
-hygiene, and config standardization locked down. ChatGPT provides strategy and
-coordination support only. Copilot supports in-editor development tasks without
-ownership authority. Jules handles bounded automated maintenance only and must
-not take over primary development, brand direction, release ownership, or broad
-refactors.
-
-**Bradley Potts** holds final authority for all commits, merges, tags,
-publishing, and releases. No AI agent holds commit authority in this repository.
 
 ## Agent Boundaries
 
@@ -231,13 +228,6 @@ Examples of bad pull requests:
 - introduce off-brand visual experiments
 - add imagery that breaks the typography-first direction
 - replace the dark technical visual language with generic SaaS styling
-
-## Standard Handoff
-
-Every AI-prepared change should report files changed, validation performed,
-public behavior or contract impact, and unresolved risks. Do not edit generated
-outputs directly. Do not update [CHANGELOG.md](CHANGELOG.md) unless the change
-is release-relevant.
 
 Each pull request should:
 
