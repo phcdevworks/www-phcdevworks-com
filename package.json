@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.7.0",
-    "@phcdevworks/spectre-tokens": "^3.1.0",
+    "@phcdevworks/spectre-tokens": "^3.2.0",
     "@phcdevworks/spectre-ui": "^2.3.0",
     "@phcdevworks/spectre-ui-astro": "^2.9.0",
     "astro": "^6.4.8"
