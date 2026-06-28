@@ -7,6 +7,13 @@ practical.
 
 ## Unreleased
 
+- Upgraded Astro from `^6.4.8` to `^7.0.2` and bumped `@phcdevworks/spectre-tokens`
+  to `^3.2.0`, `@phcdevworks/spectre-ui` to `^2.5.0`, and
+  `@phcdevworks/spectre-ui-astro` to `^3.2.0` (was 2 majors behind on the
+  Astro adapter's peer dependency). Bumped `@astrojs/cloudflare` to `^14.0.0`
+  and `wrangler` to `^4.104.0` to match.
+- Added `@types/node` so `scripts/check-readme-version.ts` typechecks under
+  `astro check`.
 - Added GitHub support templates for pull requests and issue intake (bug
   reports, docs updates, release-readiness checks, and configuration/CI drift).
 - Added `npm run check` as the repository validation gate.

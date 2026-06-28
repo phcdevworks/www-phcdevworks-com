@@ -106,6 +106,9 @@ This repository represents:
 - Follow `CLAUDE.md` for Claude Code implementation leadership.
 - Follow `CODEX.md` for Codex release-agent responsibilities.
 - Follow `JULES.md` for bounded automated maintenance tasks.
+- All `scripts/` tooling is TypeScript (`.ts`), run via
+  `node --experimental-strip-types`; never add a new `.js`/`.mjs` script.
+  Convert `scripts/screenshot.js` to `.ts` if it is touched for unrelated work.
 
 ## Content Rules
 
@@ -237,6 +240,30 @@ Each pull request should:
 - list files changed
 - note assumptions if any
 - recommend the next logical follow-up
+
+## Upstream Requests and Roadmap Self-Expansion
+
+Full directive: project-team [AGENTS.md](../AGENTS.md) "Upstream Requests and
+Roadmap Self-Expansion." Applied to this repo:
+
+- This repo's upstream is `project-design` (`spectre-tokens`, `spectre-ui`,
+  `spectre-ui-astro`). If a page or section needs a token, recipe, or
+  component that doesn't exist upstream, append the request to the owning
+  `project-design` repo's `TODO.md` under `## Requested by Downstream`,
+  dated, with the reason and a link back to this repo's own
+  TODO.md/ROADMAP.md. Never hand-roll a parallel design pattern instead.
+- This repo has no downstream consumer within the workspace. No `##
+  Requested by Downstream` section is expected here, but keep one ready if
+  that ever changes.
+- This repo's own `ROADMAP.md` may be proactively expanded with new or
+  reordered phases by the agent's own analysis — but never mark a phase
+  delivered without `npm run check` (build + typecheck) passing, and never let
+  a self-expanded phase drift the site toward single-product Spectre framing
+  — this repository represents PHCDevworks company-first (see Positioning
+  above).
+- Surface any new TODO request or roadmap expansion in the handoff for Bradley
+  Potts in the same change it was made, and reflect cross-repo-relevant
+  changes in the project-team's own ROADMAP.md/TODO.md.
 
 ## Pull Request Creation
 
