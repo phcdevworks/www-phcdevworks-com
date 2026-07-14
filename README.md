@@ -1,5 +1,14 @@
 # PHCDevworks Website
 
+`www-phcdevworks-com` is the public company website for PHCDevworks. It
+serves as the web presence for the company, its products, its technical
+ecosystem, and its broader brand — showcasing Spectre prominently without
+being framed as a single-product website.
+
+Maintained by [PHCDevworks](https://go.phcdev.co). It represents PHCDevworks
+as a company first, with Spectre as one platform within that story rather
+than the whole story.
+
 ## Repository Snapshot
 
 | Field | Value |

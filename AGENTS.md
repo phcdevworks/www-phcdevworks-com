@@ -9,25 +9,14 @@
 | Package/artifact | `www-phcdevworks-com` |
 | Validation gate | `npm run check` |
 
-## Standard Authority Model
+## Standard Authority Model and Handoff
 
-| Agent | Role | Authority |
-|-------|------|-----------|
-| Claude Code | Lead implementation and validation | [CLAUDE.md](CLAUDE.md) |
-| OpenAI Codex | Documentation, release readiness, stabilization, and repo hygiene | [CODEX.md](CODEX.md) |
-| ChatGPT | Strategy, coordination, prompt design, and external review | Support only |
-| GitHub Copilot | Development assistance | [COPILOT.md](COPILOT.md) |
-| Google Jules | Bounded automated maintenance | [JULES.md](JULES.md) |
-
-Bradley Potts holds final authority for commits, merges, tags, publishing, and
-releases.
-
-## Standard Handoff
-
-Every AI-prepared change should report files changed, validation performed,
-public behavior or contract impact, and unresolved risks. Do not edit generated
-outputs directly. Do not update [CHANGELOG.md](CHANGELOG.md) unless the change
-is release-relevant.
+See the project-team [AGENTS.md](../AGENTS.md) "AI Operating Model" and
+"Handoff Requirements" sections for the full agent roster, authority table,
+and standard handoff format. Bradley Potts holds final authority for commits,
+merges, tags, publishing, and releases. Do not edit generated outputs
+directly. Do not update [CHANGELOG.md](CHANGELOG.md) unless the change is
+release-relevant.
 
 ## Project Identity
 
@@ -36,6 +25,50 @@ is release-relevant.
 - Maintainer: PHCDevworks
 - Scope: public company website, supporting content, and project-level website
   configuration
+
+## Cross-Repo Access
+
+This repo may be worked on standalone or alongside any combination of other
+PHCDevworks repos — do not assume the company root or sibling project areas
+are present. The following rules are self-contained and apply whether or not
+that broader context is available.
+
+**File access.** An agent working in this repo has full read/write access to
+every file in this repo. When this repo is present alongside other
+PHCDevworks repos (company root or sibling `project-*` areas), the same full
+read/write access extends to those repos too — there is no per-repo access
+restriction anywhere in this workspace. What differs repo-to-repo is not
+*access*, it's *editorial ownership*: each repo's own `CLAUDE.md`/`AGENTS.md`
+still governs what changes make sense there (design-token authority, layer
+boundaries, etc.) — being able to open and edit a file is not the same as it
+being this repo's job to change it.
+
+**Cross-repo changelog sync.** When a change in this repo has direct
+downstream or upstream impact on another present repo (e.g. a breaking token
+rename, an API contract change), an agent may append a `CHANGELOG.md
+[Unreleased]` entry directly into that other repo's own changelog — not just
+leave a note asking its owner to add it. Rules:
+
+1. Only append new `[Unreleased]` entries — never edit, reorder, or remove
+   another repo's existing changelog entries, version headers, or release
+   history.
+2. Every cross-repo entry must be self-contained and attributed: which repo
+   caused it and why, what changed from the affected repo's perspective, and
+   the date added.
+3. Add it in the same change that produced the impact, not a later session.
+4. This never grants release authority — cutting a release, bumping a version
+   header, or publishing a package stays gated by that repo's own release
+   process and the human owner's final sign-off.
+
+**TODO/roadmap requests.** When work here surfaces a need that belongs to
+another repo, an agent may append the request directly to that repo's own
+`TODO.md` under a clearly labeled "Requested by Downstream" section (create
+it if absent), stating which repo is requesting it, why, the date, and a
+link back if the other repo's `TODO.md`/`ROADMAP.md` is reachable.
+
+No AI agent creates commits, tags, publishes packages, or merges changes in
+this repo or any other unless that repo's own agent guide explicitly grants
+that authority or the human owner has explicitly requested the action.
 
 ## Mission
 
@@ -133,32 +166,18 @@ This repository represents:
 
 ## Codex Release Agent
 
-Codex is looped in to keep changes production-ready. In this repository, Codex
-should:
-
-- keep tabs on local changes and release impact
-- review Claude Code work for brand, docs, accessibility, and build readiness
-- update documentation for standardization when scripts or workflow change
-- perform focused refactors when they reduce drift or release risk
-- check Markdown-heavy changes with the same care as code changes
-- keep `CHANGELOG.md` useful for release review when changes are
-  release-relevant
-
-Codex should not replace Claude Code as implementation lead unless the human
-explicitly asks Codex to take over a task.
+**OpenAI Codex** owns release readiness, production stabilization,
+documentation standardization, repo hygiene, and config standardization for
+this repository. Codex does not replace Claude Code as implementation lead
+unless the human explicitly asks Codex to take over a task. See
+[CODEX.md](CODEX.md) for full responsibilities.
 
 ## Google Jules Maintenance Agent
 
-Jules is the automated maintenance agent for this repository. Jules should:
-
-- fix small documentation drift, typos, and broken internal links
-- perform dependency micro-updates only within compatible major lines
-- keep maintenance tasks atomic and easy to review
-- run `npm run build` when practical before reporting completion
-- stop and report blockers when validation fails outside Jules scope
-
+**Google Jules** owns automated micro-maintenance only for this repository.
 Jules must not own broad redesigns, architecture decisions, release cuts,
-deployment, or changes that alter PHCDevworks brand direction.
+deployment, or changes that alter PHCDevworks brand direction. See
+[JULES.md](JULES.md) for full task scope.
 
 ## Configuration Rules
 

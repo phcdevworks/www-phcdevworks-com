@@ -1,5 +1,6 @@
 {
   "name": "www-phcdevworks-com",
+  "description": "www-phcdevworks-com is the public company website for PHCDevworks, serving as the web presence for the company, its products, its technical ecosystem, and its broader brand.",
   "private": true,
   "type": "module",
   "version": "0.0.1",
