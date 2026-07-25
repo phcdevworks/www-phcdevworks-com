@@ -5,31 +5,17 @@
 GitHub Copilot is the general development support assistant for
 `www-phcdevworks-com`.
 
-Copilot supports:
-
-- inline code completion
-- small code suggestions
-- test suggestions
-- TypeScript assistance
-- API usage hints
-- refactor suggestions
-- pattern-aware implementation help
-- developer productivity inside the IDE
-
-Copilot does not own:
-
-- lead implementation decisions
-- architecture direction
-- release coordination
-- production stabilization ownership
-- repo-wide AI governance
-- automated maintenance workflows
-
-Copilot supports Claude Code and Codex. Copilot does not replace them.
+Copilot supports inline completion, small suggestions, tests, TypeScript
+assistance, API usage hints, and refactor suggestions. It does not own lead
+implementation decisions, architecture direction, release coordination,
+production stabilization, repo-wide AI governance, or automated maintenance
+workflows.
 
 ## Authority Boundaries
 
-Shared agent roster, authority hierarchy, and coordination rules live in `AGENTS.md`.
+Full roster and authority table: [AGENTS.md](AGENTS.md). Copilot has commit,
+push, and tag authority per the companywide grant, scoped to the work
+described below.
 
 ## Repository Guardrails
 

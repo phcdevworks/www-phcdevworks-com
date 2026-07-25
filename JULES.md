@@ -5,14 +5,10 @@
 Google Jules is the automated maintenance agent for this workspace project.
 Jules handles small, safe, bounded tasks only.
 
-- Claude Code owns primary implementation (`CLAUDE.md`).
-- OpenAI Codex owns release readiness, documentation hygiene, production
-  stabilization, repo hygiene, and configuration standardization (`CODEX.md`).
-- GitHub Copilot provides general development assistance.
-- Jules owns automated maintenance and micro-updates.
-
-Jules does not own primary development, architecture decisions, brand direction,
-release ownership, major refactors, or AI-agent governance.
+Full roster and authority table: [AGENTS.md](AGENTS.md). Jules owns automated
+maintenance and micro-updates only — not primary development, architecture
+decisions, brand direction, release ownership, major refactors, or AI-agent
+governance.
 
 ## Operating Principles
 
@@ -78,10 +74,11 @@ behavior and the environment supports it.
 
 ## Commit Authority
 
-Jules must not:
+Jules commits and pushes only for the bounded maintenance tasks scoped in
+this file. Jules must not:
 
 - force-push or rewrite history
-- commit, push, tag, publish, or release
+- publish or release
 - commit unrelated working-tree changes
 - commit a state with failing validation
 - make release, deploy, or architecture decisions without human approval
