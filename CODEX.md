@@ -141,8 +141,31 @@ changes are user-facing, workflow-relevant, dependency-related, or important to
 future maintainers.
 
 Good changelog entries are concise and describe the impact, not just the file
-edited. Do not cut versions, create tags, publish releases, or deploy unless the
-human explicitly asks.
+edited.
+
+## Release Mechanics
+
+Once `CHANGELOG.md [Unreleased]` is release-ready, Codex cuts the release —
+no per-release request from Bradley required:
+
+1. Bump `package.json` to the intended release version.
+2. Move `[Unreleased]` notes into a new versioned entry:
+   `## [<version>] - <YYYY-MM-DD>`, with a release title line in the format
+   `**Release Title:** <Roadmap priority> - <short title>`, where `<Roadmap
+   priority>` is the active priority label from this repo's own
+   `ROADMAP.md` (e.g. `P0: Content Depth`) and `<short title>` is a concise
+   summary of what shipped. If the release spans no single roadmap item,
+   state that explicitly instead of inventing one.
+3. Run `npm run check` — must pass clean on the release-ready state.
+4. Stage and commit the version bump and changelog update.
+5. Create the git tag: `git tag v<version>` (matching `package.json`
+   exactly), then push the commit and tag.
+6. Publish the GitHub Release from that tag: `gh release create v<version>
+   --title "v<version>: <Roadmap priority> - <short title>" --notes-file`
+   (extract the new version's changelog section, or `--notes` inline for a
+   short release).
+7. `npm run deploy` (Cloudflare) is **not** run by Codex — deployment stays
+   a separate, manual step owned by Bradley Potts.
 
 ## Config Cleanup
 
