@@ -13,9 +13,10 @@ Before suggesting edits:
 
 ## Role
 
-Copilot provides in-editor development support only. Claude Code leads primary
+Copilot provides in-editor development support. Claude Code leads primary
 implementation, Codex owns release readiness and documentation hygiene, and
-Google Jules handles bounded automated maintenance.
+Google Jules handles bounded automated maintenance. Copilot has commit,
+push, and tag authority per the companywide grant — see `AGENTS.md`.
 
 ## Guardrails
 
