@@ -7,11 +7,13 @@ practical.
 
 ## Unreleased
 
-- Upgraded Astro from `^6.4.8` to `^7.0.2` and bumped `@phcdevworks/spectre-tokens`
-  to `^3.2.0`, `@phcdevworks/spectre-ui` to `^2.5.0`, and
-  `@phcdevworks/spectre-ui-astro` to `^3.2.0` (was 2 majors behind on the
-  Astro adapter's peer dependency). Bumped `@astrojs/cloudflare` to `^14.0.0`
-  and `wrangler` to `^4.104.0` to match.
+- Upgraded Astro from `^6.4.8` to `^7.1.3` and bumped `@phcdevworks/spectre-tokens`
+  to `^3.5.0`, `@phcdevworks/spectre-ui` to `^2.10.0`, and
+  `@phcdevworks/spectre-ui-astro` to `^3.7.0` (was 2 majors behind on the
+  Astro adapter's peer dependency). Bumped `@astrojs/cloudflare` to `^14.1.4`
+  and `wrangler` to match. Note (2026-07-26): `@phcdevworks/spectre-tokens`
+  has since published a breaking `4.0.0` — this repo's `^3.5.0` range does
+  not yet cover it; see `project-design/ROADMAP.md` for the open range gate.
 - Added `@types/node` so `scripts/check-readme-version.ts` typechecks under
   `astro check`.
 - Added GitHub support templates for pull requests and issue intake (bug
