@@ -1,6 +1,15 @@
 {
   "name": "www-phcdevworks-com",
   "description": "www-phcdevworks-com is the public company website for PHCDevworks, serving as the web presence for the company, its products, its technical ecosystem, and its broader brand.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phcdevworks/www-phcdevworks-com.git"
+  },
+  "homepage": "https://github.com/phcdevworks/www-phcdevworks-com#readme",
+  "bugs": {
+    "url": "https://github.com/phcdevworks/www-phcdevworks-com/issues"
+  },
   "private": true,
   "type": "module",
   "version": "0.0.1",
