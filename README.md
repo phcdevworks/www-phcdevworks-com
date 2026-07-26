@@ -182,6 +182,12 @@ Wrangler type generation requires a compiled output to inspect.
 - Follow `BRAND.md` before changing public site structure, copy, or visual
   direction.
 
+All AI agents with repository access (Claude Code, Codex, Copilot, Jules)
+have commit, push, and tag authority in this repository. Site deployment
+(`npm run deploy`) remains Bradley Potts's sole authority. See
+[AGENTS.md](AGENTS.md) for the full commit-policy and release-authority
+grant.
+
 Shared coordination rules live in [AGENTS.md](AGENTS.md).
 
 ## Versioning And Release Notes
