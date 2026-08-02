@@ -16,6 +16,11 @@ The site runs as an SSR application on Cloudflare Workers via
 Core site structure is in place. Routes, layout, navigation, header, footer,
 homepage, and initial product pages are built and passing `npm run check`.
 
+Current Spectre dependency versions: `@phcdevworks/spectre-tokens ^4.0.0`,
+`@phcdevworks/spectre-ui ^3.1.0`, `@phcdevworks/spectre-ui-astro ^4.2.0` --
+bumped 2026-08-02 to close the version lag behind `project-design`'s latest
+releases (this followed an earlier Astro major bump, `^6.4.8` to `^7.1.3`).
+
 ### What is in place
 
 - `Layout.astro` with site header, nav, and footer.
