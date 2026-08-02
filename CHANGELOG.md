@@ -11,9 +11,10 @@ practical.
   to `^3.5.0`, `@phcdevworks/spectre-ui` to `^2.10.0`, and
   `@phcdevworks/spectre-ui-astro` to `^3.7.0` (was 2 majors behind on the
   Astro adapter's peer dependency). Bumped `@astrojs/cloudflare` to `^14.1.4`
-  and `wrangler` to match. Note (2026-07-26): `@phcdevworks/spectre-tokens`
-  has since published a breaking `4.0.0` — this repo's `^3.5.0` range does
-  not yet cover it; see `project-design/ROADMAP.md` for the open range gate.
+  and `wrangler` to match.
+- Bumped `@phcdevworks/spectre-tokens` to `^4.0.0`, `@phcdevworks/spectre-ui`
+  to `^3.1.0`, and `@phcdevworks/spectre-ui-astro` to `^4.2.0` (2026-08-02),
+  closing the range gate noted above.
 - Added `@types/node` so `scripts/check-readme-version.ts` typechecks under
   `astro check`.
 - Added GitHub support templates for pull requests and issue intake (bug
