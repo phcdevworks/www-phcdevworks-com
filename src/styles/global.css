@@ -2,8 +2,8 @@
 @import "@phcdevworks/spectre-ui/index.css";
 
 @theme {
-  --font-sans: "Space Grotesk", var(--sp-font-family-sans);
-  --font-display: "Space Grotesk", var(--sp-font-family-sans);
+  --font-sans: "Inter", var(--sp-font-family-sans);
+  --font-display: "Manrope", var(--sp-font-family-sans);
   --font-mono: var(--sp-font-family-mono);
 }
 
