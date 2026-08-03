@@ -141,12 +141,8 @@
   }
 
   .site-footer__mark {
-    @apply mb-6 flex items-center justify-center gap-2 font-display text-2xl font-black uppercase tracking-[0.02em];
+    @apply mb-6 block font-display text-2xl font-black uppercase tracking-[0.02em];
     color: var(--site-brand);
-  }
-
-  .site-footer__mark-icon {
-    @apply h-6 w-6;
   }
 
   .site-footer__links {
