@@ -133,12 +133,33 @@
   }
 
   .site-footer {
-    @apply border-t py-10;
-    border-color: var(--site-border);
+    @apply py-10;
   }
 
   .site-footer__inner {
     @apply flex flex-col gap-6 md:flex-row md:items-end md:justify-between;
+  }
+
+  .site-footer__brand {
+    @apply gap-2;
+  }
+
+  .site-footer__mark {
+    @apply text-lg;
+  }
+
+  .site-footer__links {
+    @apply flex-wrap gap-x-7 gap-y-2;
+  }
+
+  .site-footer__link {
+    @apply text-xs font-bold uppercase tracking-[0.18em] transition-colors duration-200;
+    color: var(--sp-text-on-page-subtle);
+  }
+
+  .site-footer__link:hover,
+  .site-footer__link:focus-visible {
+    color: var(--site-brand);
   }
 
   .site-footer__copy,

@@ -1,5 +1,11 @@
 ---
 import { ClientRouter } from 'astro:transitions'
+import {
+  SpFooter,
+  SpContainer,
+  SpStack,
+  SpText,
+} from '@phcdevworks/spectre-ui-astro'
 import '../styles/global.css'
 
 interface Props {
@@ -22,7 +28,7 @@ const navItems = [
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-spectre-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -76,21 +82,36 @@ const navItems = [
         <slot />
       </main>
 
-      <footer class="site-footer">
-        <div class="site-footer__inner">
-          <div>
-            <p class="site-footer__label">Spectre design system</p>
-            <p class="site-footer__copy">
+      <SpFooter bordered class="site-footer">
+        <SpContainer class="site-footer__inner">
+          <SpStack direction="vertical" class="site-footer__brand">
+            <span class="site-mark__title site-footer__mark">PHCDevworks</span>
+            <SpText as="p" class="site-footer__copy">
               Tokens, implementation, Astro delivery, shell architecture, and
               WordPress support under PHCDevworks.
-            </p>
-          </div>
+            </SpText>
+          </SpStack>
 
-          <p class="site-footer__meta">
+          <SpStack
+            as="nav"
+            direction="horizontal"
+            class="site-footer__links"
+            aria-label="Footer"
+          >
+            {
+              navItems.map((item) => (
+                <a href={item.href} class="site-footer__link">
+                  {item.label}
+                </a>
+              ))
+            }
+          </SpStack>
+
+          <SpText as="p" class="site-footer__meta">
             PHCDevworks &copy; {new Date().getFullYear()}
-          </p>
-        </div>
-      </footer>
+          </SpText>
+        </SpContainer>
+      </SpFooter>
     </div>
   </body>
 </html>
