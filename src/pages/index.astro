@@ -25,11 +25,29 @@ const systemAreas = [
     copy: 'Token-aligned delivery for WordPress and page builders.',
   },
 ]
+
+const engineeringPrinciples = [
+  {
+    label: '01',
+    title: 'Systems over one-offs',
+    copy: 'Every product ships against a shared token contract instead of a one-off visual layer.',
+  },
+  {
+    label: '02',
+    title: 'Typed, not templated',
+    copy: 'Components carry real types end to end — no untyped props, no runtime guesswork.',
+  },
+  {
+    label: '03',
+    title: 'Boring on purpose',
+    copy: 'Predictable infrastructure that holds up under real engineering load, not demo polish.',
+  },
+]
 ---
 
 <Layout
   title="PHCDevworks"
-  description="PHCDevworks builds the boring internet. Spectre is the design system for tokens, UI, Astro, shell architecture, and WordPress delivery."
+  description="PHCDevworks is an engineering studio building design systems and application infrastructure — Spectre included, not the whole story."
 >
   <section class="hero-atmosphere">
     <div class="hero-atmosphere__glow hero-atmosphere__glow--left"></div>
@@ -38,13 +56,15 @@ const systemAreas = [
     <div class="home-hero home-hero--centered">
       <p class="eyebrow eyebrow--centered">PHCDevworks</p>
       <h1 class="home-headline">
-        Building the
-        boring
+        Engineering
+        the boring
         <span>internet.</span>
       </h1>
-      <div class="hero-install">
-        <pre class="install-block"><code>npm install @phcdevworks/spectre-ui-astro</code></pre>
-      </div>
+      <p class="home-lead home-lead--centered">
+        We build the infrastructure other products stand on — design
+        systems, application shells, and the tooling that keeps them
+        boring, predictable, and shipped.
+      </p>
       <div class="hero-links" aria-label="Primary routes">
         <a href="/spectre-design" class="hero-links__item">Spectre Design</a>
         <a href="/spectre-shell" class="hero-links__item">Spectre Shell</a>
@@ -55,8 +75,29 @@ const systemAreas = [
 
   <section class="home-section">
     <div class="section-heading">
+      <p class="eyebrow">Engineering</p>
+      <h2 class="section-title">How we build.</h2>
+    </div>
+
+    <div class="home-product-grid">
+      {
+        engineeringPrinciples.map((principle) => (
+          <SpCard variant="flat" padded fullHeight class="home-product-card">
+            <div class="home-product-card__stack">
+              <p class="home-product-card__label">{principle.label}</p>
+              <h3 class="home-product-card__title">{principle.title}</h3>
+              <p class="home-product-card__copy">{principle.copy}</p>
+            </div>
+          </SpCard>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="home-section">
+    <div class="section-heading">
       <p class="eyebrow">Spectre</p>
-      <h2 class="section-title">Tokens. UI. Components.</h2>
+      <h2 class="section-title">One platform we build. Not the whole company.</h2>
     </div>
 
     <div class="home-product-grid">
@@ -65,7 +106,7 @@ const systemAreas = [
           <SpCard
             as="a"
             href={area.href}
-            variant="outline"
+            variant="flat"
             interactive
             padded
             fullHeight
@@ -81,23 +122,5 @@ const systemAreas = [
         ))
       }
     </div>
-  </section>
-
-  <section class="home-section">
-    <SpCard variant="elevated" padded class="home-principles-card home-principles-card--wide">
-      <div class="home-principles-card__stack">
-        <p class="eyebrow">Standards</p>
-        <h2 class="home-panel-title">Start with the system. Customize after.</h2>
-        <p class="home-panel-copy">
-          Import the token contract. Layer site-level overrides on top.
-        </p>
-        <div class="home-principles-list" aria-label="Packages">
-          <span>spectre-tokens</span>
-          <span>spectre-ui</span>
-          <span>spectre-ui-astro</span>
-          <span>spectre-shell</span>
-        </div>
-      </div>
-    </SpCard>
   </section>
 </Layout>

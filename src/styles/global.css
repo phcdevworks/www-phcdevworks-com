@@ -283,10 +283,6 @@
     @apply flex h-full flex-col gap-5;
   }
 
-  .home-principles-card {
-    box-shadow: 0 0 80px rgb(238 0 90 / 0.07), 0 24px 60px rgb(0 0 0 / 0.5);
-  }
-
   .home-principles-card--wide {
     max-width: 64rem;
     margin-inline: auto;
@@ -300,15 +296,6 @@
 
   .home-panel-title {
     @apply text-3xl leading-[0.95] md:text-4xl;
-  }
-
-  .home-principles-list {
-    @apply mt-auto flex flex-wrap gap-3 pt-2 text-xs font-black uppercase tracking-[0.18em];
-  }
-
-  .home-principles-list span {
-    @apply border px-3 py-2;
-    border-color: var(--site-border-strong);
   }
 
   .home-section {
