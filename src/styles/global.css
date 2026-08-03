@@ -133,23 +133,28 @@
   }
 
   .site-footer {
-    @apply py-10;
+    @apply py-14 text-center;
   }
 
   .site-footer__inner {
-    @apply flex flex-col gap-6 md:flex-row md:items-end md:justify-between;
-  }
-
-  .site-footer__brand {
-    @apply gap-2;
+    @apply flex flex-col items-center;
   }
 
   .site-footer__mark {
-    @apply text-lg;
+    @apply mb-6 flex items-center justify-center gap-2 font-display text-2xl font-black uppercase tracking-[0.02em];
+    color: var(--site-brand);
+  }
+
+  .site-footer__mark-icon {
+    @apply h-6 w-6;
   }
 
   .site-footer__links {
-    @apply flex-wrap gap-x-7 gap-y-2;
+    @apply mb-8 flex flex-wrap items-center justify-center gap-x-1 gap-y-2;
+  }
+
+  .site-footer__links-item {
+    @apply mx-3;
   }
 
   .site-footer__link {
@@ -162,8 +167,26 @@
     color: var(--site-brand);
   }
 
+  .site-footer__social {
+    @apply mb-8 flex items-center justify-center gap-5;
+    color: var(--sp-text-on-page-subtle);
+  }
+
+  .site-footer__social-link {
+    @apply flex h-5 w-5 items-center justify-center transition-colors duration-200;
+    color: var(--sp-text-on-page-subtle);
+  }
+
+  .site-footer__social-link svg {
+    @apply h-full w-full;
+  }
+
+  .site-footer__social-link:hover,
+  .site-footer__social-link:focus-visible {
+    color: var(--site-brand);
+  }
+
   .site-footer__copy,
-  .site-footer__meta,
   .section-copy,
   .home-product-card__copy,
   .home-panel-copy,
@@ -173,7 +196,8 @@
   }
 
   .site-footer__meta {
-    @apply font-bold uppercase tracking-[0.14em];
+    @apply text-xs font-bold uppercase tracking-[0.14em];
+    color: var(--sp-text-on-page-subtle);
   }
 
   .home-hero {
