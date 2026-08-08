@@ -50,7 +50,10 @@ Requests and Roadmap Self-Expansion." Applied here without exception — this
 repo may append `[Unreleased]` changelog entries and downstream TODO requests
 to other present repos per those rules, and no AI agent creates commits, tags,
 publishes packages, or merges changes in this repo or any other unless that
-repo's own agent guide explicitly grants that authority.
+repo's own agent guide explicitly grants that authority. When an AI agent
+drafts commit or PR message text for a human to use, it must never include a
+`Co-Authored-By: Claude`/`Codex`/etc. trailer or list an AI as author or
+co-author.
 
 ## Mission
 
