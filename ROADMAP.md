@@ -43,29 +43,18 @@ releases (this followed an earlier Astro major bump, `^6.4.8` to `^7.1.3`).
 
 ---
 
-## 2. Roadmap -- Active Phase
+## 2. Delivered Phases
 
-Foundation is functional. The next phase fills in content depth, adds
-reusable components, and sharpens presentation quality across all routes.
+| Phase | Summary |
+| --- | --- |
+| 2 P0 | Content depth -- Spectre Shell and Spectre WordPress pages expanded to structural parity with Spectre Design; homepage and route copy rewritten company-first |
 
 ---
 
-### P0: Content Depth
+## 3. Roadmap -- Active Phase
 
-**Objective** Replace placeholder or minimal content on product pages with
-accurate, specific, and useful copy.
-
-**Why it matters** The routes exist but some pages carry thin content. Visitors
-arriving at Spectre Shell or Spectre WordPress need enough context to understand
-what each product does and why it exists under PHCDevworks.
-
-**Deliverables**
-
-- Expand Spectre Shell page with startup sequencing, routing, and signals
-  content.
-- Expand Spectre WordPress page with delivery model, icon support, and
-  token-aligned integration copy.
-- Keep all copy sharp, technical, and free of generic SaaS filler.
+P0 is complete. The active phase adds reusable components and sharpens
+presentation and production quality across all routes.
 
 ---
 
@@ -126,7 +115,7 @@ is treated as production-ready.
 
 ---
 
-## 3. Explicitly Out of Scope
+## 4. Explicitly Out of Scope
 
 - Upstream token definitions -- owned by `@phcdevworks/spectre-tokens`.
 - A parallel design system disconnected from Spectre.
@@ -137,13 +126,11 @@ is treated as production-ready.
 
 ---
 
-## 4. Recommended Execution Order
+## 5. Recommended Execution Order
 
-1. **P0 -- Content depth** -- highest return immediately; pages are live and
-   shallow content is the most visible gap.
-2. **P1 -- Component extraction** -- implement only as patterns stabilize; do
+1. **P1 -- Component extraction** -- implement only as patterns stabilize; do
    not force abstraction ahead of repeated use.
-3. **P2 -- Accessibility, metadata, SEO** -- lower risk if deferred briefly but
+2. **P2 -- Accessibility, metadata, SEO** -- lower risk if deferred briefly but
    should be resolved before treating the site as fully production-ready.
-4. **P3 -- Responsive polish and performance** -- validate once P0 and P2 are
-   stable so the full page content is in place before a layout audit.
+3. **P3 -- Responsive polish and performance** -- validate once P2 is stable
+   so the full page content is in place before a layout audit.

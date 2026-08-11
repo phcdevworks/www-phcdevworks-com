@@ -39,15 +39,16 @@ Core structure is in place. The following items are complete.
 
 ## Phase 2 - Content and Production Readiness
 
-Active phase. Items below are forward-looking and not yet complete.
+Active phase. P0 is complete -- see [ROADMAP.md](ROADMAP.md) for delivery
+history. P1 through P3 are forward-looking and not yet complete.
 
-### P0: Content Depth
+### P0: Content Depth -- Complete
 
-- [ ] Expand Spectre Shell page -- startup sequencing, routing, and signals
+- [x] Expand Spectre Shell page -- startup sequencing, routing, and signals
   content at the depth of the Spectre Design page
-- [ ] Expand Spectre WordPress page -- delivery model, icon support, and
+- [x] Expand Spectre WordPress page -- delivery model, icon support, and
   token-aligned integration copy
-- [ ] Audit all page copy for PHCDevworks company-first framing (no
+- [x] Audit all page copy for PHCDevworks company-first framing (no
   single-product Spectre-only language)
 
 ### P1: Reusable Component Foundation
@@ -82,11 +83,10 @@ Active phase. Items below are forward-looking and not yet complete.
 
 ## Recommended Execution Order
 
-1. Page content depth -- most visible gap while pages are live.
+1. Component extraction -- only after content stabilizes and patterns repeat.
 2. Accessibility and metadata -- raise baseline before treating site as
    production-ready.
-3. Component extraction -- only after content stabilizes and patterns repeat.
-4. Responsive polish and performance -- final pass once full content is in place.
+3. Responsive polish and performance -- final pass once full content is in place.
 
 ## Explicitly Out of Scope
 
