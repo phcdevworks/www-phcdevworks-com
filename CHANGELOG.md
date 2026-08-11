@@ -7,6 +7,31 @@ practical.
 
 ## Unreleased
 
+- Switched site typography to a two-font system: Manrope for headings
+  (`font-display`), Inter for body copy (`font-sans`) — replaces the single
+  Space Grotesk face.
+- Rewrote homepage copy company-first, adding an engineering-principles
+  section ahead of the Spectre product grid so the page no longer reads as a
+  single-product Spectre page. Flattened the card system to the `flat`
+  variant everywhere (was a mix of `outline` and `elevated`, the latter with
+  a shadow rule `BRAND.md` calls out to avoid) and dropped the now-unused
+  package-pill list styling.
+- Rebuilt the footer with `SpFooter`, `SpContainer`, `SpStack`, and `SpText`
+  from `spectre-ui-astro` (was hand-rolled markup), reusing the header's real
+  nav items instead of dummy links. Restructured to a centered, stacked
+  layout — icon brand mark, inline nav list, social icon row, centered
+  copyright line — with real links to PHCDevworks' X, GitHub, LinkedIn, and
+  Facebook profiles as inline SVG icons. Removed the placeholder hexagon
+  glyph next to "PHCDevworks" in the brand mark, since it wasn't the actual
+  company logo.
+- Fixed a site-wide light-theme regression found while verifying the footer
+  rebuild in-browser: `spectre-ui/index.css` sets `:root` custom properties
+  unlayered, which beat `global.css`'s `@layer base` override regardless of
+  source order. Fixed by setting `data-spectre-theme="dark"` on `<html>`.
+- Bumped `astro`, `wrangler`, `@astrojs/cloudflare`, `@astrojs/check`,
+  `playwright`, and `@types/node` to their latest published patch/minor
+  versions, and approved the `workerd` postinstall script npm's
+  install-scripts allowlist blocked after the bump.
 - Upgraded Astro from `^6.4.8` to `^7.1.3` and bumped `@phcdevworks/spectre-tokens`
   to `^3.5.0`, `@phcdevworks/spectre-ui` to `^2.10.0`, and
   `@phcdevworks/spectre-ui-astro` to `^3.7.0` (was 2 majors behind on the
