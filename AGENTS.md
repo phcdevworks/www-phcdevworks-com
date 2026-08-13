@@ -108,10 +108,8 @@ This repository represents:
 
 - Keep naming consistent with PHCDevworks and current company positioning.
 - Treat this site as a downstream Spectre application where appropriate.
-- Reuse Spectre packages and patterns where appropriate instead of inventing a
-  parallel design system.
-- Prefer building with Spectre Tokens, Spectre UI, and Spectre UI Astro first,
-  then layer custom site styling after the system structure is in place.
+- Follow the strict Spectre UI Astro guardrails below for every visual or
+  component change.
 - Keep Astro-first, SSR-friendly, and maintainable.
 - Prefer clarity, maintainability, and strong structure over novelty.
 - Favor small, reviewable changes over broad rewrites.
@@ -126,6 +124,42 @@ This repository represents:
 - All `scripts/` tooling is TypeScript (`.ts`), run via
   `node --experimental-strip-types`; never add a new `.js`/`.mjs` script.
   Convert `scripts/screenshot.js` to `.ts` if it is touched for unrelated work.
+
+## Strict Spectre UI Astro Guardrails
+
+This website is a downstream showcase of the published Spectre design
+packages. Its default appearance should remain recognizably stock Spectre,
+with `spectre-ui-astro` providing page and component structure and with little
+to no site-authored CSS.
+
+- Use the published `spectre-ui-astro` component that matches the requirement
+  before writing local markup, a wrapper component, or CSS. Use its public
+  props, slots, variants, and composition patterns without restyling its
+  internals.
+- Use `spectre-ui` recipes and `spectre-tokens` only through their published
+  APIs. Do not copy package source, reproduce package styles locally, or create
+  site-specific substitutes for an upstream component, recipe, utility, or
+  token.
+- Default to zero new site-authored CSS. Do not add a stylesheet, `<style>`
+  block, inline `style` attribute, hard-coded visual value, or local class that
+  changes Spectre component presentation when the package already supports the
+  result.
+- Treat stock package output as the intended visual result, not as a base for
+  local theming. Do not globally override Spectre selectors or restyle package
+  components to make the site look more bespoke.
+- Custom CSS is an exception requiring Bradley Potts's explicit approval. It
+  must address a concrete site-only need that no published Spectre API can
+  express, remain minimal and narrowly scoped, use published tokens, and state
+  the exception and reason in the handoff.
+- If the missing capability is reusable or visual-system behavior, request it
+  upstream through the process below and wait for a published package version;
+  do not bridge the gap with temporary local styling.
+- When touching existing custom CSS, remove or reduce it wherever the current
+  published packages provide an equivalent. Do not expand legacy CSS merely
+  because it already exists.
+- Review every visual diff for package fidelity. Validation passing is not
+  enough if a change duplicates, overrides, or visually diverges from the
+  published Spectre packages.
 
 ## Content Rules
 
