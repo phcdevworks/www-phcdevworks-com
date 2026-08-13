@@ -117,6 +117,19 @@ clear in the handoff.
 - Do not use button-led CTA patterns as the default for impact sections when an
   editorial route strip or text-led navigation is stronger.
 
+## Git Access — Denied
+
+**Claude Code has zero git access in this repo, as part of a companywide
+policy.** Claude Code must not run `git commit`, `git push`, `git tag`, or
+any other git command — read-only or mutating — here. This supersedes any
+prior commit/push/tag grant described in this repo's `AGENTS.md`. OpenAI
+Codex now executes all git operations for this repo; see `AGENTS.md` and
+`CODEX.md`.
+
+When work is ready, Claude Code stops short of any git command and hands off
+to Codex (or Bradley Potts) with a summary of files changed and validation
+performed (`npm run check`).
+
 ## Handoff Expectations
 
 Every handoff should include:

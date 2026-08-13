@@ -26,6 +26,11 @@ Codex does not take implementation leadership away from Claude Code. When Claude
 Code is actively leading a change, Codex acts as reviewer, release agent, and
 systems guardrail.
 
+Codex is also responsible for executing git operations
+(`git add`/`commit`/`push`/`tag`) in this repo on behalf of Claude Code's
+validated, handed-off work — Claude Code has no git access here — in
+addition to Codex's own documentation, release, and hygiene commits.
+
 ## Responsibilities
 
 Codex is responsible for:

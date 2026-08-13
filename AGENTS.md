@@ -19,6 +19,10 @@ that grant; deployment (`npm run deploy`) and merges stay with Bradley
 Potts. Do not edit generated outputs directly. Do not update
 [CHANGELOG.md](CHANGELOG.md) unless the change is release-relevant.
 
+**Claude Code has no git access in this repo**, per the project-team
+[AGENTS.md](../AGENTS.md) grant — it implements, validates, and hands off;
+Codex executes git operations here on its behalf.
+
 ## Project Identity
 
 - Repository: `www-phcdevworks-com`
