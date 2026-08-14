@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { SpCard } from '@phcdevworks/spectre-ui-astro'
+import { SpCard, SpBadge, SpText } from '@phcdevworks/spectre-ui-astro'
 
 const systemAreas = [
   {
@@ -54,17 +54,17 @@ const engineeringPrinciples = [
     <div class="hero-atmosphere__glow hero-atmosphere__glow--right"></div>
 
     <div class="home-hero home-hero--centered">
-      <p class="eyebrow eyebrow--centered">PHCDevworks</p>
+      <SpText as="p" variant="subtle" class="eyebrow eyebrow--centered">PHCDevworks</SpText>
       <h1 class="home-headline">
         Engineering
         the boring
         <span>internet.</span>
       </h1>
-      <p class="home-lead home-lead--centered">
+      <SpText as="p" variant="default" class="home-lead home-lead--centered">
         We build the infrastructure other products stand on — design
         systems, application shells, and the tooling that keeps them
         boring, predictable, and shipped.
-      </p>
+      </SpText>
       <div class="hero-links" aria-label="Primary routes">
         <a href="/spectre-design" class="hero-links__item">Spectre Design</a>
         <a href="/spectre-shell" class="hero-links__item">Spectre Shell</a>
@@ -75,7 +75,7 @@ const engineeringPrinciples = [
 
   <section class="home-section">
     <div class="section-heading">
-      <p class="eyebrow">Engineering</p>
+      <SpText as="p" variant="subtle" class="eyebrow">Engineering</SpText>
       <h2 class="section-title">How we build.</h2>
     </div>
 
@@ -84,9 +84,9 @@ const engineeringPrinciples = [
         engineeringPrinciples.map((principle) => (
           <SpCard variant="flat" padded fullHeight class="home-product-card">
             <div class="home-product-card__stack">
-              <p class="home-product-card__label">{principle.label}</p>
+              <SpText as="p" variant="subtle" class="home-product-card__label">{principle.label}</SpText>
               <h3 class="home-product-card__title">{principle.title}</h3>
-              <p class="home-product-card__copy">{principle.copy}</p>
+              <SpText as="p" variant="subtle" class="home-product-card__copy">{principle.copy}</SpText>
             </div>
           </SpCard>
         ))
@@ -96,7 +96,7 @@ const engineeringPrinciples = [
 
   <section class="home-section">
     <div class="section-heading">
-      <p class="eyebrow">Spectre</p>
+      <SpText as="p" variant="subtle" class="eyebrow">Spectre</SpText>
       <h2 class="section-title">One platform we build. Not the whole company.</h2>
     </div>
 
@@ -113,10 +113,10 @@ const engineeringPrinciples = [
             class="home-product-card"
           >
             <div class="home-product-card__stack">
-              <p class="home-product-card__label">{area.label}</p>
+              <SpText as="p" variant="subtle" class="home-product-card__label">{area.label}</SpText>
               <h3 class="home-product-card__title">{area.title}</h3>
-              <code class="code-pill home-product-card__pkg">{area.pkg}</code>
-              <p class="home-product-card__copy">{area.copy}</p>
+              <SpBadge as="span" class="code-pill home-product-card__pkg">{area.pkg}</SpBadge>
+              <SpText as="p" variant="subtle" class="home-product-card__copy">{area.copy}</SpText>
             </div>
           </SpCard>
         ))

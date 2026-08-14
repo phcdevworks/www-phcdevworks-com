@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'
+import { SpCard, SpButton, SpBadge, SpText } from '@phcdevworks/spectre-ui-astro'
 
 const packages = [
   {
@@ -40,7 +40,7 @@ import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'`
   description="Spectre Design covers Spectre Tokens, Spectre UI, and Spectre UI Astro as the core layers of the Spectre design system."
 >
   <section class="page-intro">
-    <p class="eyebrow">Spectre Design</p>
+    <SpText as="p" class="eyebrow">Spectre Design</SpText>
     <h1 class="display-headline">Tokens define it. UI builds it. <span>Astro ships it.</span></h1>
     <div class="hero-install">
       <pre class="install-block"><code>npm install @phcdevworks/spectre-ui-astro</code></pre>
@@ -49,7 +49,7 @@ import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'`
 
   <section class="section-block">
     <div class="section-heading">
-      <p class="eyebrow">Packages</p>
+      <SpText as="p" variant="subtle" class="eyebrow">Packages</SpText>
       <h2 class="section-title">Three packages. Each with one job.</h2>
     </div>
 
@@ -59,12 +59,12 @@ import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'`
           <li class="spec-list__item">
             <span class="spec-list__num">{pkg.num}</span>
             <div>
-              <p class="spec-list__meta">Package</p>
+              <SpText as="p" class="spec-list__meta">Package</SpText>
               <h3 class="spec-list__name">{pkg.name}</h3>
-              <code class="code-pill spec-list__pkg">{pkg.pkg}</code>
+              <SpBadge as="span" class="code-pill spec-list__pkg">{pkg.pkg}</SpBadge>
             </div>
             <div class="spec-list__detail-col">
-              <p class="spec-list__detail">{pkg.detail}</p>
+              <SpText as="p" variant="subtle" class="spec-list__detail">{pkg.detail}</SpText>
               <pre class="install-block"><code>{pkg.snippet}</code></pre>
             </div>
           </li>
@@ -75,7 +75,7 @@ import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'`
 
   <section class="section-block section-band">
     <div class="section-heading">
-      <p class="eyebrow">Usage</p>
+      <SpText as="p" variant="subtle" class="eyebrow">Usage</SpText>
       <h2 class="section-title">Three packages. One import chain.</h2>
     </div>
     <pre class="code-block"><code>{usageChain}</code></pre>
@@ -84,11 +84,11 @@ import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'`
   <section class="home-section">
     <SpCard variant="outline" padded class="home-principles-card home-principles-card--wide">
       <div class="home-principles-card__stack">
-        <p class="eyebrow">PHCDevworks</p>
+        <SpText as="p" variant="subtle" class="eyebrow">PHCDevworks</SpText>
         <h2 class="home-panel-title">The contract is already defined at the token layer.</h2>
-        <p class="home-panel-copy">
+        <SpText as="p" variant="subtle" class="home-panel-copy">
           Install once. Import anywhere. No custom token system to maintain.
-        </p>
+        </SpText>
         <div class="page-cta-links">
           <SpButton as="a" href="/" variant="ghost">View the full system</SpButton>
         </div>

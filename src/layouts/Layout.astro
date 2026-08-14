@@ -1,6 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions'
-import { SpFooter, SpContainer } from '@phcdevworks/spectre-ui-astro'
+import { SpFooter, SpContainer, SpNavItem, SpText } from '@phcdevworks/spectre-ui-astro'
 import '../styles/global.css'
 
 interface Props {
@@ -44,8 +44,8 @@ const navItems = [
       <header class="site-header">
         <div class="site-header__inner">
           <a href="/" class="site-mark" aria-label="PHCDevworks home">
-            <span class="site-mark__eyebrow">Spectre Design System</span>
-            <span class="site-mark__title">PHCDevworks</span>
+            <SpText as="span" variant="subtle" class="site-mark__eyebrow">Spectre Design System</SpText>
+            <SpText as="span" class="site-mark__title">PHCDevworks</SpText>
           </a>
 
           <nav class="site-nav" aria-label="Primary">
@@ -57,7 +57,7 @@ const navItems = [
                     : pathname.startsWith(item.href)
 
                 return (
-                  <a
+                  <SpNavItem
                     href={item.href}
                     class:list={[
                       'site-nav__link',
@@ -65,7 +65,7 @@ const navItems = [
                     ]}
                   >
                     {item.label}
-                  </a>
+                  </SpNavItem>
                 )
               })
             }
@@ -153,9 +153,9 @@ const navItems = [
             </a>
           </div>
 
-          <span class="site-footer__meta">
+          <SpText as="span" variant="subtle" class="site-footer__meta">
             PHCDevworks &copy; {new Date().getFullYear()}
-          </span>
+          </SpText>
         </SpContainer>
       </SpFooter>
     </div>

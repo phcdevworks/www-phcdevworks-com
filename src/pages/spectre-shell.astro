@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { SpCard, SpButton } from '@phcdevworks/spectre-ui-astro'
+import { SpCard, SpButton, SpBadge, SpText } from '@phcdevworks/spectre-ui-astro'
 
 const modules = [
   {
@@ -34,7 +34,7 @@ const installAll = `npm install @phcdevworks/spectre-shell @phcdevworks/spectre-
   description="Spectre Shell covers Spectre Shell, Spectre Shell Router, and Spectre Shell Signals as the application-shell side of the Spectre system."
 >
   <section class="page-intro">
-    <p class="eyebrow">Spectre Shell</p>
+    <SpText as="p" class="eyebrow">Spectre Shell</SpText>
     <h1 class="display-headline">Shell. Router. <span>Signals.</span></h1>
     <div class="hero-install">
       <pre class="install-block"><code>npm install @phcdevworks/spectre-shell</code></pre>
@@ -43,7 +43,7 @@ const installAll = `npm install @phcdevworks/spectre-shell @phcdevworks/spectre-
 
   <section class="section-block">
     <div class="section-heading">
-      <p class="eyebrow">Modules</p>
+      <SpText as="p" variant="subtle" class="eyebrow">Modules</SpText>
       <h2 class="section-title">Three modules. Shell, routing, and state.</h2>
     </div>
 
@@ -53,12 +53,12 @@ const installAll = `npm install @phcdevworks/spectre-shell @phcdevworks/spectre-
           <li class="spec-list__item">
             <span class="spec-list__num">{mod.num}</span>
             <div>
-              <p class="spec-list__meta">Module</p>
+              <SpText as="p" class="spec-list__meta">Module</SpText>
               <h3 class="spec-list__name">{mod.name}</h3>
-              <code class="code-pill spec-list__pkg">{mod.pkg}</code>
+              <SpBadge as="span" class="code-pill spec-list__pkg">{mod.pkg}</SpBadge>
             </div>
             <div class="spec-list__detail-col">
-              <p class="spec-list__detail">{mod.detail}</p>
+              <SpText as="p" variant="subtle" class="spec-list__detail">{mod.detail}</SpText>
               <pre class="install-block"><code>{mod.snippet}</code></pre>
             </div>
           </li>
@@ -69,7 +69,7 @@ const installAll = `npm install @phcdevworks/spectre-shell @phcdevworks/spectre-
 
   <section class="section-block section-band">
     <div class="section-heading">
-      <p class="eyebrow">Install</p>
+      <SpText as="p" variant="subtle" class="eyebrow">Install</SpText>
       <h2 class="section-title">Three focused modules. Install what you need.</h2>
     </div>
     <pre class="code-block"><code>{installAll}</code></pre>
@@ -78,11 +78,11 @@ const installAll = `npm install @phcdevworks/spectre-shell @phcdevworks/spectre-
   <section class="home-section">
     <SpCard variant="outline" padded class="home-principles-card home-principles-card--wide">
       <div class="home-principles-card__stack">
-        <p class="eyebrow">PHCDevworks</p>
+        <SpText as="p" variant="subtle" class="eyebrow">PHCDevworks</SpText>
         <h2 class="home-panel-title">The shell stays thin by design.</h2>
-        <p class="home-panel-copy">
+        <SpText as="p" variant="subtle" class="home-panel-copy">
           Startup, routing, and reactive state — each its own package. Take only what you need.
-        </p>
+        </SpText>
         <div class="page-cta-links">
           <SpButton as="a" href="/" variant="ghost">View the full system</SpButton>
         </div>

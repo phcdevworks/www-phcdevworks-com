@@ -12,32 +12,53 @@
     --site-max-width: min(1200px, calc(100vw - 2rem));
     --site-brand: #EE005A;
     --site-navy: #012641;
-
-    /* Override Spectre UI tokens for dark-first brand */
-    --sp-surface-page: #050f1c;
-    --sp-surface-card: #0a1b2e;
-    --sp-surface-input: #0a1b2e;
-    --sp-surface-overlay: rgba(0, 0, 0, 0.75);
-
-    --sp-text-on-page-default: #d4e4f5;
-    --sp-text-on-page-muted: #7896b4;
-    --sp-text-on-page-subtle: #4d6e8a;
-    --sp-text-on-page-meta: #4d6e8a;
-    --sp-text-on-surface-default: #d4e4f5;
-    --sp-text-on-surface-muted: #7896b4;
-    --sp-text-on-surface-subtle: #4d6e8a;
-
-    --sp-component-card-text: #d4e4f5;
-    --sp-component-card-text-muted: #7896b4;
-    --sp-component-card-border: rgba(255, 255, 255, 0.09);
-
-    --sp-button-text-default: #d4e4f5;
-    --sp-button-ghost-text: #d4e4f5;
-
-    --sp-color-neutral-200: rgba(255, 255, 255, 0.09);
-
     --site-border: rgba(255, 255, 255, 0.09);
     --site-border-strong: rgba(255, 255, 255, 0.16);
+  }
+
+  /*
+   * PHCDevworks brand-specific dark palette. spectre-tokens ships a generic
+   * dark theme (see @phcdevworks/spectre-ui/dist/index.css,
+   * :root[data-spectre-theme="dark"]) that does not match this brand's
+   * deep-navy/pink palette, so these semantic tokens are overridden here.
+   * --sp-color-neutral-200 also needs a dark-mode value because spectre-ui's
+   * own dark theme never redefines that raw palette token, even though
+   * several component tokens (card border, badge hover, testimonial/
+   * pricing-card border, rating star, alert border, spinner track) resolve
+   * through it — without this override those components would render with
+   * a light-gray border in dark mode. Candidate to propose upstream to
+   * project-design/spectre-tokens as a real theme rather than shadow here.
+   *
+   * !important is required on every property here: Tailwind v4's build
+   * emits spectre-ui's own dark-theme block as unlayered CSS (outside the
+   * base/components/utilities cascade layers), and unlayered rules always
+   * beat layered rules regardless of selector specificity or source order.
+   * Without !important this whole block silently loses to spectre-ui's
+   * generic dark palette — confirmed via computed-style inspection, not
+   * visible by eye since the two dark palettes are close in tone.
+   */
+  :root[data-spectre-theme="dark"] {
+    --sp-surface-page: #050f1c !important;
+    --sp-surface-card: #0a1b2e !important;
+    --sp-surface-input: #0a1b2e !important;
+    --sp-surface-overlay: rgba(0, 0, 0, 0.75) !important;
+
+    --sp-text-on-page-default: #d4e4f5 !important;
+    --sp-text-on-page-muted: #7896b4 !important;
+    --sp-text-on-page-subtle: #4d6e8a !important;
+    --sp-text-on-page-meta: #4d6e8a !important;
+    --sp-text-on-surface-default: #d4e4f5 !important;
+    --sp-text-on-surface-muted: #7896b4 !important;
+    --sp-text-on-surface-subtle: #4d6e8a !important;
+
+    --sp-component-card-text: #d4e4f5 !important;
+    --sp-component-card-text-muted: #7896b4 !important;
+    --sp-component-card-border: var(--site-border) !important;
+
+    --sp-button-text-default: #d4e4f5 !important;
+    --sp-button-ghost-text: #d4e4f5 !important;
+
+    --sp-color-neutral-200: var(--site-border) !important;
   }
 
   * {
@@ -53,8 +74,8 @@
     color: var(--sp-text-on-page-default);
     background-color: var(--sp-surface-page);
     background-image:
-      radial-gradient(circle at 50% 22%, rgb(238 0 90 / 0.14), transparent 24%),
-      radial-gradient(circle at 18% 78%, rgb(1 38 65 / 0.4), transparent 22%),
+      radial-gradient(circle at 50% 22%, color-mix(in srgb, var(--site-brand) 14%, transparent), transparent 24%),
+      radial-gradient(circle at 18% 78%, color-mix(in srgb, var(--site-navy) 40%, transparent), transparent 22%),
       linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
     background-size: 100% 100%, 100% 100%, 28px 28px, 28px 28px;
@@ -103,11 +124,14 @@
   .site-footer__label,
   .home-product-card__label {
     @apply text-[0.72rem] font-semibold uppercase tracking-[0.24em];
-    color: var(--sp-text-on-page-subtle);
   }
 
   .site-mark__title {
     @apply font-display text-2xl font-black uppercase tracking-[0.02em];
+    /* --sp-text-on-page-brand is a spectre-ui-owned token that this repo
+       can't safely override (its own definition wins the cascade over a
+       local one), so brand-pink text still routes through --site-brand
+       directly rather than SpText's variant="brand". */
     color: var(--site-brand);
   }
 
@@ -183,17 +207,13 @@
   }
 
   .site-footer__copy,
-  .section-copy,
   .home-product-card__copy,
-  .home-panel-copy,
-  .page-lead {
+  .home-panel-copy {
     @apply text-sm leading-7 md:text-base;
-    color: var(--sp-text-on-page-subtle);
   }
 
   .site-footer__meta {
     @apply text-xs font-bold uppercase tracking-[0.14em];
-    color: var(--sp-text-on-page-subtle);
   }
 
   .home-hero {
@@ -212,7 +232,7 @@
 
   .hero-atmosphere__glow {
     @apply absolute inset-x-0 rounded-full blur-3xl;
-    background: radial-gradient(ellipse, rgb(238 0 90 / 0.16), transparent 68%);
+    background: radial-gradient(ellipse, color-mix(in srgb, var(--site-brand) 16%, transparent), transparent 68%);
     width: 100%;
     height: 28rem;
   }
@@ -236,7 +256,6 @@
 
   .home-lead {
     @apply max-w-3xl text-lg leading-8 md:text-[1.35rem];
-    color: var(--sp-text-on-page-default);
   }
 
   .home-lead--centered {
@@ -328,8 +347,8 @@
     inset: 0;
     pointer-events: none;
     background:
-      radial-gradient(ellipse at -8% 130%, rgb(238 0 90 / 0.1), transparent 55%),
-      radial-gradient(ellipse at 108% -20%, rgb(1 38 65 / 0.12), transparent 50%);
+      radial-gradient(ellipse at -8% 130%, color-mix(in srgb, var(--site-brand) 10%, transparent), transparent 55%),
+      radial-gradient(ellipse at 108% -20%, color-mix(in srgb, var(--site-navy) 12%, transparent), transparent 50%);
   }
 
   .page-intro .eyebrow {
@@ -354,11 +373,6 @@
     color: var(--site-brand);
   }
 
-  .lead {
-    @apply text-base leading-7 md:text-lg;
-    color: var(--sp-text-on-page-subtle);
-  }
-
   .section-block {
     @apply py-12 md:py-16;
   }
@@ -373,46 +387,6 @@
     width: 1.5rem;
     height: 2px;
     background: var(--site-brand);
-  }
-
-  .two-column-copy {
-    @apply grid gap-8 text-sm leading-7 md:grid-cols-2 md:text-base;
-    color: var(--sp-text-on-page-subtle);
-  }
-
-  .two-column-copy p {
-    @apply border-l-2 pl-5;
-    border-color: color-mix(in srgb, var(--site-brand) 30%, transparent);
-  }
-
-  .stack-list {
-    @apply grid gap-4;
-  }
-
-  .stack-list--cols-2 {
-    @apply md:grid-cols-2;
-  }
-
-  .stack-list--cols-3 {
-    @apply md:grid-cols-3;
-  }
-
-  .stack-card.sp-card--outline {
-    border-top: 2px solid var(--site-brand);
-  }
-
-  .stack-item__kicker {
-    @apply text-[0.72rem] font-semibold uppercase tracking-[0.24em];
-    color: var(--sp-text-on-page-subtle);
-  }
-
-  .stack-item__title {
-    @apply font-display text-2xl font-black tracking-[-0.04em] md:text-3xl;
-  }
-
-  .stack-item__copy {
-    @apply text-sm leading-7 md:text-base;
-    color: var(--sp-text-on-page-subtle);
   }
 
   .page-cta-links {
@@ -445,7 +419,6 @@
 
   .spec-list__detail {
     @apply text-sm leading-7;
-    color: var(--sp-text-on-page-subtle);
   }
 
   /* Asset split — landscape 2-col layout for WordPress page */
@@ -468,7 +441,6 @@
 
   .asset-card__detail {
     @apply text-sm leading-7;
-    color: var(--sp-text-on-page-subtle);
   }
 
   /* Section band — navy-tinted alternating section */
@@ -481,16 +453,16 @@
   /* Engineering / code display */
   .code-pill {
     @apply inline font-mono rounded;
-    font-size: 0.75rem;
+    font-size: var(--sp-font-xs-size);
     color: var(--site-brand);
-    background: rgb(238 0 90 / 0.07);
-    border: 1px solid rgb(238 0 90 / 0.18);
+    background: color-mix(in srgb, var(--site-brand) 7%, transparent);
+    border: 1px solid color-mix(in srgb, var(--site-brand) 18%, transparent);
     padding: 0.15em 0.55em;
   }
 
   .install-block {
     @apply font-mono text-sm overflow-x-auto rounded;
-    background: #010d1a;
+    background: color-mix(in srgb, var(--sp-surface-page) 88%, black);
     border: 1px solid var(--site-border);
     border-left: 2px solid var(--site-brand);
     padding: 0.875rem 1.125rem;
@@ -506,7 +478,7 @@
 
   .code-block {
     @apply font-mono text-xs overflow-x-auto rounded;
-    background: #010d1a;
+    background: color-mix(in srgb, var(--sp-surface-page) 88%, black);
     border: 1px solid var(--site-border);
     padding: 1rem 1.125rem;
     color: var(--sp-text-on-page-muted);
