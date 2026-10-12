@@ -31,10 +31,14 @@ Use this checklist before a release, production deploy, or final handoff.
 
 - [ ] `npm install` is not required unless dependencies changed
 - [ ] `npm run check` passes when practical
-- [ ] `npm run build` and `npm run typecheck` were run individually when
-      diagnosing validation failures
+- [ ] `npm run build` and `npm run manifest:validate` were run individually
+      when diagnosing validation failures
+- [ ] `spectre.manifest.json` matches the `@phcdevworks/*` dependencies in
+      `package.json`
 - [ ] `npm run preview` or local runtime check completed when page behavior
       changed
+- [ ] no local markup or CSS duplicates a published Spectre component,
+      recipe, or token
 - [ ] new routes are reachable from intentional navigation surfaces
 - [ ] metadata remains accurate for changed pages
 - [ ] `package.json` metadata and scripts remain accurate

@@ -13,12 +13,13 @@ If implementation is incomplete or any required check fails, keep the TODO item 
 
 ## Project Identity
 
-**Repository:** `www-phcdevworks-com`  
-**Brand:** PHCDevworks  
-**Human owner:** Bradley Potts — final authority for commits, merges, tags, and releases  
-**Primary AI developer:** Claude Code  
-**Release and production safety:** OpenAI Codex  
-**Automated maintenance:** Google Jules
+**Repository:** `www-phcdevworks-com`\
+**Brand:** PHCDevworks\
+**Human owner:** Bradley Potts — final authority for commits, merges, tags, and releases\
+**Primary AI developer:** Claude Code\
+**Release and production safety:** OpenAI Codex\
+**Automated maintenance:** Google Jules\
+**Development assistance:** GitHub Copilot, xAI Grok (incl. Grok Bot)
 
 `www-phcdevworks-com` is the public company website for PHCDevworks. It may
 showcase Spectre prominently, but this repository represents the broader
@@ -32,12 +33,35 @@ public pages, project workflow, or release-sensitive configuration.
 
 `AGENTS.md` is the shared guide for agent roles, edit boundaries, and coordination rules. Claude Code leads implementation; resolve role conflicts by referencing `AGENTS.md`.
 
-## Core Rule
+## The One Rule That Overrides Everything
 
-Keep this site company-first.
+The site owns the company story; Spectre owns the system. If a change needs a
+token, recipe, or component that the published packages do not provide, stop
+and request it upstream instead of solving it here.
 
-Spectre is part of the PHCDevworks ecosystem, not the full identity of the site.
-Do not frame this repository as the Spectre website alone.
+Keep this site company-first. Spectre is part of the PHCDevworks ecosystem,
+not the full identity of the site. Do not frame this repository as the
+Spectre website alone.
+
+The site was scaffolded from the `@phcdevworks/spectre-init` `astro` template
+and carries an app-level [spectre.manifest.json](spectre.manifest.json)
+validated by `@phcdevworks/spectre-manifest`.
+
+## Standard Procedure
+
+1. Confirm the task does not cross a human approval boundary in
+   [AGENTS.md](AGENTS.md).
+2. Read the installed Spectre manifest
+   (`node_modules/@phcdevworks/spectre-manifest/spectre.manifest.json`) and the
+   relevant `spectre-ui-astro` component contract before writing markup.
+3. Inspect the relevant page or layout fully before editing.
+4. Follow the Spectre-First Building order in [AGENTS.md](AGENTS.md); prefer
+   component APIs and shipped classes, and remove any local code they
+   supersede.
+5. Implement the smallest correct change.
+6. Run `npm run check`.
+7. State whether a rendered-page review is still needed for the touched pages.
+8. Hand off files changed, validation results, and remaining risk.
 
 ## Development Workflow
 
@@ -47,15 +71,9 @@ npm run dev
 npm run build
 ```
 
-Use `npm run preview` when a page or routing change needs a Cloudflare runtime
-check — this builds first and serves via `wrangler dev`, reflecting the actual
-Cloudflare Workers SSR runtime. Use `npm run deploy` only when the human
-explicitly requests deployment.
-
-**Runtime context:** This site runs as an SSR application on Cloudflare Workers
-via `@astrojs/cloudflare`. Node.js APIs are not available at runtime unless
-explicitly enabled via Cloudflare Workers compatibility flags. Prefer
-platform-agnostic or Web API patterns in server-side code.
+`npm run preview` serves the production build locally. The starter builds
+static output and has no hosting adapter or deploy script yet; restoring
+deployment is tracked in [TODO.md](TODO.md) and stays Bradley Potts's call.
 
 ## Validation
 
@@ -65,42 +83,68 @@ Run before handoff:
 npm run check
 ```
 
-`npm run check` is the full validation gate and currently runs `npm run build`
-then `npm run typecheck`.
+`npm run check` is the full validation gate. It runs `npm run build` then
+`npm run manifest:validate`.
 
-`npm run build` — catches Astro compilation errors, import resolution failures,
-and type errors surfaced during the build.\
-`npm run typecheck` (`astro check`) — runs the Astro TypeScript checker
-independently of the build; catches component prop mismatches, type errors, and
-TS configuration issues without producing a build artifact.
+`npm run build` — catches Astro compilation errors and import resolution
+failures.\
+`npm run manifest:validate` (`spectre-manifest-validate
+spectre.manifest.json`) — confirms the app manifest is valid against the
+published schema.
 
-`eslint.config.ts` is present with TypeScript ESLint rules and `typescript-eslint`
-is installed. Linting `.astro` files requires `eslint-plugin-astro` and
-`astro-eslint-parser` — these are not yet installed. There is no `npm run lint`
-script. Do not run ESLint on `.astro` files until those plugins are added. Flag
-this in the handoff if linting is needed for a task.
+`astro check` is not in the gate: `@astrojs/check` does not yet support the
+starter's TypeScript 7. `eslint.config.ts` is present, but ESLint and
+`typescript-eslint` are not installed and there is no `npm run lint` script,
+so the config is not enforced. Both are tracked in [TODO.md](TODO.md).
 
 ## Implementation Priorities
 
 1. Respect PHCDevworks positioning and `BRAND.md`.
 2. Use Spectre Tokens, Spectre UI, and Spectre UI Astro before custom patterns.
-3. Keep Astro-first, SSR-friendly, and maintainable.
+3. Keep Astro-first and maintainable.
 4. Favor focused changes over broad redesigns.
 5. Keep public copy concise, technical, and specific.
 6. Keep documentation synchronized with actual scripts and workflow.
 
+## Implementation Rules
+
+- Spectre components, variants, and shipped classes own visual consistency.
+  Default to zero site-authored CSS; any exception needs Bradley Potts's
+  approval.
+- Never declare or shadow a `--sp-*` token.
+- Do not reproduce Spectre typography, spacing, layout, surface, radius,
+  shadow, state, or responsive recipes under local classes.
+- Do not style rendered component internals. Use the component's public API;
+  if it is insufficient, route the reusable need upstream.
+- Delete obsolete markup, classes, and styles when a component or utility
+  takes over their job.
+- Keep `spectre.manifest.json` in sync with `package.json` whenever an
+  `@phcdevworks/*` dependency is added, removed, or bumped.
+
+## Escalate Instead of Deciding
+
+Stop and ask Bradley Potts before:
+
+- adding site-authored CSS or a site-level brand layer
+- changing brand colors or the primary typeface
+- adding a hosting adapter, deploy script, or dependency outside the starter
+  and published Spectre packages
+- taking release or deploy actions
+
 ## Source Layout
 
-```text
-src/
-  pages/          — routes (index, spectre-design, spectre-shell, spectre-wordpress)
-  layouts/        — shared Astro layout (Layout.astro)
-  styles/         — global CSS layered on top of Spectre
-  assets/         — site-owned static assets bundled by Astro
-public/           — static assets served as-is (no processing)
-```
+| Path                    | Responsibility                                            |
+| ----------------------- | --------------------------------------------------------- |
+| `src/pages/`            | Route-level Astro pages                                   |
+| `src/layouts/`          | Page layouts; `BaseLayout.astro` imports `spectre-ui` CSS |
+| `astro.config.ts`       | Astro configuration (starter default, no adapter yet)     |
+| `spectre.manifest.json` | App manifest describing this site's Spectre dependencies  |
+| `eslint.config.ts`      | TypeScript-ESLint rules — ESLint is not installed yet     |
+| `tsconfig.json`         | Extends `astro/tsconfigs/strict`                          |
+| `.codex/`               | Codex release-checklist and Markdown standards            |
 
-Add `src/components/` when reusable components are introduced.
+Add `src/components/` only when a site-level composition repeats across pages
+and no `spectre-ui-astro` component expresses it.
 
 ## Edit Boundaries
 
@@ -108,11 +152,11 @@ Add `src/components/` when reusable components are introduced.
 | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | `src/pages/`                                               | May edit for route and page work                           |
 | `src/layouts/`                                             | May edit for shared layout structure                       |
-| `src/styles/`                                              | May edit for site-level styling layered on Spectre         |
-| `public/`                                                  | May edit for site-owned static assets                      |
+| `spectre.manifest.json`                                    | Edit with care; keep in sync with `package.json`           |
+| `astro.config.ts`, `tsconfig.json`                         | Starter-owned; change only with an explicit reason         |
 | `README.md`, `CONTRIBUTING.md`, `CHANGELOG.md`, agent docs | May edit when workflow, scope, or release guidance changes |
 | `package.json`, `package-lock.json`                        | Edit only for intentional script or dependency changes     |
-| `dist/`, `.astro/`, `node_modules/`, `.wrangler/`          | Do not hand-edit                                           |
+| `dist/`, `.astro/`, `node_modules/`                        | Do not hand-edit                                           |
 
 Do not add dependencies unless the task truly requires them and the reason is
 clear in the handoff.
@@ -122,7 +166,8 @@ clear in the handoff.
 - Follow `BRAND.md` for visual identity decisions.
 - Use dark, technical, high-contrast, typography-first layouts.
 - Keep `#EE005A` as the primary accent and `#012641` as the approved structural
-  deep color.
+  deep color. Express them through Spectre's published themes and APIs — not
+  through site-authored CSS — until Bradley Potts approves a site brand layer.
 - Avoid generic SaaS copy, stock-photo thinking, decorative filler, and
   over-claiming.
 - Do not use button-led CTA patterns as the default for impact sections when an
@@ -149,6 +194,9 @@ Every handoff should include:
 - why it matters
 - files touched
 - validation performed
+- Spectre fidelity impact (components used, any local markup or CSS added or
+  removed)
+- whether a rendered-page review is still needed
 - known risks or follow-up
 
 Keep handoffs short and release-oriented.

@@ -64,7 +64,8 @@ Follow this order of authority:
 5. `CODEX.md` for release-agent responsibilities
 6. `JULES.md` for automated maintenance scope
 7. `COPILOT.md` and `.github/copilot-instructions.md` for Copilot support scope
-8. existing repository patterns
+8. `GROK.md` for Grok development-assistant scope
+9. existing repository patterns
 
 If instructions conflict, stop and call out the conflict clearly before making a
 risky change.
@@ -110,20 +111,24 @@ Before release or handoff, verify the change against:
 
 - PHCDevworks company-first positioning
 - no single-product Spectre framing for the whole site
-- Astro-first, SSR-friendly implementation
-- Spectre package usage before custom site patterns
+- Astro-first implementation
+- Spectre package usage before custom site patterns (see "Spectre-First
+  Building" in `AGENTS.md`)
+- `spectre.manifest.json` matches the `@phcdevworks/*` dependencies in
+  `package.json`
 - no unnecessary dependency changes
 - no unrelated formatting churn
 - documentation matches actual scripts and workflow
 - internal links in Markdown still resolve
 - `npm run check` passes when practical
-- `npm run build` and `npm run typecheck` pass individually when diagnosing
-  validation failures
+- `npm run build` and `npm run manifest:validate` pass individually when
+  diagnosing validation failures
 
 Use `.codex/release-checklist.md` for structured release review.
 
-`npm run check` is this repository's full validation gate. It currently runs
-Astro build followed by Astro typecheck.
+`npm run check` is this repository's full validation gate. It runs
+`npm run build` then `npm run manifest:validate`
+(`spectre-manifest-validate spectre.manifest.json`).
 
 Before any release, Codex must verify:
 
@@ -132,7 +137,6 @@ Before any release, Codex must verify:
 - `package.json` metadata and scripts are correct
 - public routes, metadata, and navigation match documentation
 - build output is current
-- type declarations are generated where expected by the toolchain
 - checks pass
 - generated files are not stale
 - unrelated files were not changed
@@ -170,8 +174,9 @@ no per-release request from Bradley required:
    add to, or omit the remaining changelog content — `--notes` inline
    freeform text is never used, even for a short release. The GitHub Release
    title must match the changelog release title exactly.
-7. `npm run deploy` (Cloudflare) is **not** run by Codex — deployment stays
-   a separate, manual step owned by Bradley Potts.
+7. Deployment is **not** run by Codex — it stays a separate, manual step
+   owned by Bradley Potts. The current starter has no deploy script or
+   hosting adapter; restoring one is tracked in `TODO.md`.
 
 ## Config Cleanup
 
@@ -183,7 +188,12 @@ Allowed config cleanup:
 - align scripts with documented workflow
 - remove stale references to tools that are not installed
 - document known validation gaps
-- keep dependency major lines compatible with Astro, Cloudflare, and Spectre
+- keep dependency major lines compatible with Astro and Spectre
+- keep `spectre.manifest.json` in sync with `package.json`
+- `npx @phcdevworks/spectre-init update --dry-run` previews starter
+  refreshes; it overwrites `.gitignore`, `AGENTS.md`, and
+  `spectre.manifest.json` with template copies when applied, so restore this
+  repo's versions before committing
 - prefer TypeScript config files where the toolchain supports them cleanly
 - keep JavaScript or CommonJS config files only when required by the ecosystem
 - avoid duplicate config files for the same tool
@@ -250,6 +260,9 @@ When reviewing or preparing a release:
 - inspect `git status --short`
 - identify files changed since the last handoff
 - separate implementation changes from docs, config, and generated files
+- flag local markup or CSS that duplicates a published Spectre component,
+  recipe, or token (see "Spectre-First Building" in `AGENTS.md`)
+- flag `spectre.manifest.json` drift from `package.json`
 - update `CHANGELOG.md` when the change is user-facing or release-relevant
 - call out assumptions and follow-up work in the handoff
 

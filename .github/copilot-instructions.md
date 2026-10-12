@@ -18,6 +18,9 @@ implementation, Codex owns release readiness and documentation hygiene, and
 Google Jules handles bounded automated maintenance. Copilot has commit,
 push, and tag authority per the companywide grant — see `AGENTS.md`.
 
+xAI Grok (including Grok Bot) works under these same instructions, with
+`GROK.md` taking precedence on git authority.
+
 ## Guardrails
 
 - Keep the site company-first for PHCDevworks.
@@ -28,12 +31,33 @@ push, and tag authority per the companywide grant — see `AGENTS.md`.
 - Use Spectre tokens or Spectre UI recipes instead of local visual primitives.
 - Avoid unnecessary dependencies, broad rewrites, and unrelated formatting
   churn.
+- Keep `spectre.manifest.json` in sync with `@phcdevworks/*` dependencies in
+  `package.json`.
 - Keep suggestions small, reviewable, and aligned with current scripts.
 - Update docs and tests when public behavior changes.
 - Do not own release decisions.
 
+## Spectre-First Building
+
+Before choosing, importing, or adding any `@phcdevworks` package, read
+`node_modules/@phcdevworks/spectre-manifest/spectre.manifest.json` and import
+only the exports listed there. Then work through this order before adding
+markup structure, a wrapper component, or CSS:
+
+1. Semantic HTML and Astro output appropriate to the content.
+2. An existing `spectre-ui-astro` component and its public props, slots, and
+   variants.
+3. Shipped `sp-*` classes and `spectre-ui` recipe functions.
+4. An existing layout, component, or pattern in this repo.
+5. Otherwise, stop and flag the gap for an upstream request — do not build a
+   local substitute.
+
+Default to zero new site-authored CSS. Full rules: "Spectre-First Building" and
+"Strict Spectre UI Astro Guardrails" in [AGENTS.md](../AGENTS.md).
+
 ## Validation
 
-Recommend `npm run check` as the full validation command when practical.
-Recommend `npm run build` or `npm run typecheck` individually when diagnosing
-failures. Recommend `npm run preview` when routing or runtime behavior changes.
+Recommend `npm run check` (production build plus manifest validation) as the
+full validation command when practical. Recommend `npm run build` or
+`npm run manifest:validate` individually when diagnosing failures. Recommend
+`npm run preview` when routing or page output changes.

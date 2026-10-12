@@ -7,9 +7,32 @@ practical.
 
 ## Unreleased
 
-- Switched site typography to a two-font system: Manrope for headings
-  (`font-display`), Inter for body copy (`font-sans`) — replaces the single
-  Space Grotesk face.
+### Changed
+
+- Rebuilt the site on the `@phcdevworks/spectre-init` 1.5.0 `astro` starter:
+  `astro.config.ts`, `tsconfig.json`, `src/layouts/BaseLayout.astro`, and
+  `src/pages/index.astro`, consuming `@phcdevworks/spectre-tokens` `^4.13.0`,
+  `@phcdevworks/spectre-ui` `^5.5.0`, and `@phcdevworks/spectre-ui-astro`
+  `^4.12.0` on Astro 7 and TypeScript 7.
+- Added `spectre.manifest.json` and `@phcdevworks/spectre-manifest` `^2.0.0`
+  as a dev dependency, with a `manifest:validate` script.
+- `npm run check` now runs `npm run build` then `npm run manifest:validate`
+  (was build then `astro check`).
+- Added Spectre-first guidance (Core Rules, Spectre Packages, Spectre-First
+  Building, Source of Truth, Human Approval Boundaries, Standard Handoff) to
+  `AGENTS.md` and carried it through `CLAUDE.md`, `CODEX.md`, `COPILOT.md`,
+  `GROK.md`, `JULES.md`, `.github/copilot-instructions.md`, `README.md`,
+  `CONTRIBUTING.md`, and `.codex/release-checklist.md`.
+- Removed documentation for scripts and config the starter does not ship:
+  `typecheck`, `generate-types`, `deploy`, the hosting adapter, the utility
+  CSS framework, and `src/styles/`.
+- Replaced the hand-rolled CSS migration list in `TODO.md` (its target pages
+  were removed) with starter rebuild follow-ups.
+
+### Previous implementation
+
+- Switched site typography to a two-font system (separate heading and body
+  faces), replacing the previous single face.
 - Rewrote homepage copy company-first, adding an engineering-principles
   section ahead of the Spectre product grid so the page no longer reads as a
   single-product Spectre page. Flattened the card system to the `flat`

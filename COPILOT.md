@@ -21,10 +21,14 @@ described below.
 
 - Keep this site company-first for PHCDevworks, not single-product Spectre
   framing.
-- Reuse Spectre packages and patterns before introducing custom alternatives.
-- Keep changes Astro-first, SSR-friendly, and maintainable.
+- Reuse Spectre packages and patterns before introducing custom alternatives —
+  follow "Spectre-First Building" in `AGENTS.md`.
+- Read `node_modules/@phcdevworks/spectre-manifest/spectre.manifest.json`
+  before importing any `@phcdevworks` package; import only listed exports.
+- Default to zero new site-authored CSS.
+- Keep changes Astro-first and maintainable.
 - Avoid unnecessary dependencies and unrelated formatting churn.
-- Keep guidance aligned with `AGENTS.md`, `CLAUDE.md`, `CODEX.md`, `JULES.md`,
+- Keep guidance aligned with `AGENTS.md`, `CLAUDE.md`, `CODEX.md`, `JULES.md`, `GROK.md`,
   and `BRAND.md`.
 
 ## Package Boundaries
@@ -67,11 +71,13 @@ described below.
 
 ## Validation Expectations
 
-- Recommend `npm run check` as the full validation command when practical.
+- Recommend `npm run check` (build plus manifest validation) as the full
+  validation command when practical.
 - Run `npm run build` after docs, config, or implementation changes when
   practical.
-- Recommend `npm run typecheck` when Astro or TypeScript behavior changes.
-- Use `npm run preview` when runtime behavior needs Cloudflare validation.
+- Recommend `npm run manifest:validate` when `@phcdevworks/*` dependencies or
+  `spectre.manifest.json` change.
+- Use `npm run preview` to check the production build locally.
 - Keep docs and scripts synchronized when workflows change.
 
 ## Documentation And GitHub Support Expectations

@@ -20,7 +20,7 @@ What release boundary or handoff is being reviewed?
 
 - [ ] `npm run check`
 - [ ] `npm run build` (if needed for diagnosis)
-- [ ] `npm run typecheck` (if needed for diagnosis)
+- [ ] `npm run manifest:validate` (if needed for diagnosis)
 
 Validation notes:
 

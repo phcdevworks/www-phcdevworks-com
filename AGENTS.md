@@ -19,6 +19,9 @@ skills, plugins, templates, or general-purpose workflows.
 | Project team | `project-web` |
 | Repository role | PHCDevworks public company website |
 | Package/artifact | `www-phcdevworks-com` |
+| Stack | Astro starter from the `@phcdevworks/spectre-init` `astro` template |
+| Spectre packages | `spectre-tokens`, `spectre-ui`, `spectre-ui-astro` (runtime); `spectre-manifest` (dev) |
+| App manifest | [spectre.manifest.json](spectre.manifest.json) |
 | Validation gate | `npm run check` |
 
 ## Standard Authority Model and Handoff
@@ -26,8 +29,9 @@ skills, plugins, templates, or general-purpose workflows.
 See the project-team [AGENTS.md](../AGENTS.md) "AI Operating Model" and
 "Handoff Requirements" sections for the full agent roster, authority table,
 commit-policy and release-authority grant, and standard handoff format.
-Codex cuts releases (version bump, tag, GitHub Release) autonomously per
-that grant; deployment (`npm run deploy`) and merges stay with Bradley
+Codex cuts releases (version bump, tag, GitHub Release) only when Bradley
+Potts says to get this repo ready for release — a plain commit request
+commits and pushes only; deployment and merges stay with Bradley
 Potts. Do not edit generated outputs directly. Do not update
 [CHANGELOG.md](CHANGELOG.md) unless the change is release-relevant.
 
@@ -79,6 +83,76 @@ This repository represents the company first. It may showcase Spectre and other
 PHCDevworks initiatives prominently, but it must not be framed as a
 single-product website.
 
+The site owns the company story; Spectre owns the system. This repository is
+where PHCDevworks is presented, never where Spectre is redefined.
+
+## Core Rules
+
+1. Never redeclare or shadow a Spectre token. `--sp-*` is read-only upstream.
+2. Use Spectre components, component variants, and shipped classes for visual
+   consistency. Site CSS is an exception layer, not a parallel design system.
+3. Keep the site company-first. Spectre is one platform within the
+   PHCDevworks story, not the whole identity of the site.
+4. Keep `spectre.manifest.json` in sync with the `@phcdevworks/*`
+   dependencies in `package.json`.
+5. Validate at the layer a change affects. A passing build is not proof that a
+   page renders correctly or stays faithful to Spectre.
+6. Get explicit human approval before crossing a boundary listed under "Human
+   Approval Boundaries" below.
+
+## Spectre Packages
+
+Before choosing, importing, or adding any `@phcdevworks` package, read
+`node_modules/@phcdevworks/spectre-manifest/spectre.manifest.json` — use its
+`packages` (what each does, its exports), `rules`, and `ai` sections. Import
+only the exports listed there.
+
+This repo's own [spectre.manifest.json](spectre.manifest.json) describes the
+site as a single `app`-layer package consuming the `foundation`-layer Spectre
+packages. Keep its `www-phcdevworks-com` package entry's `dependencies` list
+in sync with the `@phcdevworks/*` runtime dependencies in `package.json`.
+`npm run check` validates it with `spectre-manifest-validate`. Do not add
+`spectre-manifest-check` to the gate — that check is for registered Spectre
+packages, and this site is not registered in the ecosystem manifest.
+
+Starter boilerplate came from `@phcdevworks/spectre-init`'s `astro` template.
+`npx @phcdevworks/spectre-init update --dry-run` previews template refreshes;
+review its output before applying, because it overwrites `.gitignore`,
+`AGENTS.md`, `tsconfig.json`, `astro.config.ts`, and `spectre.manifest.json`
+with template copies. Never apply it without restoring this repo's own
+`AGENTS.md`, `.gitignore`, and manifest customizations afterward.
+
+## Spectre-First Building
+
+Visual consistency must come from Spectre. Work through this order before
+adding markup structure, a wrapper component, or any CSS:
+
+1. Use semantic HTML and Astro output appropriate to the content.
+2. Use an existing `spectre-ui-astro` component and its public props, slots,
+   variants, and states.
+3. Compose with shipped `sp-*` classes and `spectre-ui` recipe functions
+   through their published APIs.
+4. Reuse an existing layout, component, or established pattern in this repo.
+5. Stop. If none of the above expresses the need, request the capability
+   upstream (see "Upstream Requests" below) instead of building a local
+   substitute.
+
+Before using a component, inspect its installed contract in
+`node_modules/@phcdevworks/spectre-ui-astro` and the manifest. Do not infer
+component APIs from rendered internals, and do not recreate a component
+because its public API was not checked.
+
+Site code must not provide the shared rules for typography, spacing, layout,
+surfaces, borders, radii, shadows, interaction states, or responsive behavior
+when Spectre already provides them. Do not style component internals,
+duplicate a component recipe under a local class, invent a local variant, or
+use specificity to override the design system into compliance.
+
+When an upstream component, recipe, or utility replaces local markup or
+styling, migrate to it and delete the obsolete code in the same change.
+Validation passing is not proof of Spectre fidelity — review the rendered
+result as well.
+
 ## Agent Boundaries
 
 Full roster and authority table: project-team [AGENTS.md](../AGENTS.md).
@@ -89,7 +163,7 @@ policy.
 ## AI Coordination Rules
 
 - Use the agent-specific files for role details: `CLAUDE.md`, `CODEX.md`,
-  `COPILOT.md`, and `JULES.md`.
+  `COPILOT.md`, `JULES.md`, and `GROK.md`.
 - Keep shared project rules in `AGENTS.md`; keep agent-specific workflow details
   in the matching agent file.
 - Update related agent docs together when scripts, validation gates, or
@@ -121,9 +195,9 @@ This repository represents:
 - Follow `CLAUDE.md` for Claude Code implementation leadership.
 - Follow `CODEX.md` for Codex release-agent responsibilities.
 - Follow `JULES.md` for bounded automated maintenance tasks.
-- All `scripts/` tooling is TypeScript (`.ts`), run via
+- Follow `GROK.md` for Grok (and Grok Bot) development assistance.
+- Any `scripts/` tooling is TypeScript (`.ts`), run via
   `node --experimental-strip-types`; never add a new `.js`/`.mjs` script.
-  Convert `scripts/screenshot.js` to `.ts` if it is touched for unrelated work.
 
 ## Strict Spectre UI Astro Guardrails
 
@@ -160,6 +234,10 @@ to no site-authored CSS.
 - Review every visual diff for package fidelity. Validation passing is not
   enough if a change duplicates, overrides, or visually diverges from the
   published Spectre packages.
+- Brand direction in `BRAND.md` is expressed through Spectre's published
+  themes and APIs. No site-level brand layer exists yet; adding one (named
+  site custom properties for PHCDevworks identity) needs Bradley Potts's
+  explicit approval first.
 
 ## Content Rules
 
@@ -220,16 +298,56 @@ This repository does not own:
 8. metadata and SEO
 9. performance and maintainability
 
+## Source of Truth
+
+| Layer | Path | Rule |
+| --- | --- | --- |
+| Validation authority | `package.json` scripts | Docs must describe these scripts, not invent others |
+| Site source | `src/pages/` · `src/layouts/` | Composes published Spectre components; no local design system |
+| Build config | `astro.config.ts` · `tsconfig.json` | Starter-owned boilerplate; change only with an explicit reason |
+| App manifest | `spectre.manifest.json` | Mirrors `package.json` `@phcdevworks/*` dependencies |
+| Brand direction | `BRAND.md` | Expressed through Spectre, never as a parallel visual system |
+| Public documentation | `README.md` · `CHANGELOG.md` · `TODO.md` · `ROADMAP.md` | Must match established behavior, not invent it |
+
+## Human Approval Boundaries
+
+These require explicit approval from Bradley Potts before the change is
+committed:
+
+- adding a site-level brand layer or any site-authored CSS
+- changing the primary accent, secondary color, or primary typeface named in
+  `BRAND.md`
+- adding a hosting adapter, deploy script, or other production configuration
+- adding a dependency outside the published `@phcdevworks/*` packages and the
+  starter toolchain
+- deployment, release, and tag actions
+
 ## Verification
 
-- Use `npm run check` as the full validation gate when practical.
-- Run `npm run build` after documentation or config changes when practical.
-- Run `npm run typecheck` when Astro, TypeScript, dependency, or config behavior
-  changes.
+`npm run check` is the standard validation gate — it runs `npm run build` then
+`npm run manifest:validate`. Run it before any handoff when practical.
+
 - Check for broken internal links in repository Markdown before finishing.
+- State whether a rendered-page review is still needed for the touched pages.
 - Keep changes easy to review and grounded in the current repo structure.
 - Use `.codex/release-checklist.md` before production release or final release
   handoff.
+
+`astro check` is not part of the gate yet: `@astrojs/check` does not support
+the TypeScript 7 release the starter ships with. Restoring a typecheck step is
+tracked in [TODO.md](TODO.md).
+
+## Standard Handoff
+
+Every AI-prepared change should report:
+
+- files changed
+- validation performed
+- validation skipped, if any
+- Spectre fidelity impact (components used, any local markup or CSS added or
+  removed)
+- company-first positioning impact for public copy changes
+- remaining risk, including anything only a rendered-page review can catch
 
 ## Execution Style
 
@@ -296,7 +414,7 @@ Roadmap Self-Expansion." Applied to this repo:
   that ever changes.
 - This repo's own `ROADMAP.md` may be proactively expanded with new or
   reordered phases by the agent's own analysis — but never mark a phase
-  delivered without `npm run check` (build + typecheck) passing, and never let
+  delivered without `npm run check` (build + manifest validation) passing, and never let
   a self-expanded phase drift the site toward single-product Spectre framing
   — this repository represents PHCDevworks company-first (see Positioning
   above).
@@ -357,5 +475,6 @@ See the agent-specific guide for each role:
   standardization
 - [COPILOT.md](COPILOT.md) — Copilot support boundaries and practical guardrails
 - [JULES.md](JULES.md) — maintenance task scope and commit authority
+- [GROK.md](GROK.md) — Grok (and Grok Bot) development scope and git authority
 - [.github/copilot-instructions.md](.github/copilot-instructions.md) — Copilot
   IDE-facing scope and repository conventions

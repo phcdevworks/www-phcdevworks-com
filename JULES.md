@@ -28,6 +28,7 @@ governance.
 Jules may perform:
 
 - typo fixes in Markdown or public copy
+- `spectre.manifest.json` dependency-list sync after a scoped dependency bump
 - broken internal Markdown link fixes
 - small documentation sync when scripts or repository names drift
 - dependency micro-updates that stay within the current compatible major line
@@ -60,15 +61,15 @@ npm install
 npm run check
 ```
 
-Use `npm run preview` only when the maintenance task touches routing or runtime
-behavior and the environment supports it.
+Use `npm run preview` only when the maintenance task touches routing or page
+output.
 
 ## Dependency Rules
 
-- Keep direct dependencies aligned with Astro and Cloudflare adapter
+- Keep direct dependencies aligned with Astro and Spectre package
   compatibility.
-- Do not upgrade `vite` across a major line unless Claude Code or Codex has
-  explicitly accepted the compatibility risk.
+- When an `@phcdevworks/*` dependency changes, keep `spectre.manifest.json`
+  in sync with `package.json`.
 - Do not run broad force-fix commands such as `npm audit fix --force`.
 - Explain any lockfile changes in the handoff.
 

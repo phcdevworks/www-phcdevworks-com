@@ -16,18 +16,27 @@ Thanks for contributing to `www-phcdevworks-com`.
 
 1. Install dependencies with `npm install`.
 2. Start the local server with `npm run dev`.
-3. Run `npm run check` before handing off when practical.
-4. Use `npm run preview` when page behavior or deployment behavior needs a
-   Cloudflare runtime check.
+3. Run `npm run check` (build plus manifest validation) before handing off
+   when practical.
+4. Use `npm run preview` to serve the production build locally.
 
 ## Troubleshooting
 
 - **Build errors after pulling** — run `npm install` to sync dependencies before
   building; `node_modules/` and `dist/` are not committed.
-- **`preview` or `deploy` fails** — requires Wrangler authentication; run
-  `wrangler login` and confirm Cloudflare project access.
+- **Manifest validation fails** — keep the `www-phcdevworks-com` entry's
+  `dependencies` in `spectre.manifest.json` in sync with the `@phcdevworks/*`
+  dependencies in `package.json`.
 - **TypeScript errors in `.astro` files** — confirm your editor uses the Astro
-  VS Code extension. TypeScript is checked during `astro build`.
+  VS Code extension. `astro check` is not part of the gate yet (see
+  `TODO.md`).
+
+## Spectre-First
+
+Build pages from published `spectre-ui-astro` components and shipped `sp-*`
+classes before writing any local markup or CSS. If Spectre does not provide
+what a page needs, request it upstream rather than adding a local substitute.
+Full order: "Spectre-First Building" in `AGENTS.md`.
 
 ## Pull Request Expectations
 
@@ -56,3 +65,5 @@ Thanks for contributing to `www-phcdevworks-com`.
 - `.github/copilot-instructions.md` keeps GitHub Copilot focused on support work
   inside the IDE.
 - `JULES.md` defines automated micro-maintenance boundaries.
+- `GROK.md` defines Grok (and Grok Bot) development-assistant scope and git
+  authority.
